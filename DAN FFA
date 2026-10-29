@@ -1,1 +1,1167 @@
-local _lk=(function(v0,v1,v2,v3)local v4={}return function(v5)local v6=v4[v5]if v6==nil then local v7=v3[v5]local v8={}for v9=1,#v7[1] do v8[v9]=v1((v0(v7[1],v9)-v7[2]-v9*v7[3])%256)end v6=v2(v8)v4[v5]=v6 end return v6 end end)(string.byte,string.char,table.concat,{{"\113\043\011\190\154\100\032\249\184\125\029\220\166\114\062\011\207\155\102\045\255\198\144\090\032\236\179\128",53,202},{"\051\185\101\228\140\034\170\079\218\107\215\098\248\144\037\196\081\237\130\020\171\067\220\112\005\151\053\202",43,150},{"\087\197\089\192\080\206\062\203\062\183\011\126\252\124\250\126\247\121\244\120\238\107\242\107",103,126},{"\113\130\185\195\246\023\042\090\112\140\131\153\186\221\255\030\064\098\138\167\202\232\009\043\074\106\142\175",222,33},{"\201\042\177\011\142\255\098\226\072\180\251\097\210\077\183\039\157\009\124\239\092\208\070\180\035\152\007",230,113},{"\028\101\212\022\129\218\037\141\219\047\094\172\005\096\185\021\113\201\034\121\213\039\136\222",81,89},{"\175\148\159\125\132\121\096\100\078\062\009\243\232\229\218\208\191\179\170\156\145\142\131\112\102\098\083",72,245},{"\188\193\236\234\017\038\045\081\091\107\086\096\117\148\162\184\203\227\246\018\038\058\074\097\114\139\164",53,21},{"\117\066\053\251\234\199\150\130\084\044\223\177\142\117\082\040\007\224\189\155\120\087\053\023\235\204\170",38,221},{"\115\198\063\139\000\099\184\042\130\224\025\113\212\064\161\003\104\204\039\140\240\084\180\031\121\228\064",158,99},{"\060\161\044\138\017\134\237\113\219\075\150\000\117\242\102\216\075\191\059\178\030\152\017\134\248\111\224",85,117},{"\176\209\024\050\117\166\201\009\047\091\098\136\185\242\032\082\135\181\231\025\067\118\168\213\013\057\105",13,49},{"\161\146\169\147\166\167\154\170\160\156\115\105\106\116\111\112\112\113\115\121\116\117\121\124\128\126\130",46,1},{"\218\103\026\160\079\236\123\039\185\081\196\086\243\146\048\211\106\008\171\069\228\125\029\180\089\246\138\042",203,157},{"\198\218\020\033\087\123\145\196\221\252\246\015\051\089\126\166\204\238\015\055\086\124\157\197\235\011\051\084",48,36},{"\133\076\057\249\226\185\130\104\052\006\179\127\086\054\005\220\182\143\099\065\017\236\191\155\109\066\030",60,215},{"\004\100\234\067\197\053\151\022\123\230\044\145\001\115\226\090\194\054\171\025\135\245\106\218\069\184\034\154",34,112},{"\113\142\209\231\038\083\114\174\208\248\251\029\074\121\165\212\255\052\093\138\182\232\013\058\103\148\194\245",210,45},{"\061\206\133\015\194\099\246\166\060\216\079\229\134\041\203\110\014\178\086\242\144\049\210\117\025\187\090\249",42,161},{"\098\120\103\121\095\102\097",24,250},{"\251\169\045\157\058\210\097\223\100\241",30,139},{"\181\115\005\178\041\238\144\053\212\083\005\178\086\233\131\037",192,160},{"\090\004\121\000\144\252\149\041\180\046\175\056",127,135},{"\062\147\211\009\078\136\182\245\052",170,61},{"\119\062\217\112\238\155\067\226\112\005\162",148,155},{"\022\217\172\068\048\246\183",12,198},{"\175\034\161\020\083\237\102\216\063",249,114},{"\090\054\244\196\118\070\010\187\137",66,195},{"\086\221\047\132\204\042\133\169\028\125\202\044\112",190,85},{"\027\112\206\254\066\154\225",131,70},{"\012\207\116\010\150\071\248\154\021\212\088\007\191",38,160},{"\128\138\118\083\038\030\022\255\193\199\146\136\135\076\069\055\018\232\224\200\186\146\128\100\085\061",83,231},{"\036\245\165\092",40,180},{"\052\240\119\250\150\038\175\057\182\098\241\133\240\144\048\193",93,143},{"\182\132\081\250\185\084\041",175,186},{"\063\117\095\115\148\160\188",223,16},{"\189\052\119\211\039\108\211\037\135\195\047\128\215",20,86},{"\155\129\088\044\014\250",78,223},{"\153\170\134\094\079\052\018\241",109,228},{"\094\083\034\223\173\090\073\017\228\168",76,204},{"\164\047\162\019\127",224,112},{"\140\060\214\108\030\180\091\251",133,161},{"\150\215\039\091\168\225\032\095\171\236",246,65},{"\014\136\241\109\211\065\109",77,107},{"\010\070\130\175",143,43},{"\121\240\090\164\231\080\185\019",223,88},{"\244\050\102\129\143\198\253\037",129,38},{"\108\205\048\132\238\061\172\012\101\194\036\113\231",168,94},{"\179\085\000",206,147},{"\051\249\162\051\220\117",80,160},{"\072\118\140\148",235,17},{"\082\138\155\207\215\000\241\059\075",230,28},{"\215\102\204\034\103\248\079",49,99},{"\004\041\077\085\106\136\118\185\194",156,21},{"\241\191\117\064\002",247,184},{"\128\134\079\053\007",96,218},{"\207\096\239",1,136},{"\177\233\039\151\222\030\089\170",24,68},{"\203\219\001\062\088\113\137\159",90,28},{"\240\046\100\182",90,67},{"\058\152\206\069\134\195\028\089\167\238\059",176,72},{"\185\138\059\230\170\081\009",197,176},{"\055\022\231\200",225,222},{"\220\158\118\050\021\210\105\125\079\025",153,206},{"\065\042\007\223\188\159\131\096\067\019\000\221\118\154\124\086",2,222},{"\063\232\165\107\032",15,188},{"\111\216\087\220\079\207\061",165,117},{"\208\131\027\176",228,152},{"\129\025\181\047\162\066\171\087\233\101",166,137},{"\043\195\127\025\172\108\245\193\115\015",16,169},{"\207\065\153\219\023\117\215\023",58,79},{"\032\106\186\244\040\126\216\016",115,71},{"\040\218\096\227\097\242\128\253",95,134},{"\174\091\247\123\017\159",218,144},{"\236\204\187\146\123\092",165,227},{"\198\034\079",79,51},{"\183\115\032",160,179},{"\223\076\162\222\057",65,78},{"\135\222\027\066\085\170\229\014\090",13,52},{"\114\005\126\229\111",188,114},{"\220\042\106\163\225\234\068\132\178\003",80,57},{"\220\079\182\025\107\206\030\147\247\079",42,96},{"\078\245\129\254\132\017",113,138},{"\055\245\184\108\041\237",3,193},{"\235\034\029\033\030\049\020\053\059\050\050\057",165,4},{"\023\048\039\048\036\010\003\016",223,247},{"\236\113\244\099\215",36,118},{"\157\018\165\036\168",165,134},{"\205\138\011\149\024\177\025\178\073\204\084",1,138},{"\078\180\250\046\130",182,69},{"\162\200\206\194\167\209\224\230\216\234\228\235",74,5},{"\214\080\205\013\130\245\084\184",35,102},{"\197\248\252\253\012\037\021\044\067\088\084",107,12},{"\132\122\081\004\224\188\150\087",106,209},{"\216\098\016\156",203,155},{"\026\060\100\118",149,31},{"\035\035\023\008\244\243\239\218",204,244},{"\013\229\195\143\126",210,215},{"\086\120\163\180\228",195,35},{"\248\192\156\116\059\019",177,213},{"\244\098\206\076\181\016\126\000",39,108},{"\159\113\067\003\227",91,209},{"\141\134\132\121\090\091\068\058",53,244},{"\102\073\015\219\164\089\031\235",96,196},{"\112\012\122\248\076\244\092\200\049",157,123},{"\075\047\248\182\140\055\027\231\177\118",45,201},{"\168\180\165\124\114\061\065\045\023\252",115,233},{"\092\163\210\014\029\102\148\183\242\239\078\119",226,46},{"\189\165\117\082\249\235\194\127\091\249\249\195",162,207},{"\246\184\098\025\150\088\014\173",1,169},{"\116\093\045\000\222\145\126\080\023\246\151\154\103",80,210},{"\008\202\115\031\214\089\039\218\115\043\165\129\039",11,171},{"\154\045\167\036\172\252\145\026\140",204,124},{"\083\067\027\000\184\170\129\077\049\226\210\171",48,215},{"\202\221\216\224\178\207\209\185\192\148\167\163",132,250},{"\165\172\155\151\087\110\092\079",107,238},{"\094\238\101\223\100\190\082\203\057\191\018\164\031",147,121},{"\156\136\091\049\018\191\183\148\087\057\232\214\173",117,213},{"\226\212\173\137\112\029\033\252\220",181,219},{"\124\072\252\189\028\240\212\130",125,179},{"\072\157\217\024\098\076\171\026\083",184,62},{"\236\110\216\079\100\249\123\230",55,105},{"\071\153\210\014\085\060\163\247\052",186,59},{"\007\023\013\235\238\211",194,242},{"\048\100\154\185",185,35},{"\201\177\155\110\019\029\243\202\156\114",158,215},{"\086\170\240\070\158\012\087\170\002\078",171,83},{"\011\110\161\230\035\073\157\221\031\101",131,63},{"\191\085\171",14,105},{"\204\060\149\249\077\117",28,92},{"\022\206\111\027\183\040",30,164},{"\103\041\245\238\171\124\079\025\240\196",68,206},{"\235\158\071\221\116\239\172\091",249,158},{"\058\081\106\108\074\101\108\117\130",224,6},{"\027\090\139\204\219\117\087\185\244\063\079\179\241\042\071\181\245\038\108\166\240\038",133,62},{"\165\101\243\154\037\198\026\226\147\071\217\123\022",182,156},{"\168\135\101\049\253\204\152\108\052\226\221\155\118\061",134,207},{"\046\013\251\003\248\228\167\167\170\139\124\102",238,235},{"\126\217\071\191\041\144\252\104\200",194,103},{"\100\015\174\044\233\152",114,158},{"\129\217\004\054\083\136\186",18,44},{"\255\189\087\226\133\032",40,150},{"\148\236\059\130\179\003\079",249,69},{"\187\122\254\134\021\155\050\189",234,140},{"\168\094\001\140\031\187",207,149},{"\173\086\250\206",232,160},{"\150\178",148,221},{"\127\164\182\190\214\235\166\214\013\032",29,15},{"\227\070\167\203\072\200\043\118\217\044",67,90},{"\071\241\115\017\156\040\188\066",101,143},{"\213\134\056\223\058\004\208\116\025\200",215,167},{"\119\204\012\092\083\186\035\100\166\242",223,68},{"\083\177\211\254\034\092\051\142\206\002",230,43},{"\250\003\229\206\185\162\154\117\109\093",187,235},{"\008\013\252\206\191\172",220,228},{"\085\014\184\169\125\079",55,203},{"\226\082\197\201\073\202\048\141",57,92},{"\016\076\114\057\119\183\203\243\003\032",173,27},{"\035\205\093\246\056\235\128\033",62,146},{"\028\166\022\143\177\085\228\083\197",87,114},{"\017\136\228\061\074\198\068\154\241\082",109,89},{"\102\218\055\065\193\033",193,88},{"\150\005\119\122\253\096",238,91},{"\161\060\176\071\178\062\107\015\156\024",210,127},{"\131\073\236\146\059\221\128\038\215\040\242\165\071",150,165},{"\002\024\010\155\169\160\134",215,233},{"\041\163\244\062\131\222\218\074\197\028",152,78},{"\001\043\055\080\091\124\137\154\094\149\181\196",156,18},{"\042\224\143\042\136\095\015\184\103",57,163},{"\135\024\136\007\131\235\023\173\064\197\231\099\002\140\251\112\168",203,116},{"\095\139\156\164\152\172\168\177",20,7},{"\128\150\139\135\060\089\125\123",63,249},{"\051\129\160\210\004\065\114",175,48},{"\251\097\202\196\059\155\234\012\130\249\085\168",92,82},{"\235\234\215\215\199\183\090\120\139\113\113",163,241},{"\118\018\174\052\188\005\184\104\254\126",151,141},{"\237\190\147\070\195\180\141\009\241\214\161\086",217,194},{"\253\039\064\065\084\095\039\087\137\143\169\175\186\212",172,13},{"\143\096\032\200\130\052\163\141\076\011\200\108",151,180},{"\193\227\201\184\160\158\057\085\102\074\072",144,239},{"\002\124\134\018\136\227\047\132\224\245\112\252\076\165\247\095",91,89},{"\193\053\057\176\036\126\198\049\043\177\025\115\198\030",32,83},{"\095\030\176\077\236\129\038\177\006\211\142\041\178\091",124,154},{"\159\066\206\101\236\054\248\153\047\183\068\228\110\000",188,143},{"\000\137\251\120\229\021\155",55,117},{"\216\249\003\024\029\229\004",119,13},{"\023\218\143\055\146\110\041\217\123\034\220\128\044",37,169},{"\136\205\036\110\124",212,75},{"\144\116\106\083\001",61,234},{"\213\045\151\244\023",14,94},{"\020\084\166\235\247",101,70},{"\099\130\179\215\195",213,37},{"\209\208\225\229\178",99,5},{"\145\164\201\225\195",15,25},{"\073\053\051\036\224",238,242},{"\047\035\007\214\166\130\084\024\201\200\154\115\055\019\236\158\135\107\041",27,211},{"\175\000\034\057\087\138\155\202\225\005",76,34},{"\208\201\165\222\001\245\007\017\019\009\031\023\037\031\058",118,5},{"\090\147\178\216\159\226\033\063\092\120\167",233,30},{"\126\215\017\054\119\159\206\004\058",1,52},{"\191\204\188\008\049\072\108\126",81,25},{"\064\190\067\162\205\114\214\029\192\064\174\041\146",125,112},{"\114\135\163\153\159\099",24,7},{"\189\035\114\215\035\117\203\032\082\187\031\093",20,83},{"\190\119\013\166\066\215\109\006\170",222,152},{"\139",161,125},{"\107\192\232\028\086",235,51}});local _a={logo=_lk(1),aim=_lk(2),skip=_lk(3),fov=_lk(4),distance=_lk(5),body=_lk(6),target=_lk(7),settings=_lk(8),xylo=_lk(9),bgAsset=_lk(10),motoBg=_lk(11),icon1=_lk(12),icon2=_lk(13),icon3=_lk(14),icon4=_lk(15),icon5=_lk(16),icon6=_lk(17),icon7=_lk(18),icon8=_lk(19),}local _b=game:GetService(_lk(20))local _c=game:GetService(_lk(21))local _d=game:GetService(_lk(22))local _e=game:GetService(_lk(23))local _f=game:GetService(_lk(24))local _g=game:GetService(_lk(25))local _h=_f.CurrentCamera local _i=_b.LocalPlayer local _j=_d.TouchEnabled and not _d.KeyboardEnabled local _k=0.65 local _l=1.0 local _m=_j and _k or _l local _n,_o=(-963+1603),(-8893+9393)local _p,_q=(5899-5519),(493+67)local _r=(904-866)local _s=(-2558+2586)local _t={bg=Color3.fromRGB((-4082+4092),(8541-8531),(-9605+9615)),bgHi=Color3.fromRGB((5257-5239),(-1140+1158),(-6643+6661)),bgRow=Color3.fromRGB((-5055+5077),(5237-5215),(-7807+7829)),bgRowHi=Color3.fromRGB((-7771+7803),(7415-7383),(-3053+3085)),border=Color3.fromRGB((5723-5678),(8592-8547),(8817-8772)),borderHi=Color3.fromRGB((5507-5437),(1311-1241),(-8815+8885)),accent=Color3.fromRGB((-4986+5116),(-7027+7157),(-7640+7770)),accentHi=Color3.fromRGB((-4593+4783),(2225-2035),(460-270)),accentDim=Color3.fromRGB((9412-9342),(-2281+2351),(2749-2679)),danger=Color3.fromRGB((-338+538),(-1315+1385),(-7874+7944)),text=Color3.fromRGB((-6661+6881),(-1944+2164),(540-320)),textDim=Color3.fromRGB((8625-8495),(-4862+4992),(4538-4408)),textMute=Color3.fromRGB((-7291+7371),(-395+475),(-3293+3373)),white=Color3.fromRGB((1165-910),(-8788+9043),(-9435+9690)),}local _u=(game.PlaceId==75882626617183 and _lk(26))or(game.PlaceId==92951962875133 and _lk(27))or _lk(28)local _v={}local _w={}local function _x(_y)table.insert(_v,_y)return _y end _x(_f:GetPropertyChangedSignal(_lk(29)):Connect(function()_h=_f.CurrentCamera end))local _z={Game={Ray_Systems={_lk(30),_lk(31),_lk(32)}},Silent={Enabled=false,Targetting=false,TargetPart={_lk(33)},MaxDistance=(3157-2157),WallCheck=false,TeamCheck=false,WallBang=false,Priority={},Whitelisted={},DrawFieldOfView=false,UseFieldOfView=false,Radius=(-1461+1561),FieldOfViewColor=Color3.new((7067-7066),(7835-7834),(-3974+3975)),FieldOfViewTransparency=0.25,Sides=(9231-9131),HitChance=(1819-1719),Snapline=false,SnaplineColor=Color3.new((7247-7246),(-1806+1807),(-2353+2354)),SnaplineThickness=(-5732+5733),},}local _A={priority={},whitelist={}}local _B=_f.FindFirstChild local _C=_b.GetPlayers local _D=_f.GetDescendants local _E=_f.IsA local _F=_f.FindFirstChildOfClass local _H=table.unpack or unpack local _I=math.random local function _J(_K,_L)if not _K then return false end if _K.Character and _B(_K.Character,_lk(34))then return _L>(_h.CFrame.Position-_B(_K.Character,_lk(34)).Position).Magnitude end return false end local function _M(_N,_O)_O=_O or(_N and _B(_N,_lk(33)))if not _N or not _O or not _O:IsDescendantOf(_N)then return false end local _P=_i.Character;local _Q=_P and _P:FindFirstChild(_lk(34))local _R=RaycastParams.new();_R.FilterDescendantsInstances={_P,_h};_R.FilterType=Enum.RaycastFilterType.Blacklist;_R.IgnoreWater=true local _S=_h.CFrame.Position;local _T=_O.Position-_S local _U=_f:Raycast(_S,_T,_R)local _V=not _U or(_U.Instance and _U.Instance:IsDescendantOf(_N))local _W=true if _Q then local _X=_Q.Position;local _Y=_O.Position-_X local _Z=_f:Raycast(_X,_Y,_R)_W=not _Z or(_Z.Instance and _Z.Instance:IsDescendantOf(_N))end return _V and _W end local function _ba(_bb)if not _bb then return false end local _bc=_i.Character;local _bd=_bb.Character if _bc and _bd then local _be=_bc:GetAttribute(_lk(35));local _bf=_bd:GetAttribute(_lk(35))if _be~=nil or _bf~=nil then local _bg=_bc:GetAttribute(_lk(36));local _bh=_bd:GetAttribute(_lk(36))return _be~=nil and _be==_bf and _bg~=nil and _bh~=nil and _bg==_bh end end local _bi=_i:GetAttribute(_lk(37));local _bj=_bb:GetAttribute(_lk(37))if typeof(_bi)==_lk(38)and typeof(_bj)==_lk(38)then return _bi==_bj end if _i.Neutral or _bb.Neutral then return false end return _i.Team~=nil and _bb.Team==_i.Team end local function _bk()local _bl=_h.ViewportSize return Vector2.new(_bl.X*0.5,_bl.Y*0.5)end local _bm=nil local function _bn()local _bo={};local _bp=_C(_b)if _A.priority[(2240-2239)]then for _bq,_br in _bp do if _br==_i then continue end if _z.Silent.TeamCheck and _ba(_br)then continue end if not table.find(_A.priority,_br.Name)then continue end if table.find(_A.whitelist,_br.Name)then continue end if _br.Character and _B(_br.Character,_lk(34))and _B(_br.Character,_lk(39))and _B(_br.Character,_lk(39)).Health>(9688-9688)then if _F(_br.Character,_lk(40))then continue end if _B(_br.Character,_lk(41))and _B(_br.Character,_lk(41)).Material==Enum.Material.ForceField then continue end if _br.Character.Parent==nil then continue end local _bs=_B(_br.Character,_lk(34));local _bt=_bk()local _bu,_bv=_h:WorldToViewportPoint(_bs.Position)local _bw=_z.Silent.UseFieldOfView and _z.Silent.Radius or 9e9 local _bx=(Vector2.new(_bu.X,_bu.Y)-_bt).Magnitude if not _J(_br,_z.Silent.MaxDistance)then continue end if _bw>_bx and _bv then if not _z.Silent.WallBang and _z.Silent.WallCheck and not _M(_br.Character)then continue end table.insert(_bo,{Player=_br,Distance=_bx})end end end table.sort(_bo,function(_by,_bz)return _by.Distance<_bz.Distance end)if _bo[(-8396+8397)]then return _bo[(-7077+7078)].Player end end local _bA={}for _bB,_bC in _bp do if _bC==_i then continue end if _z.Silent.TeamCheck and _ba(_bC)then continue end if table.find(_A.whitelist,_bC.Name)then continue end if _bC.Character and _B(_bC.Character,_lk(34))and _B(_bC.Character,_lk(39))and _B(_bC.Character,_lk(39)).Health>(-8654+8654)then if _F(_bC.Character,_lk(40))then continue end if _B(_bC.Character,_lk(41))and _B(_bC.Character,_lk(41)).Material==Enum.Material.ForceField then continue end if _bC.Character.Parent==nil then continue end local _bD=_B(_bC.Character,_lk(34));local _bE=_bk()local _bF,_bG=_h:WorldToViewportPoint(_bD.Position)local _bH=_z.Silent.UseFieldOfView and _z.Silent.Radius or 9e9 local _bI=(Vector2.new(_bF.X,_bF.Y)-_bE).Magnitude if not _J(_bC,_z.Silent.MaxDistance)then continue end if _bH>_bI and _bG then if not _z.Silent.WallBang and _z.Silent.WallCheck and not _M(_bC.Character)then continue end table.insert(_bA,{Player=_bC,Distance=_bI})end end end table.sort(_bA,function(_bJ,_bK)return _bJ.Distance<_bK.Distance end)return _bA[(4068-4067)]and _bA[(1894-1893)].Player or nil end local _bL=nil do local _ce=pcall(function()if type(hookmetamethod)~=_lk(42)or type(getnamecallmethod)~=_lk(42)or type(checkcaller)~=_lk(42)then return end _bL=hookmetamethod(game,_lk(43),function(_bM,...)local _bN={...}local _bO=getnamecallmethod()if checkcaller()then return _bL(_bM,...)end if not _bm or not _z.Silent.Enabled or not _z.Silent.Targetting then return _bL(_bM,...)end if not(_I((5354-5354),(4220-4120))<=_z.Silent.HitChance)then return _bL(_bM,...)end local _bP=_z.Silent.TargetPart[(-5974+5975)]and _z.Silent.TargetPart[_I((7678-7677),#_z.Silent.TargetPart)]or _lk(33)if _bO==_lk(30)and table.find(_z.Game.Ray_Systems,_lk(30))then local _bQ,_bR=_bN[(2828-2826)],_bN[(5343-5340)]if typeof(_bQ)~=_lk(44)or typeof(_bR)~=_lk(44)or _bR.Magnitude<(-8274+8299)then return _bL(_bM,...)end local _bS=_bm if _bS and _bS.Character and _B(_bS.Character,_bP)and _B(_bS.Character,_lk(39))and _B(_bS.Character,_lk(39)).Health~=(-2850+2850)then local _bX=pcall(function()_bN[(-1100+1103)]=(_B(_bS.Character,_bP).Position-_bN[(-3347+3349)]).Unit*(-7756+8756)if _z.Silent.WallBang and _bm and _bm.Character then local _bT={}for _bU,_bV in pairs(_D(_bm.Character))do if _E(_bV,_lk(45))or _E(_bV,_lk(46))or _E(_bV,_lk(47))then table.insert(_bT,_bV)end end local _bW=RaycastParams.new()_bW.FilterType=Enum.RaycastFilterType.Include _bW.IgnoreWater=false _bW.RespectCanCollide=false _bW.FilterDescendantsInstances=_bT _bN[(-2287+2291)]=_bW end end)if _bX then return _bL(_bM,_H(_bN))end end return _bL(_bM,...)end if string.find(string.lower(_bO),_lk(48))and(table.find(_z.Game.Ray_Systems,_lk(31))or table.find(_z.Game.Ray_Systems,_lk(32)))then local _bY=_bN[(-567+569)]if typeof(_bY)~=_lk(49)or _bY.Direction.Magnitude<(-9876+9901)then return _bL(_bM,...)end local _bZ=_bm if _bZ and _bZ.Character and _B(_bZ.Character,_bP)and _B(_bZ.Character,_lk(39))and _B(_bZ.Character,_lk(39)).Health~=(4075-4075)then local _cc=pcall(function()local _ca=_B(_bZ.Character,_bP)local _cb=(_ca.Position-_bN[(6485-6483)].Origin).Unit*9e17 _bN[(-4864+4866)]=_bY.new(_bN[(9894-9892)].Origin,_cb)if _z.Silent.WallBang then return _ca,_ca.Position,Vector3.new((-1075+1075),(-4012+4012),(-3222+3222))end end)if _cc then if _z.Silent.WallBang then local _cd=_B(_bZ.Character,_bP)if _cd then return _cd,_cd.Position,Vector3.new((-7901+7901),(-4756+4756),(-9455+9455))end end return _bL(_bM,_H(_bN))end end return _bL(_bM,...)end return _bL(_bM,...)end)end)if not _ce then _bL=nil end end local _cf,_cg=nil,nil local _ch=false do local _cj=pcall(function()local _ci=Drawing.new(_lk(50))_ci.Visible=false _ci:Remove()_ch=true end)if _ch then local _ck=pcall(function()_cf=Drawing.new(_lk(50))_cf.Visible=false _cf.Color=_z.Silent.FieldOfViewColor _cf.Radius=_z.Silent.Radius _cf.NumSides=_z.Silent.Sides _cf.Thickness=(7786-7785)_cg=Drawing.new(_lk(51))_cg.Visible=false _cg.Color=_z.Silent.SnaplineColor _cg.Thickness=_z.Silent.SnaplineThickness end)if not _ck then _cf=nil;_cg=nil;_ch=false end end end local _cl,_cm,_cn=nil,nil,nil if not _ch then pcall(function()local _co=_i:FindFirstChildOfClass(_lk(52))or game:GetService(_lk(53))_cl=Instance.new(_lk(54))_cl.Name=_lk(55)_cl.IgnoreGuiInset=true _cl.ResetOnSpawn=false _cl.ZIndexBehavior=Enum.ZIndexBehavior.Sibling _cl.Parent=_co _cm=Instance.new(_lk(56))_cm.Name=_lk(57)_cm.AnchorPoint=Vector2.new(0.5,0.5)_cm.BackgroundTransparency=(-4848+4849)_cm.BorderSizePixel=(9884-9884)_cm.ZIndex=(481+420)_cm.Visible=false _cm.Parent=_cl Instance.new(_lk(58),_cm).CornerRadius=UDim.new((-1162+1163),(-2104+2104))local _cp=Instance.new(_lk(59),_cm)_cp.ApplyStrokeMode=Enum.ApplyStrokeMode.Border _cp.Color=_z.Silent.FieldOfViewColor _cp.Thickness=(3569-3568)_cn=Instance.new(_lk(56))_cn.Name=_lk(60)_cn.AnchorPoint=Vector2.new(0.5,0.5)_cn.BackgroundColor3=_z.Silent.SnaplineColor _cn.BorderSizePixel=(8198-8198)_cn.ZIndex=(5335-4432)_cn.Visible=false _cn.Parent=_cl end)end _c:BindToRenderStep(_lk(61),math.huge,function()pcall(function()if not _h then _h=_f.CurrentCamera end if not _h then return end local _cq=_bk()pcall(function()_bm=_bn()end)local _cr=_z.Silent.UseFieldOfView and _z.Silent.DrawFieldOfView local _cs=false local _ct,_cu=nil,nil local _cv=_z.Silent.TargetPart[(6169-6168)]or _lk(33)if _bm and _bm.Character then local _cw=_bm.Character:FindFirstChild(_cv)or _bm.Character:FindFirstChild(_lk(34))if _cw then local _cx,_cy=_h:WorldToViewportPoint(_cw.Position)if _z.Silent.Snapline and _cy then _cs=true local _cz=_h.ViewportSize _ct=Vector2.new(_cz.X/(-713+715),_cz.Y/(-8066+8068))_cu=Vector2.new(_cx.X,_cx.Y)end end end if _ch and _cf then _cf.Visible=_cr _cf.Radius=_z.Silent.Radius _cf.Color=_z.Silent.FieldOfViewColor _cf.Position=_cq if _cg then _cg.Visible=_cs if _cs then _cg.From=_ct _cg.To=_cu _cg.Color=_z.Silent.SnaplineColor _cg.Thickness=_z.Silent.SnaplineThickness end end else if _cm then _cm.Size=UDim2.fromOffset(_z.Silent.Radius*(-3920+3922),_z.Silent.Radius*(-8921+8923))_cm.Position=UDim2.fromOffset(_cq.X,_cq.Y)_cm.Visible=_cr local _cA=_cm:FindFirstChildOfClass(_lk(59))if _cA then _cA.Color=_z.Silent.FieldOfViewColor end end if _cn then _cn.Visible=_cs if _cs then local _cB=_cu-_ct _cn.BackgroundColor3=_z.Silent.SnaplineColor _cn.Position=UDim2.fromOffset((_ct.X+_cu.X)/(432-430),(_ct.Y+_cu.Y)/(9408-9406))_cn.Size=UDim2.fromOffset(_cB.Magnitude,_z.Silent.SnaplineThickness)_cn.Rotation=math.deg(math.atan2(_cB.Y,_cB.X))end end end end)end)table.insert(_w,function()pcall(function()if _bL then hookmetamethod(game,_lk(43),_bL)end end)pcall(function()_c:UnbindFromRenderStep(_lk(61))end)if _ch then pcall(function()if _cg then _cg:Remove()end end)pcall(function()if _cf then _cf:Remove()end end)end pcall(function()if _cl then _cl:Destroy()end end)end)local _cC={Enabled=false,SkipAiming=false,SkipRollAim=false,FOV=(-1483+1683),BodyPart=_lk(33),ShowFOV=true,MaxDist=(-4251+5251),TeamCheck=true,LosRadius=0.05,UIScale=_m,Triggerbot=false,RapidFire=false,RateOfFire=(17064-7064),DamageChanger=false,DamageValue=(-8535+8635),ESPEnabled=false,BoxESP=false,CornerBoxESP=false,SkeletonESP=false,NameTags=false,HealthBar=false,DistanceESP=false,HeadDot=false,Tracers=false,ESPDist=(9859-8859),ESPColor=Color3.fromRGB((-4861+5081),(-1676+1896),(975-750)),ESPFill=0.5,OutlineThickness=(3765-3764),BackgroundType=_lk(62),UITransparency=(-8727+8727),SnowEnabled=true,IconType=_lk(63),IsTallMode=false,KillCheck=true,KillCheckMin=(5920-5919),KillCheckMax=(9955-9945),NoSpread=false,NoDelay=false,InfiniteStuds=false,}local _cD={}for _cE,_cF in pairs(_cC)do _cD[_cE]=_cF end local _cG=nil pcall(function()local _cH=readfile(_lk(64))if _cH and tonumber(_cH)then _cG=tonumber(_cH)end end)if _cG then _cD.UIScale=_cG else _cD.UIScale=_m end local function _cI()local _cJ,_cK=pcall(function()return _g:JSONEncode(_cD)end)if _cJ and _cK then pcall(function()writefile(_lk(65),_cK)end)end end(function()local _cL,_cM=pcall(function()return readfile(_lk(65))end)if not _cL or not _cM or _cM==""then return end local _cN,_cO=pcall(function()return _g:JSONDecode(_cM)end)if not _cN or type(_cO)~=_lk(66)then return end for _cP,_cQ in pairs(_cC)do local _cR=_cO[_cP]if _cR~=nil and type(_cR)==type(_cQ)and _cP~=_lk(67)then _cD[_cP]=_cR end end end)()local function _cS(_cT)if not _cT or not _cT:IsA(_lk(68))then return end if _cD.RapidFire then for _cU,_cV in ipairs({_lk(69),_lk(70),_lk(71),_lk(72),_lk(73)})do if _cT:GetAttribute(_cV)~=nil then if _cV==_lk(73)then _cT:SetAttribute(_cV,(2350-2349)/_cD.RateOfFire)else _cT:SetAttribute(_cV,_cD.RateOfFire)end end end end if _cD.DamageChanger then for _cW,_cX in ipairs({_lk(74),_lk(75),_lk(76),_lk(77),_lk(78)})do if _cT:GetAttribute(_cX)~=nil then _cT:SetAttribute(_cX,_cD.DamageValue)end end end if _cD.NoDelay then for _cY,_cZ in ipairs({_lk(79),_lk(80),_lk(73),_lk(81),_lk(82)})do if _cT:GetAttribute(_cZ)~=nil then _cT:SetAttribute(_cZ,(8614-8614))end end end if _cD.NoSpread then for _da,_db in ipairs({_lk(83),_lk(84),_lk(85),_lk(86)})do if _cT:GetAttribute(_db)~=nil then _cT:SetAttribute(_db,(-1611+1611))end end end if _cD.InfiniteStuds then for _dc,_dd in ipairs({_lk(87),_lk(88),_lk(89),_lk(90),_lk(91),_lk(92)})do if _cT:GetAttribute(_dd)~=nil then _cT:SetAttribute(_dd,(991951+8048))end end end for _de,_df in ipairs(_cT:GetDescendants())do if _df:IsA(_lk(93))or _df:IsA(_lk(94))then local _dg=_df.Name:lower()if _cD.RapidFire and(_dg:find(_lk(95))or _dg:find(_lk(96))or _dg:find(_lk(97))or _dg:find(_lk(98)))then _df.Value=_cD.RateOfFire end if _cD.DamageChanger and(_dg:find(_lk(75))or _dg:find(_lk(77))or _dg:find(_lk(99)))then _df.Value=_cD.DamageValue end if _cD.NoDelay and(_dg:find(_lk(98))or _dg:find(_lk(97))or _dg:find(_lk(100)))then _df.Value=(392-392)end if _cD.NoSpread and(_dg:find(_lk(84))or _dg:find(_lk(101)))then _df.Value=(-9207+9207)end if _cD.InfiniteStuds and(_dg:find(_lk(88))or _dg:find(_lk(102))or _dg:find(_lk(103)))then _df.Value=(994785+5214)end end end end local function _dh()local _di=_i.Character if _di then for _dj,_dk in ipairs(_di:GetChildren())do if _dk:IsA(_lk(68))then _cS(_dk)end end end local _dl=_i:FindFirstChildOfClass(_lk(104))if _dl then for _dm,_dn in ipairs(_dl:GetChildren())do if _dn:IsA(_lk(68))then _cS(_dn)end end end end local function _do(_dp)if not _dp then return end for _dq,_dr in ipairs(_dp:GetChildren())do if _dr:IsA(_lk(68))then _cS(_dr)end end _dp.ChildAdded:Connect(function(_ds)if _ds:IsA(_lk(68))then _cS(_ds)end end)end if _i.Character then _do(_i.Character)end if _i:FindFirstChildOfClass(_lk(104))then _do(_i:FindFirstChildOfClass(_lk(104)))end _i.CharacterAdded:Connect(_do)_i.ChildAdded:Connect(function(_dt)if _dt:IsA(_lk(104))then _do(_dt)end end)local function _du(_dv)if not _cD.KillCheck then return true end if not _dv then return false end local _dw=_dv:FindFirstChildOfClass(_lk(39))if not _dw then return true end local _dx=_dw.Health if _dx<=(-7264+7264)then return false end if _dx>=_cD.KillCheckMin and _dx<=_cD.KillCheckMax then return false end return true end local _dy=Instance.new(_lk(54))_dy.Name=_lk(105);_dy.ResetOnSpawn=false _dy.ZIndexBehavior=Enum.ZIndexBehavior.Sibling _dy.IgnoreGuiInset=true _dy.Parent=game:GetService(_lk(53))local _dz={}local function _dA(_dB)local _dC=_dz[_dB];if not _dC then return end if _dC.highlight then _dC.highlight:Destroy()end if _dC.box then _dC.box:Remove()end if _dC.headDot then _dC.headDot:Remove()end if _dC.tracer then _dC.tracer:Remove()end if _dC.healthBarBg then _dC.healthBarBg:Remove()end if _dC.healthBarFill then _dC.healthBarFill:Remove()end if _dC.nameTag then _dC.nameTag:Remove()end if _dC.distTag then _dC.distTag:Remove()end for _dD,_dE in ipairs(_dC.corners)do pcall(function()_dE:Remove()end)end for _dF,_dG in pairs(_dC.skeleton)do pcall(function()_dG:Remove()end)end _dz[_dB]=nil end _i.CharacterAdded:Connect(function()task.wait(0.5)for _dH in pairs(_dz)do _dA(_dH)end _dz={}end)local function _dI(_dJ)if _dJ:FindFirstChild(_lk(106))and _dJ:FindFirstChild(_lk(107))then return{{_lk(33),_lk(106)},{_lk(106),_lk(107)},{_lk(106),_lk(108)},{_lk(108),_lk(109)},{_lk(109),_lk(110)},{_lk(106),_lk(111)},{_lk(111),_lk(112)},{_lk(112),_lk(113)},{_lk(107),_lk(114)},{_lk(114),_lk(115)},{_lk(115),_lk(116)},{_lk(107),_lk(117)},{_lk(117),_lk(118)},{_lk(118),_lk(119)}}else return{{_lk(33),_lk(41)},{_lk(41),_lk(120)},{_lk(41),_lk(121)},{_lk(41),_lk(122)},{_lk(41),_lk(123)}}end end local function _dK(_dL)if _dz[_dL]then return _dz[_dL]end local _dM={}for _dN=(-4536+4537),(5688-5680)do local _dO=Drawing.new(_lk(51));_dO.Thickness=(-5209+5211);_dO.Visible=false;table.insert(_dM,_dO)end local _dP=Drawing.new(_lk(124));_dP.Thickness=(-4941+4942);_dP.Filled=true;_dP.Visible=false local _dQ=Drawing.new(_lk(124));_dQ.Thickness=(5917-5916);_dQ.Filled=true;_dQ.Visible=false local _dR=Drawing.new(_lk(125));_dR.Size=(-8532+8546);_dR.Center=true;_dR.Outline=true;_dR.Visible=false;_dR.Font=(3841-3839)local _dS=Drawing.new(_lk(125));_dS.Size=(8923-8911);_dS.Center=true;_dS.Outline=true;_dS.Visible=false;_dS.Font=(487-485)_dz[_dL]={box=Drawing.new(_lk(124)),corners=_dM,skeleton={},headDot=Drawing.new(_lk(50)),tracer=Drawing.new(_lk(51)),healthBarBg=_dP,healthBarFill=_dQ,nameTag=_dR,distTag=_dS,highlight=nil}local _dT=_dz[_dL]_dT.box.Thickness=(2447-2446);_dT.box.Filled=false;_dT.box.Visible=false _dT.headDot.Filled=true;_dT.headDot.Radius=(-4761+4764);_dT.headDot.Visible=false _dT.tracer.Thickness=(-7087+7088);_dT.tracer.Transparency=0.7;_dT.tracer.Visible=false return _dT end local _dU=(-9644+9698)local _dV=Instance.new(_lk(126),_dy)_dV.Name=_lk(127)_dV.Size=UDim2.new((282-282),(-5941+5995),(-718+718),(6220-6166))_dV.Position=UDim2.new((5078-5077),-(_dU+(-4819+4833)),0.5,-(5057-5030))_dV.BackgroundColor3=Color3.fromRGB((-8905+8915),(872-862),(3844-3832))_dV.BorderSizePixel=(-5177+5177);_dV.Text="";_dV.AutoButtonColor=false _dV.ZIndex=(-9100+9130);_dV.ClipsDescendants=true Instance.new(_lk(58),_dV).CornerRadius=UDim.new((5801-5801),(-255+271))local _dW=Instance.new(_lk(59),_dV);_dW.Color=_t.border;_dW.Thickness=1.5 local _dX=Instance.new(_lk(128),_dV)_dX.Image=_a[_cD.IconType]or _a.xylo _dX.BackgroundColor3=Color3.fromRGB((4921-4911),(6690-6680),(-3498+3510));_dX.BackgroundTransparency=(379-379)_dX.Size=UDim2.new((5107-5106),(7956-7956),(1904-1903),(8134-8134));_dX.ScaleType=Enum.ScaleType.Fit;_dX.ZIndex=(-8773+8804)Instance.new(_lk(58),_dX).CornerRadius=UDim.new((3360-3360),(9247-9233))local _dY=Instance.new(_lk(56),_dy)_dY.Name=_lk(129);_dY.AnchorPoint=Vector2.new((6167-6166),0.5);_dY.Position=UDim2.new((4633-4632),-(_dU+(-7903+7917)),0.5,(6725-6725))_dY.Size=UDim2.new((4249-4249),_n,(6345-6345),_o);_dY.BackgroundColor3=_t.bg;_dY.BorderSizePixel=(-4017+4017)_dY.Active=true;_dY.ZIndex=(-8431+8433);_dY.ClipsDescendants=true Instance.new(_lk(58),_dY).CornerRadius=UDim.new((-3402+3402),(9867-9847))local _dZ=Instance.new(_lk(128),_dY)_dZ.Size=UDim2.new((-952+953),(-5237+5237),(-422+423),(1046-1046));_dZ.BackgroundTransparency=(5367-5366);_dZ.ZIndex=(-6286+6287)_dZ.ScaleType=Enum.ScaleType.Crop Instance.new(_lk(58),_dZ).CornerRadius=UDim.new((-9144+9144),(639-619))local function _ea()if _cD.BackgroundType==_lk(130)then _dZ.Image=_a.bgAsset;_dZ.ImageTransparency=0.7 elseif _cD.BackgroundType==_lk(131)then _dZ.Image=_a.motoBg;_dZ.ImageTransparency=0.7 else _dZ.Image=""end end _ea()local _eb=Instance.new(_lk(67),_dY);_eb.Scale=_cD.UIScale local _ec=Instance.new(_lk(59),_dY);_ec.Color=_t.border;_ec.Thickness=(-9408+9409);_ec.Transparency=0.05 local _ed=Instance.new(_lk(132),_dY);_ed.Rotation=(3251-3161)_ed.Color=ColorSequence.new({ColorSequenceKeypoint.new((-678+678),_t.bgHi),ColorSequenceKeypoint.new((8804-8803),_t.bg)})local _ee=Instance.new(_lk(56),_dY)_ee.Name=_lk(133);_ee.Size=UDim2.new((-459+460),(-6197+6197),(-2452+2452),_r);_ee.BackgroundTransparency=(-3864+3865);_ee.ZIndex=(8803-8798);_ee.Active=true local _ef=Instance.new(_lk(134),_ee)_ef.Size=UDim2.new((-7539+7540),(-5771+5771),(-4563+4564),(4069-4069));_ef.BackgroundTransparency=(-1155+1156);_ef.Text=_lk(135)_ef.TextColor3=_t.text;_ef.TextSize=(9336-9324);_ef.Font=Enum.Font.GothamBold _ef.TextXAlignment=Enum.TextXAlignment.Center;_ef.ZIndex=(8733-8727)local _eg=Instance.new(_lk(126),_ee)_eg.Size=UDim2.new((191-191),(-292+372),(4490-4490),(2283-2259));_eg.Position=UDim2.new((-1657+1657),(25-15),0.5,-(4164-4152))_eg.BackgroundColor3=_t.bgRow;_eg.Text=_lk(136);_eg.TextColor3=_t.accentHi _eg.Font=Enum.Font.GothamBold;_eg.TextSize=(-2326+2336);_eg.ZIndex=(4655-4648)Instance.new(_lk(58),_eg).CornerRadius=UDim.new((-2392+2392),(3595-3591))local _eh=Instance.new(_lk(56),_dY)_eh.Size=UDim2.new((-3171+3172),(2604-2604),(7440-7440),(7707-7706));_eh.Position=UDim2.new((-5737+5737),(-96+96),(1667-1667),_r)_eh.BackgroundColor3=_t.border;_eh.BorderSizePixel=(-5301+5301);_eh.ZIndex=(8686-8682)local _ei=Instance.new(_lk(56),_dY)_ei.Size=UDim2.new((1503-1502),(8674-8674),(-2912+2913),-(_r+(4742-4741)));_ei.Position=UDim2.new((5419-5419),(5696-5696),(-8241+8241),_r+(2022-2021))_ei.BackgroundTransparency=(8478-8477);_ei.ZIndex=(845-840)local _ej=Instance.new(_lk(56),_dY)_ej.Size=UDim2.new((-1686+1687),(9342-9342),(6972-6971),-(_r+(-1483+1484)));_ej.Position=UDim2.new((7046-7046),(6188-6188),(-7525+7525),_r+(3759-3758))_ej.BackgroundTransparency=(1621-1620);_ej.ZIndex=(9837-9832);_ej.Visible=false local function _ek(_el)local _em=Instance.new(_lk(137),_el)_em.Size=UDim2.new((-8003+8004),(9574-9574),(3482-3481),(-2686+2686));_em.BackgroundTransparency=(-1149+1150);_em.ZIndex=(-7189+7194);_em.Visible=false _em.ScrollBarThickness=(-8571+8573);_em.ScrollBarImageColor3=_t.accent;_em.BorderSizePixel=(4284-4284)_em.CanvasSize=UDim2.new((-985+985),(-6836+6836),(-2375+2375),(-3394+3394));_em.AutomaticCanvasSize=Enum.AutomaticSize.Y local _en=Instance.new(_lk(138),_em);_en.Padding=UDim.new((9227-9227),(5343-5335));_en.SortOrder=Enum.SortOrder.LayoutOrder local _eo=Instance.new(_lk(139),_em);_eo.PaddingLeft=UDim.new((6823-6823),(-2971+2981));_eo.PaddingRight=UDim.new((-243+243),(-309+319));_eo.PaddingTop=UDim.new((-1903+1903),(-1588+1596));_eo.PaddingBottom=UDim.new((6416-6416),(4358-4344))return _em end local _ep=Instance.new(_lk(56),_ei)_ep.Name=_lk(140);_ep.Size=UDim2.new((-7495+7496),-(7700-7680),(-4310+4310),_s);_ep.Position=UDim2.new((5352-5352),(-7975+7985),(8365-8365),(4861-4857))_ep.BackgroundTransparency=(-9350+9351);_ep.ZIndex=(7240-7235)local _eq=Instance.new(_lk(56),_ei)_eq.Size=UDim2.new((-5037+5038),(8640-8640),(5353-5353),(1521-1520));_eq.Position=UDim2.new((-6659+6659),(7417-7417),(-1245+1245),_s+(-1893+1897))_eq.BackgroundColor3=_t.border;_eq.BorderSizePixel=(9148-9148);_eq.ZIndex=(-299+303)local _er=Instance.new(_lk(56),_ei)_er.Name=_lk(141);_er.Position=UDim2.new((-6072+6072),(-6100+6100),(2188-2188),_s+(9661-9656))_er.Size=UDim2.new((-5805+5806),(-3351+3351),(-9771+9772),-(_s+(5180-5175)));_er.BackgroundTransparency=(6605-6604);_er.ZIndex=(-6339+6344)local _es=_ek(_er)local _et=_ek(_er)local _eu=_ek(_er)local _ev=_ek(_er)local _ew=Instance.new(_lk(137),_ej)_ew.Name=_lk(140);_ew.Size=UDim2.new((6898-6897),-(-4181+4201),(6007-6007),_s);_ew.Position=UDim2.new((9589-9589),(-1085+1095),(-2624+2624),(8850-8846))_ew.BackgroundTransparency=(-9363+9364);_ew.ZIndex=(4847-4842);_ew.ScrollBarThickness=(-6367+6367)_ew.ScrollingDirection=Enum.ScrollingDirection.X _ew.CanvasSize=UDim2.new((-7671+7671),(-2348+2348),(-4244+4244),(-8847+8847))_ew.AutomaticCanvasSize=Enum.AutomaticSize.X local _ex=Instance.new(_lk(56),_ej)_ex.Size=UDim2.new((-7389+7390),(-1356+1356),(-4974+4974),(-4771+4772));_ex.Position=UDim2.new((-2857+2857),(-9422+9422),(-6552+6552),_s+(-4073+4077))_ex.BackgroundColor3=_t.border;_ex.BorderSizePixel=(-8310+8310);_ex.ZIndex=(-5040+5044)local _ey=Instance.new(_lk(56),_ej)_ey.Name=_lk(141);_ey.Position=UDim2.new((1577-1577),(-5077+5077),(5673-5673),_s+(-6763+6768))_ey.Size=UDim2.new((-3228+3229),(-302+302),(-987+988),-(_s+(-3945+3950)));_ey.BackgroundTransparency=(1753-1752);_ey.ZIndex=(5037-5032)local _ez=_ek(_ey)local _eA=_ek(_ey)local _eB=_ek(_ey)local _eC=_ek(_ey)local _eD={{name=_lk(142),page1=_es,page2=_ez},{name=_lk(143),page1=_et,page2=_eA},{name=_lk(144),page1=_eu,page2=_eB},{name=_lk(145),page1=_ev,page2=_eC},}local _eE={}local _eF={}local function _eG()local _eH=Instance.new(_lk(138),_ep)_eH.FillDirection=Enum.FillDirection.Horizontal _eH.HorizontalAlignment=Enum.HorizontalAlignment.Center _eH.VerticalAlignment=Enum.VerticalAlignment.Center _eH.Padding=UDim.new((-1070+1070),(-3279+3285))for _eI,_eJ in ipairs(_eD)do local _eK=Instance.new(_lk(126),_ep)_eK.Size=UDim2.new(0.24,(-2097+2097),(-7671+7672),(-2058+2058))_eK.BackgroundColor3=_t.bgRow;_eK.BackgroundTransparency=(-4151+4152)_eK.BorderSizePixel=(-2512+2512);_eK.Text="";_eK.AutoButtonColor=false;_eK.ZIndex=(2561-2555);_eK.LayoutOrder=_eI Instance.new(_lk(58),_eK).CornerRadius=UDim.new((-4488+4488),(8956-8952))local _eL=Instance.new(_lk(134),_eK);_eL.Size=UDim2.new((-8751+8752),(6867-6867),(3291-3290),(-6632+6632));_eL.BackgroundTransparency=(5774-5773);_eL.Text=_eJ.name;_eL.TextColor3=_t.textDim;_eL.TextSize=(-560+570);_eL.Font=Enum.Font.GothamMedium;_eL.ZIndex=(9456-9449)local _eM=Instance.new(_lk(56),_eK);_eM.Size=UDim2.new((6710-6709),-(7960-7952),(-2226+2226),(-1441+1443));_eM.Position=UDim2.new((-7797+7797),(7344-7340),(-2946+2947),-(1496-1494));_eM.BackgroundColor3=_t.accentHi;_eM.BorderSizePixel=(9345-9345);_eM.Visible=false;_eM.ZIndex=(-7403+7410)Instance.new(_lk(58),_eM).CornerRadius=UDim.new((-1025+1026),(2348-2348))_eK.MouseButton1Click:Connect(function()for _eN,_eO in ipairs(_eD)do _eO.page1.Visible=(_eI==_eN)end for _eP,_eQ in ipairs(_eE)do local _eR=(_eI==_eP)_eQ.lb.TextColor3=_eR and _t.text or _t.textDim _eQ.btn.BackgroundTransparency=_eR and 0.6 or(-4819+4820)_eQ.btn.BackgroundColor3=_eR and _t.bgRowHi or _t.bgRow _eQ.indicator.Visible=_eR end end)_eE[_eI]={btn=_eK,lb=_eL,indicator=_eM}end end local function _eS()local _eT=Instance.new(_lk(138),_ew)_eT.FillDirection=Enum.FillDirection.Horizontal _eT.HorizontalAlignment=Enum.HorizontalAlignment.Left _eT.VerticalAlignment=Enum.VerticalAlignment.Center _eT.Padding=UDim.new((8172-8172),(1418-1412))for _eU,_eV in ipairs(_eD)do local _eW=Instance.new(_lk(126),_ew)_eW.Size=UDim2.new((-9166+9166),(-5348+5453),(-7959+7960),(-4107+4107))_eW.BackgroundColor3=_t.bgRow;_eW.BackgroundTransparency=(-3393+3394)_eW.BorderSizePixel=(-2296+2296);_eW.Text="";_eW.AutoButtonColor=false;_eW.ZIndex=(-5891+5897);_eW.LayoutOrder=_eU Instance.new(_lk(58),_eW).CornerRadius=UDim.new((6020-6020),(2099-2095))local _eX=Instance.new(_lk(134),_eW);_eX.Size=UDim2.new((-1741+1742),(3490-3490),(-1296+1297),(-2417+2417));_eX.BackgroundTransparency=(7157-7156);_eX.Text=_eV.name;_eX.TextColor3=_t.textDim;_eX.TextSize=(8899-8889);_eX.Font=Enum.Font.GothamMedium;_eX.ZIndex=(-3477+3484)local _eY=Instance.new(_lk(56),_eW);_eY.Size=UDim2.new((2237-2236),-(-1382+1390),(-7449+7449),(9469-9467));_eY.Position=UDim2.new((-4706+4706),(-681+685),(9272-9271),-(-7475+7477));_eY.BackgroundColor3=_t.accentHi;_eY.BorderSizePixel=(-7655+7655);_eY.Visible=false;_eY.ZIndex=(-2976+2983)Instance.new(_lk(58),_eY).CornerRadius=UDim.new((5275-5274),(-4947+4947))_eW.MouseButton1Click:Connect(function()for _eZ,_fa in ipairs(_eD)do _fa.page2.Visible=(_eU==_eZ)end for _fb,_fc in ipairs(_eF)do local _fd=(_eU==_fb)_fc.lb.TextColor3=_fd and _t.text or _t.textDim _fc.btn.BackgroundTransparency=_fd and 0.6 or(7675-7674)_fc.btn.BackgroundColor3=_fd and _t.bgRowHi or _t.bgRow _fc.indicator.Visible=_fd end end)_eF[_eU]={btn=_eW,lb=_eX,indicator=_eY}end end _eG()_eS()local function _fe()if _cD.IsTallMode then _dY.Size=UDim2.new((-4319+4319),_p,(3945-3945),_q)_ei.Visible=false;_ej.Visible=true for _ff,_fg in ipairs(_eD)do _fg.page1.Visible=false;_fg.page2.Visible=false end _eD[(-2008+2009)].page2.Visible=true for _fh,_fi in ipairs(_eF)do local _fj=(_fh==(6899-6898))_fi.lb.TextColor3=_fj and _t.text or _t.textDim _fi.btn.BackgroundTransparency=_fj and 0.6 or(-643+644)_fi.btn.BackgroundColor3=_fj and _t.bgRowHi or _t.bgRow _fi.indicator.Visible=_fj end else _dY.Size=UDim2.new((1988-1988),_n,(-5836+5836),_o)_ei.Visible=true;_ej.Visible=false for _fk,_fl in ipairs(_eD)do _fl.page1.Visible=false;_fl.page2.Visible=false end _eD[(8061-8060)].page1.Visible=true for _fm,_fn in ipairs(_eE)do local _fo=(_fm==(1025-1024))_fn.lb.TextColor3=_fo and _t.text or _t.textDim _fn.btn.BackgroundTransparency=_fo and 0.6 or(-9297+9298)_fn.btn.BackgroundColor3=_fo and _t.bgRowHi or _t.bgRow _fn.indicator.Visible=_fo end end _cI()end _eg.MouseButton1Click:Connect(function()_cD.IsTallMode=not _cD.IsTallMode _fe()end)local function _fp(_fq,_fr,_fs)local _ft=Instance.new(_lk(56),_fq)_ft.Size=UDim2.new((8465-8464),(-6330+6330),(6799-6799),(1211-1189));_ft.BackgroundTransparency=(-6620+6621);_ft.ZIndex=(-5555+5561)_ft.AutomaticSize=Enum.AutomaticSize.Y local _fu=Instance.new(_lk(56),_ft)_fu.Size=UDim2.new((-8467+8468),(-8787+8787),(-493+493),(-7331+7353));_fu.BackgroundTransparency=(-2083+2084);_fu.ZIndex=(5086-5079)local _fv=Instance.new(_lk(128),_fu)_fv.Image=_fr;_fv.ImageColor3=_t.accentDim;_fv.BackgroundTransparency=(6040-6039)_fv.Size=UDim2.new((7987-7987),(-7558+7569),(6670-6670),(3541-3530));_fv.Position=UDim2.new((-457+457),(-206+208),0.5,-(-4516+4521));_fv.ZIndex=(6777-6769)local _fw=Instance.new(_lk(134),_fu)_fw.Size=UDim2.new((3510-3509),-(7157-7139),(758-757),(-4004+4004));_fw.Position=UDim2.new((8565-8565),(-1619+1637),(-5321+5321),(-4083+4083))_fw.BackgroundTransparency=(7120-7119);_fw.Text=string.upper(_fs);_fw.TextColor3=_t.textMute;_fw.TextSize=(6856-6847);_fw.Font=Enum.Font.GothamBold _fw.TextXAlignment=Enum.TextXAlignment.Left;_fw.ZIndex=(-7010+7018)local _fx=Instance.new(_lk(56),_ft)_fx.Size=UDim2.new((4168-4167),(4391-4391),(4150-4150),(-5780+5780))_fx.Position=UDim2.new((2297-2297),(-1750+1750),(5255-5255),(6780-6755))_fx.BackgroundTransparency=(-4117+4118);_fx.ZIndex=(9581-9575)_fx.AutomaticSize=Enum.AutomaticSize.Y local _fy=Instance.new(_lk(138),_fx)_fy.Padding=UDim.new((2584-2584),(1612-1608));_fy.SortOrder=Enum.SortOrder.LayoutOrder return _fx end local function _fz(_fA,_fB)local _fC=Instance.new(_lk(56),_fA)_fC.Size=UDim2.new((6494-6493),(-4497+4497),(-4505+4505),_fB);_fC.BackgroundColor3=_t.bgRow;_fC.BorderSizePixel=(-6815+6815);_fC.ZIndex=(6347-6340)Instance.new(_lk(58),_fC).CornerRadius=UDim.new((-9034+9034),(-3049+3057))local _fD=Instance.new(_lk(59),_fC);_fD.Color=_t.border;_fD.Thickness=(7657-7656);_fD.Transparency=0.4 return _fC end local function _fE(_fF,_fG,_fH,_fI,_fJ)local _fK=_fz(_fF,(4018-3982))local _fL=Instance.new(_lk(128),_fK)_fL.Image=_fG;_fL.ImageColor3=_fI and _t.accentHi or _t.textDim _fL.BackgroundTransparency=(1811-1810);_fL.Size=UDim2.new((1301-1301),(-8107+8122),(6980-6980),(8343-8328));_fL.Position=UDim2.new((-2869+2869),(-7921+7933),0.5,-(-9050+9057));_fL.ZIndex=(2179-2171)local _fM=Instance.new(_lk(134),_fK)_fM.Size=UDim2.new((-9874+9875),-(2081-1999),(-6737+6738),(1081-1081));_fM.Position=UDim2.new((7653-7653),(8898-8862),(1901-1901),(9100-9100))_fM.BackgroundTransparency=(-2066+2067);_fM.Text=_fH;_fM.TextColor3=_t.text;_fM.TextSize=(-9793+9805);_fM.Font=Enum.Font.GothamMedium;_fM.TextXAlignment=Enum.TextXAlignment.Left;_fM.ZIndex=(4718-4710)local _fN=Instance.new(_lk(126),_fK)_fN.Size=UDim2.new((4219-4219),(-1328+1366),(9316-9316),(8172-8152));_fN.Position=UDim2.new((-7786+7787),-(10029-9981),0.5,-(-7203+7213));_fN.BackgroundColor3=_fI and _t.accent or _t.bgHi _fN.BorderSizePixel=(1416-1416);_fN.Text="";_fN.AutoButtonColor=false;_fN.ZIndex=(-7056+7064)Instance.new(_lk(58),_fN).CornerRadius=UDim.new((-4757+4758),(8791-8791))local _fO=Instance.new(_lk(59),_fN);_fO.Color=_fI and _t.accentHi or _t.border;_fO.Thickness=(-7483+7484);_fO.Transparency=0.4 local _fP=Instance.new(_lk(56),_fN)_fP.Size=UDim2.new((-8228+8228),(-3713+3726),(-3241+3241),(4072-4059));_fP.Position=_fI and UDim2.new((4815-4814),-(8933-8918),0.5,-(9280-9274))or UDim2.new((6479-6479),(-2512+2514),0.5,-(3947-3941))_fP.BackgroundColor3=_t.white;_fP.BorderSizePixel=(-4675+4675);_fP.ZIndex=(6717-6708)Instance.new(_lk(58),_fP).CornerRadius=UDim.new((579-578),(-1623+1623))local _fQ=_fI _fN.MouseButton1Click:Connect(function()_fQ=not _fQ;_fJ(_fQ)_e:Create(_fP,TweenInfo.new(0.16,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{Position=_fQ and UDim2.new((1009-1008),-(2363-2348),0.5,-(-1057+1063))or UDim2.new((-7123+7123),(255-253),0.5,-(6758-6752))}):Play()_e:Create(_fN,TweenInfo.new(0.16),{BackgroundColor3=_fQ and _t.accent or _t.bgHi}):Play()_e:Create(_fO,TweenInfo.new(0.16),{Color=_fQ and _t.accentHi or _t.border}):Play()_e:Create(_fL,TweenInfo.new(0.16),{ImageColor3=_fQ and _t.accentHi or _t.textDim}):Play()_cI()end)_fK.MouseEnter:Connect(function()_e:Create(_fK,TweenInfo.new(0.12),{BackgroundColor3=_t.bgRowHi}):Play()end)_fK.MouseLeave:Connect(function()_e:Create(_fK,TweenInfo.new(0.12),{BackgroundColor3=_t.bgRow}):Play()end)return _fK end local function _fR(_fS,_fT,_fU,_fV,_fW,_fX,_fY,_fZ)local _ga=_fz(_fS,(-9714+9764))local _gb=Instance.new(_lk(128),_ga)_gb.Image=_fT;_gb.ImageColor3=_t.accentDim;_gb.BackgroundTransparency=(-893+894)_gb.Size=UDim2.new((-7938+7938),(-29+44),(1546-1546),(5066-5051));_gb.Position=UDim2.new((-8278+8278),(-2472+2484),(8148-8148),(-8917+8927));_gb.ZIndex=(-5602+5610)local _gc=Instance.new(_lk(134),_ga)_gc.Size=UDim2.new((-297+298),-(-1291+1381),(2957-2957),(7715-7700));_gc.Position=UDim2.new((882-882),(9842-9806),(1424-1424),(9487-9481))_gc.BackgroundTransparency=(7194-7193);_gc.Text=_fU;_gc.TextColor3=_t.text;_gc.TextSize=(-6151+6163);_gc.Font=Enum.Font.GothamMedium;_gc.TextXAlignment=Enum.TextXAlignment.Left;_gc.ZIndex=(-8957+8965)local _gd=Instance.new(_lk(134),_ga)_gd.Size=UDim2.new((-6858+6858),(-5915+5967),(-2796+2796),(5500-5485));_gd.Position=UDim2.new((-7100+7101),-(-8203+8263),(-5552+5552),(4572-4566));_gd.BackgroundTransparency=(3407-3406)_gd.Text=string.format(_fY<(9043-9042)and _lk(146)or _lk(147),_fX);_gd.TextColor3=_t.accentHi;_gd.TextSize=(4169-4157);_gd.Font=Enum.Font.GothamBold;_gd.TextXAlignment=Enum.TextXAlignment.Right;_gd.ZIndex=(-1050+1058)local _ge=Instance.new(_lk(56),_ga)_ge.Size=UDim2.new((1991-1990),-(-4709+4733),(-5922+5922),(4996-4992));_ge.Position=UDim2.new((8988-8988),(2644-2632),(-5842+5842),(3402-3368));_ge.BackgroundColor3=_t.bgHi;_ge.BorderSizePixel=(2545-2545);_ge.ZIndex=(7216-7208)Instance.new(_lk(58),_ge).CornerRadius=UDim.new((-7623+7624),(-3040+3040))local _gf=Instance.new(_lk(56),_ge)_gf.Size=UDim2.new((_fX-_fV)/(_fW-_fV),(2683-2683),(9334-9333),(-3357+3357));_gf.BackgroundColor3=_t.accent;_gf.BorderSizePixel=(-3547+3547);_gf.ZIndex=(6543-6534)Instance.new(_lk(58),_gf).CornerRadius=UDim.new((-2428+2429),(-4355+4355))local _gg=Instance.new(_lk(56),_ge)_gg.Size=UDim2.new((2881-2881),(-2524+2536),(-452+452),(-6691+6703));_gg.Position=UDim2.new((_fX-_fV)/(_fW-_fV),-(-4206+4212),0.5,-(-9844+9850));_gg.BackgroundColor3=_t.white;_gg.BorderSizePixel=(-8567+8567);_gg.ZIndex=(2949-2939)Instance.new(_lk(58),_gg).CornerRadius=UDim.new((9141-9140),(1193-1193))local _gh=false local function _gi(_gj)local _gk=_ge.AbsolutePosition.X;local _gl=_ge.AbsoluteSize.X;if _gl<=(3157-3157)then return end local _gm=math.clamp((_gj-_gk)/_gl,(8411-8411),(8262-8261))local _gn=_fV+_gm*(_fW-_fV)local _go=math.clamp(math.floor(_gn/_fY+0.5)*_fY,_fV,_fW)local _gp=(_go-_fV)/(_fW-_fV)_gf.Size=UDim2.new(_gp,(-6747+6747),(5801-5800),(-1059+1059));_gg.Position=UDim2.new(_gp,-(7189-7183),0.5,-(-7821+7827))_gd.Text=string.format(_fY<(-8718+8719)and _lk(146)or _lk(147),_go)_fZ(_go)end _gg.InputBegan:Connect(function(_gq)if _gq.UserInputType==Enum.UserInputType.MouseButton1 or _gq.UserInputType==Enum.UserInputType.Touch then _gh=true end end)_d.InputChanged:Connect(function(_gr)if _gh and(_gr.UserInputType==Enum.UserInputType.MouseMovement or _gr.UserInputType==Enum.UserInputType.Touch)then _gi(_gr.Position.X)end end)_d.InputEnded:Connect(function(_gs)if _gs.UserInputType==Enum.UserInputType.MouseButton1 or _gs.UserInputType==Enum.UserInputType.Touch then if _gh then _gh=false;_cI()end end end)return _ga end local function _gt(_gu,_gv,_gw,_gx,_gy,_gz)local _gA=_fz(_gu,(4399-4363))local _gB=Instance.new(_lk(128),_gA)_gB.Image=_gv;_gB.ImageColor3=_t.accentHi;_gB.BackgroundTransparency=(-570+571)_gB.Size=UDim2.new((3025-3025),(4533-4518),(6505-6505),(-1294+1309));_gB.Position=UDim2.new((6699-6699),(2279-2267),0.5,-(6556-6549));_gB.ZIndex=(7571-7560)local _gC=Instance.new(_lk(134),_gA)_gC.Size=UDim2.new((2090-2089),-(-489+589),(-8493+8494),(2147-2147));_gC.Position=UDim2.new((-8338+8338),(7628-7592),(-940+940),(4864-4864))_gC.BackgroundTransparency=(5370-5369);_gC.Text=_gw;_gC.TextColor3=_t.text;_gC.TextSize=(9283-9271);_gC.Font=Enum.Font.GothamMedium;_gC.TextXAlignment=Enum.TextXAlignment.Left;_gC.ZIndex=(-7038+7049)local _gD=Instance.new(_lk(126),_gA)_gD.Size=UDim2.new((7311-7311),(-796+866),(-177+177),(-3335+3357));_gD.Position=UDim2.new((1899-1898),-(-7931+8011),0.5,-(8453-8442));_gD.BackgroundColor3=_t.bgHi _gD.BorderSizePixel=(9529-9529);_gD.Text=_gy;_gD.TextColor3=_t.accentHi;_gD.TextSize=(-6671+6682);_gD.Font=Enum.Font.GothamBold;_gD.ZIndex=(8129-8118)Instance.new(_lk(58),_gD).CornerRadius=UDim.new((-9950+9950),(-9008+9014))local _gE=Instance.new(_lk(59),_gD);_gE.Color=_t.border;_gE.Thickness=(973-972)local _gF=Instance.new(_lk(137),_dY)_gF.Size=UDim2.new((2611-2611),(-1930+2060),(3018-3018),(7893-7893));_gF.BackgroundColor3=_t.bgHi;_gF.BorderSizePixel=(-7470+7470);_gF.ZIndex=(-8048+9047)_gF.Visible=false;_gF.ClipsDescendants=true;_gF.ScrollBarThickness=(5843-5843)_gF.AutomaticCanvasSize=Enum.AutomaticSize.Y Instance.new(_lk(58),_gF).CornerRadius=UDim.new((-5493+5493),(6329-6323))Instance.new(_lk(59),_gF).Color=_t.border local _gG=Instance.new(_lk(138),_gF);_gG.Padding=UDim.new((9496-9496),(-284+286));_gG.SortOrder=Enum.SortOrder.LayoutOrder local _gH=Instance.new(_lk(139),_gF);_gH.PaddingTop=UDim.new((-7032+7032),(7847-7843));_gH.PaddingBottom=UDim.new((5746-5746),(-4760+4764));_gH.PaddingLeft=UDim.new((6183-6183),(4913-4909));_gH.PaddingRight=UDim.new((7006-7006),(-8339+8343))for _gI,_gJ in ipairs(_gx)do local _gK=Instance.new(_lk(126),_gF)_gK.Size=UDim2.new((9230-9229),(9152-9152),(-5277+5277),(-6716+6740));_gK.BackgroundColor3=_t.bgRow _gK.BorderSizePixel=(8999-8999);_gK.Text=_gJ;_gK.TextColor3=_t.text;_gK.TextSize=(-1920+1932);_gK.Font=Enum.Font.GothamMedium;_gK.ZIndex=(-369+1369);_gK.LayoutOrder=_gI Instance.new(_lk(58),_gK).CornerRadius=UDim.new((6399-6399),(-8135+8139))_gK.MouseEnter:Connect(function()_e:Create(_gK,TweenInfo.new(0.1),{BackgroundColor3=_t.bgRowHi}):Play()end)_gK.MouseLeave:Connect(function()_e:Create(_gK,TweenInfo.new(0.1),{BackgroundColor3=_t.bgRow}):Play()end)_gK.MouseButton1Click:Connect(function()_gD.Text=_gJ;_gz(_gJ);_gF.Visible=false end)end local _gL=false _gD.MouseButton1Click:Connect(function()_gL=not _gL if _gL then local _gM=_gD.AbsolutePosition;local _gN=_gD.AbsoluteSize local _gO=_dY.AbsolutePosition _gF.Position=UDim2.fromOffset(_gM.X-_gO.X,_gM.Y-_gO.Y+_gN.Y+(5557-5553))_gF.Size=UDim2.new((-2078+2078),_gD.AbsoluteSize.X,(-2977+2977),math.min(#_gx*(8871-8845)+(-7783+7791),(5709-5549)))_gF.Visible=true else _gF.Visible=false end end)_dY.InputBegan:Connect(function(_gP)if _gP.UserInputType==Enum.UserInputType.MouseButton1 or _gP.UserInputType==Enum.UserInputType.Touch then _gF.Visible=false;_gL=false end end)_d.InputBegan:Connect(function(_gQ,_gR)if not _gR and(_gQ.UserInputType==Enum.UserInputType.MouseButton1 or _gQ.UserInputType==Enum.UserInputType.Touch)then if _gL then local _gS=Vector2.new(_gQ.Position.X,_gQ.Position.Y)local _gT=_gF.AbsolutePosition;local _gU=_gF.AbsoluteSize if not(_gS.X>=_gT.X and _gS.X<=_gT.X+_gU.X and _gS.Y>=_gT.Y and _gS.Y<=_gT.Y+_gU.Y)then _gL=false;_gF.Visible=false end end end end)_gA.MouseEnter:Connect(function()_e:Create(_gA,TweenInfo.new(0.12),{BackgroundColor3=_t.bgRowHi}):Play()end)_gA.MouseLeave:Connect(function()_e:Create(_gA,TweenInfo.new(0.12),{BackgroundColor3=_t.bgRow}):Play()end)return _gA end local function _gV(_gW)local function _gX(_gY,_gZ,_ha)local _hb=_fp(_gY,_gZ,_ha)local _hc=_gY:FindFirstChildOfClass(_lk(138))if _hc then _hb.LayoutOrder=#_gY:GetChildren()end return _hb end local _hd=_gX(_gW,_a.aim,_lk(148))_fE(_hd,_a.aim,_lk(148),_z.Silent.Enabled,function(_he)_z.Silent.Enabled=_he;_z.Silent.Targetting=_he;_cI()end)_fE(_hd,_a.aim,_lk(149),_z.Silent.DrawFieldOfView,function(_hf)_z.Silent.UseFieldOfView=_hf;_z.Silent.DrawFieldOfView=_hf;_cI()end)_fE(_hd,_a.aim,_lk(150),_z.Silent.Snapline,function(_hg)_z.Silent.Snapline=_hg;_cI()end)_fE(_hd,_a.aim,_lk(151),_z.Silent.WallCheck,function(_hh)_z.Silent.WallCheck=_hh;_cI()end)_fE(_hd,_a.target,_lk(152),_z.Silent.TeamCheck,function(_hi)_z.Silent.TeamCheck=_hi;_bm=nil;_cI()end)_fE(_hd,_a.aim,_lk(153),_z.Silent.WallBang,function(_hj)_z.Silent.WallBang=_hj;_cI()end)_fE(_hd,_a.aim,_lk(154),_cD.Triggerbot,function(_hk)_cD.Triggerbot=_hk;_cI()end)_gt(_hd,_a.target,_lk(155),{_lk(33),_lk(34)},_z.Silent.TargetPart[(6231-6230)]or _lk(33),function(_hl)table.clear(_z.Silent.TargetPart);table.insert(_z.Silent.TargetPart,_hl);_cI()end)_fR(_hd,_a.fov,_lk(156),(-5562+5572),(-8855+9355),_z.Silent.Radius,(1448-1447),function(_hm)_z.Silent.Radius=_hm;_cI()end)_fR(_hd,_a.distance,_lk(157),(4363-4313),(-3649+6649),_z.Silent.MaxDistance,(-8123+8133),function(_hn)_z.Silent.MaxDistance=_hn;_cI()end)_fR(_hd,_a.aim,_lk(158),(1598-1597),(527-427),_z.Silent.HitChance,(-4544+4545),function(_ho)_z.Silent.HitChance=_ho;_cI()end)_fE(_hd,_a.skip,_lk(159),_cD.SkipAiming,function(_hp)_cD.SkipAiming=_hp;_cI()end)_fE(_hd,_a.skip,_lk(160),_cD.SkipRollAim,function(_hq)_cD.SkipRollAim=_hq;_cI()end)local _hr=_gX(_gW,_a.target,_lk(161))_fE(_hr,_a.target,_lk(161),_cD.KillCheck,function(_hs)_cD.KillCheck=_hs;_cI()end)_fR(_hr,_a.target,_lk(162),(9253-9253),(-8546+8646),_cD.KillCheckMin,(-2847+2848),function(_ht)_cD.KillCheckMin=_ht;_cI()end)_fR(_hr,_a.target,_lk(163),(7488-7488),(3139-3039),_cD.KillCheckMax,(6666-6665),function(_hu)_cD.KillCheckMax=_hu;_cI()end)end local function _hv(_hw)local function _hx(_hy,_hz,_hA)local _hB=_fp(_hy,_hz,_hA)local _hC=_hy:FindFirstChildOfClass(_lk(138))if _hC then _hB.LayoutOrder=#_hy:GetChildren()end return _hB end local _hD=_hx(_hw,_a.fov,_lk(164))_fE(_hD,_a.fov,_lk(165),_cD.ESPEnabled,function(_hE)_cD.ESPEnabled=_hE;_cI()end)_fE(_hD,_a.body,_lk(166),_cD.BoxESP,function(_hF)_cD.BoxESP=_hF;_cI()end)_fE(_hD,_a.body,_lk(167),_cD.CornerBoxESP,function(_hG)_cD.CornerBoxESP=_hG;_cI()end)_fE(_hD,_a.body,_lk(168),_cD.SkeletonESP,function(_hH)_cD.SkeletonESP=_hH;_cI()end)_fE(_hD,_a.target,_lk(169),_cD.NameTags,function(_hI)_cD.NameTags=_hI;_cI()end)_fE(_hD,_a.body,_lk(170),_cD.HealthBar,function(_hJ)_cD.HealthBar=_hJ;_cI()end)_fE(_hD,_a.distance,_lk(171),_cD.DistanceESP,function(_hK)_cD.DistanceESP=_hK;_cI()end)_fE(_hD,_a.target,_lk(172),_cD.HeadDot,function(_hL)_cD.HeadDot=_hL;_cI()end)_fE(_hD,_a.fov,_lk(173),_cD.Tracers,function(_hM)_cD.Tracers=_hM;_cI()end)_fR(_hD,_a.distance,_lk(174),(2128-2028),(219+4781),_cD.ESPDist,(-8673+8683),function(_hN)_cD.ESPDist=_hN;_cI()end)end local function _hO(_hP)local function _hQ(_hR,_hS,_hT)local _hU=_fp(_hR,_hS,_hT)local _hV=_hR:FindFirstChildOfClass(_lk(138))if _hV then _hU.LayoutOrder=#_hR:GetChildren()end return _hU end local _hW=_hQ(_hP,_a.settings,_lk(175))_fE(_hW,_a.aim,_lk(176),_cD.RapidFire,function(_hX)_cD.RapidFire=_hX;_cI();_dh()end)_fR(_hW,_a.settings,_lk(177),(940-939),(993069+6931),_cD.RateOfFire,(-5825+5826),function(_hY)_cD.RateOfFire=_hY;_cI();_dh()end)_fE(_hW,_a.aim,_lk(178),_cD.DamageChanger,function(_hZ)_cD.DamageChanger=_hZ;_cI();_dh()end)_fR(_hW,_a.settings,_lk(179),(-6079+6080),(998164+1836),_cD.DamageValue,(190-189),function(_ia)_cD.DamageValue=_ia;_cI();_dh()end)local _ib=_hQ(_hP,_a.aim,_lk(180))_fE(_ib,_a.aim,_lk(181),_cD.NoSpread,function(_ic)_cD.NoSpread=_ic;_cI();_dh()end)_fE(_ib,_a.aim,_lk(182),_cD.NoDelay,function(_id)_cD.NoDelay=_id;_cI();_dh()end)_fE(_ib,_a.distance,_lk(183),_cD.InfiniteStuds,function(_ie)_cD.InfiniteStuds=_ie;_cI();_dh()end)end local function _if(_ig)local function _ih(_ii,_ij,_ik)local _il=_fp(_ii,_ij,_ik)local _im=_ii:FindFirstChildOfClass(_lk(138))if _im then _il.LayoutOrder=#_ii:GetChildren()end return _il end local _in=_ih(_ig,_a.settings,_lk(184))local _io=Instance.new(_lk(56),_in)_io.Size=UDim2.new((-8796+8797),(-7634+7634),(-220+220),(6009-5879));_io.BackgroundTransparency=(1002-1001);_io.ZIndex=(5673-5667)local _ip={}local function _iq(_ir,_is,_it,_iu)local _iv=Instance.new(_lk(126),_io)_iv.Size=UDim2.new(0.3,-(9687-9679),(6720-6719),(-4754+4754));_iv.Position=UDim2.new(_iu,(-7824+7824),(9899-9899),(-2661+2661))_iv.BackgroundColor3=_t.bgRow;_iv.Text="";_iv.AutoButtonColor=false;_iv.ZIndex=(5883-5876)_iv.ClipsDescendants=true local _iw=Instance.new(_lk(59),_iv);_iw.Color=_t.border;_iw.Thickness=1.5;_iw.Transparency=0.2 Instance.new(_lk(58),_iv).CornerRadius=UDim.new((-5682+5682),(9251-9243))local _ix=Instance.new(_lk(56),_iv)_ix.Size=UDim2.new((659-658),(3038-3038),(-6276+6277),(-7164+7164));_ix.BackgroundColor3=_t.bg;_ix.BorderSizePixel=(-2293+2293);_ix.ZIndex=(3334-3326)Instance.new(_lk(58),_ix).CornerRadius=UDim.new((-9851+9851),(-8291+8299))if _ir~=""then local _iy=Instance.new(_lk(128),_iv)_iy.Size=UDim2.new((-8637+8638),(-9587+9587),(-3201+3202),(-7815+7815));_iy.BackgroundTransparency=(7508-7507);_iy.Image=_ir;_iy.ScaleType=Enum.ScaleType.Crop;_iy.ZIndex=(3698-3690)Instance.new(_lk(58),_iy).CornerRadius=UDim.new((-7336+7336),(7690-7682))table.insert(_ip,_iy)end local _iz=Instance.new(_lk(134),_iv)_iz.Size=UDim2.new((-2254+2255),(-5372+5372),(3324-3323),(5157-5157));_iz.BackgroundTransparency=(6528-6527);_iz.Text=_it;_iz.TextColor3=_t.text;_iz.Font=Enum.Font.GothamBold;_iz.TextSize=(-103+115);_iz.ZIndex=(8085-8076)_iv.MouseButton1Click:Connect(function()_cD.BackgroundType=_is;_ea();_cI()for _iA,_iB in ipairs(_io:GetChildren())do if _iB:IsA(_lk(126))then local _iC=_iB:FindFirstChildOfClass(_lk(59))if _iC then _e:Create(_iC,TweenInfo.new(0.2),{Color=_t.border,Thickness=1.5,Transparency=0.2}):Play()end end end _e:Create(_iw,TweenInfo.new(0.2),{Color=_t.accentHi,Thickness=2.5,Transparency=(-9351+9351)}):Play()end)return _iv,_iw end local _iD,_iE=_iq("",_lk(62),_lk(62),(3629-3629))local _iF,_iG=_iq(_a.bgAsset,_lk(130),_lk(185),0.35)local _iH,_iI=_iq(_a.motoBg,_lk(131),_lk(186),0.70)_iD.BackgroundTransparency=(-2235+2236);_iF.BackgroundTransparency=(-2185+2186);_iH.BackgroundTransparency=(1535-1534)if _iD:FindFirstChildOfClass(_lk(56))then _iD:FindFirstChildOfClass(_lk(56)).BackgroundTransparency=(1021-1020)end if _iF:FindFirstChildOfClass(_lk(56))then _iF:FindFirstChildOfClass(_lk(56)).BackgroundTransparency=(-5327+5328)end if _iH:FindFirstChildOfClass(_lk(56))then _iH:FindFirstChildOfClass(_lk(56)).BackgroundTransparency=(-8856+8857)end if _cD.BackgroundType==_lk(130)then _iG.Color=_t.accentHi;_iG.Thickness=2.5;_iG.Transparency=(-4836+4836)elseif _cD.BackgroundType==_lk(131)then _iI.Color=_t.accentHi;_iI.Thickness=2.5;_iI.Transparency=(-7277+7277)else _iE.Color=_t.accentHi;_iE.Thickness=2.5;_iE.Transparency=(7222-7222)end local _iJ=_ih(_ig,_a.settings,_lk(187))local _iK=Instance.new(_lk(137),_iJ)_iK.Size=UDim2.new((-882+883),(-776+776),(-4279+4279),(3453-3371));_iK.BackgroundColor3=_t.bgRow;_iK.BorderSizePixel=(-8190+8190);_iK.ScrollBarThickness=(-5127+5127);_iK.ScrollingDirection=Enum.ScrollingDirection.X;_iK.ZIndex=(1457-1451)Instance.new(_lk(58),_iK).CornerRadius=UDim.new((-8067+8067),(-281+293))Instance.new(_lk(59),_iK).Color=_t.border local _iL=Instance.new(_lk(138),_iK);_iL.FillDirection=Enum.FillDirection.Horizontal;_iL.Padding=UDim.new((-6206+6206),(1492-1484));_iL.SortOrder=Enum.SortOrder.LayoutOrder;_iL.VerticalAlignment=Enum.VerticalAlignment.Center local _iM=Instance.new(_lk(139),_iK);_iM.PaddingLeft=UDim.new((9665-9665),(7874-7864));_iM.PaddingRight=UDim.new((6018-6018),(-387+397))local _iN={}local function _iO(_iP,_iQ)local _iR=Instance.new(_lk(126),_iK);_iR.Size=UDim2.new((-2492+2492),(-8216+8274),(8417-8417),(-9298+9356));_iR.BackgroundTransparency=(4698-4697);_iR.Text="";_iR.AutoButtonColor=false;_iR.ZIndex=(-6211+6218);_iR.LayoutOrder=#_iN+(943-942)local _iS=Instance.new(_lk(59),_iR);_iS.Color=_t.border;_iS.Thickness=1.5;_iS.Transparency=0.2 Instance.new(_lk(58),_iR).CornerRadius=UDim.new((-6937+6937),(7189-7177))local _iT=Instance.new(_lk(128),_iR);_iT.Size=UDim2.new((4471-4470),(7105-7105),(1638-1637),(-7517+7517));_iT.BackgroundColor3=_t.bg;_iT.Image=_iP;_iT.ScaleType=Enum.ScaleType.Fit;_iT.ZIndex=(2582-2574)Instance.new(_lk(58),_iT).CornerRadius=UDim.new((6631-6631),(3727-3715))table.insert(_iN,_iT)_iR.MouseButton1Click:Connect(function()_cD.IconType=_iQ;_dX.Image=_iP;_cI()for _iU,_iV in ipairs(_iK:GetChildren())do if _iV:IsA(_lk(126))then local _iW=_iV:FindFirstChildOfClass(_lk(59))if _iW then _e:Create(_iW,TweenInfo.new(0.2),{Color=_t.border,Thickness=1.5,Transparency=0.2}):Play()end end end _e:Create(_iS,TweenInfo.new(0.2),{Color=_t.accentHi,Thickness=2.5,Transparency=(-5513+5513)}):Play()end)return _iR,_iS end _iO(_a.xylo,_lk(63))_iO(_a.icon1,_lk(188))_iO(_a.icon2,_lk(189))_iO(_a.icon3,_lk(190))_iO(_a.icon4,_lk(191))_iO(_a.icon5,_lk(192))_iO(_a.icon6,_lk(193))_iO(_a.icon7,_lk(194))_iO(_a.icon8,_lk(195))task.defer(function()_iK.CanvasSize=UDim2.new((1884-1884),_iL.AbsoluteContentSize.X+(2652-2632),(-4654+4654),(-9784+9784))end)_iL:GetPropertyChangedSignal(_lk(196)):Connect(function()_iK.CanvasSize=UDim2.new((-253+253),_iL.AbsoluteContentSize.X+(-3880+3900),(3377-3377),(-3174+3174))end)for _iX,_iY in ipairs(_iK:GetChildren())do if _iY:IsA(_lk(126))then local _iZ=_iY:FindFirstChildOfClass(_lk(59))local _ja=_iY:FindFirstChildOfClass(_lk(128))if _iZ and _ja then if _a[_cD.IconType]==_ja.Image then _e:Create(_iZ,TweenInfo.new(0.2),{Color=_t.accentHi,Thickness=2.5,Transparency=(4505-4505)}):Play()else _e:Create(_iZ,TweenInfo.new(0.2),{Color=_t.border,Thickness=1.5,Transparency=0.2}):Play()end end end end local _jb=_ih(_ig,_a.settings,_lk(197))local function _jc(_jd)for _je,_jf in ipairs(_ip)do _jf.BackgroundTransparency=(3833-3832)end _io.BackgroundTransparency=(1277-1276)for _jg,_jh in ipairs(_iN)do _jh.BackgroundTransparency=(-7013+7014)end _iK.BackgroundTransparency=(4815-4814)for _ji,_jj in ipairs(_ig:GetDescendants())do if _jj:IsA(_lk(56))and(_jj.BackgroundColor3==_t.bgRow or _jj.BackgroundColor3==_t.bgRowHi)then _jj.BackgroundTransparency=_jd end if _jj:IsA(_lk(126))and(_jj.Parent==_io)then _jj.BackgroundTransparency=(8993-8992)local _jk=_jj:FindFirstChildOfClass(_lk(56))if _jk then _jk.BackgroundTransparency=(-6500+6501)end end end if _eg then _eg.BackgroundTransparency=_jd end end _fR(_jb,_a.settings,_lk(198),(-3297+3297),0.9,_cD.UITransparency,0.05,function(_jl)_cD.UITransparency=_jl;_jc(_jl);_cI()end)_fE(_jb,_a.settings,_lk(199),_cD.SnowEnabled,function(_jm)_cD.SnowEnabled=_jm;_cI()end)task.spawn(function()task.wait(0.15);if _cD.UITransparency>(-8870+8870)then _jc(_cD.UITransparency)end end)local _jn=_ih(_ig,_a.settings,_lk(200))_fR(_jn,_a.settings,_lk(201),0.3,1.5,_cD.UIScale,0.05,function(_jo)_eb.Scale=_jo;_cD.UIScale=_jo end)local _jp=Instance.new(_lk(126),_jn)_jp.Size=UDim2.new((-4278+4279),(3110-3110),(-307+307),(3534-3504));_jp.BackgroundColor3=_t.accentDim;_jp.Text=_lk(202);_jp.TextColor3=_t.white;_jp.Font=Enum.Font.GothamBold;_jp.TextSize=(-3429+3440);_jp.ZIndex=(6073-6067)Instance.new(_lk(58),_jp).CornerRadius=UDim.new((184-184),(-8636+8644))table.insert(_ip,_jp)_jp.MouseButton1Click:Connect(function()pcall(function()writefile(_lk(64),tostring(_cD.UIScale))end)_jp.Text=_lk(203);task.delay((-3285+3286),function()_jp.Text=_lk(202)end)end)end _gV(_es);_gV(_ez)_hv(_et);_hv(_eA)_hO(_eu);_hO(_eB)_if(_ev);_if(_eC)_fe()local _jq=false _dV.InputBegan:Connect(function(_jr)if _jr.UserInputType==Enum.UserInputType.MouseButton1 or _jr.UserInputType==Enum.UserInputType.Touch then _jq=false;local _js=_dV.Position;local _jt=_jr.Position;local _ju _ju=_d.InputChanged:Connect(function(_jv)if _jv.UserInputType==Enum.UserInputType.MouseMovement or _jv.UserInputType==Enum.UserInputType.Touch then local _jw=_jv.Position-_jt if math.abs(_jw.X)>(-1271+1275)or math.abs(_jw.Y)>(-4242+4246)then _jq=true local _jx=_h.ViewportSize _dV.Position=UDim2.new(_js.X.Scale,math.clamp(_js.X.Offset+_jw.X,-(_jx.X-(-8940+8994)),(-4922+4922)),_js.Y.Scale,math.clamp(_js.Y.Offset+_jw.Y,-(3759-3732),_jx.Y-(-4072+4126)))_dY.Position=UDim2.new((847-846),-(_dU+(2762-2748)),0.5,_dV.Position.Y.Offset)end end end)_d.InputEnded:Connect(function(_jy)if _jy.UserInputType==Enum.UserInputType.MouseButton1 or _jy.UserInputType==Enum.UserInputType.Touch then if _ju then _ju:Disconnect()end end end)end end)_dV.MouseButton1Click:Connect(function()if not _jq then _dY.Visible=not _dY.Visible end end)local _jz=false;local _jA=nil;local _jB=nil _ee.InputBegan:Connect(function(_jC)if _jC.UserInputType==Enum.UserInputType.MouseButton1 or _jC.UserInputType==Enum.UserInputType.Touch then _jz=true;_jA=Vector2.new(_jC.Position.X,_jC.Position.Y);_jB=_dY.Position end end)_d.InputChanged:Connect(function(_jD)if not _jz or(_jD.UserInputType~=Enum.UserInputType.MouseMovement and _jD.UserInputType~=Enum.UserInputType.Touch)then return end;local _jE=Vector2.new(_jD.Position.X,_jD.Position.Y)-_jA;_dY.Position=UDim2.new(_jB.X.Scale,_jB.X.Offset+_jE.X,_jB.Y.Scale,_jB.Y.Offset+_jE.Y)end)_d.InputEnded:Connect(function(_jF)if _jF.UserInputType==Enum.UserInputType.MouseButton1 or _jF.UserInputType==Enum.UserInputType.Touch then _jz=false end end)_d.InputBegan:Connect(function(_jG,_jH)if _jH then return end;if _jG.KeyCode==Enum.KeyCode.RightShift then _dY.Visible=not _dY.Visible end end)local function _jI()if not _j then return end local _jJ=_h.ViewportSize if _jJ.X<(1141-241)or _jJ.Y<(5757-5157)then _eb.Scale=math.clamp(math.min((_jJ.X*0.9)/_n,(_jJ.Y*0.9)/_o),0.4,_cD.UIScale)else _eb.Scale=_cD.UIScale end end _h:GetPropertyChangedSignal(_lk(204)):Connect(_jI)task.defer(function()task.wait(0.1);_jI()end)local _jK=Instance.new(_lk(56),_dY)_jK.Size=UDim2.new((-91+92),(-5862+5862),(-8647+8648),(9632-9632));_jK.BackgroundTransparency=(5284-5283);_jK.ZIndex=(2887-2884);_jK.ClipsDescendants=true Instance.new(_lk(58),_jK).CornerRadius=UDim.new((-9492+9492),(-9211+9231))local _jL={}for _jM=(-6351+6352),(125-110)do local _jN=Instance.new(_lk(56),_jK)_jN.Size=UDim2.new((-8336+8336),math.random((-7226+7228),(-9950+9954)),(-2557+2557),math.random((777-775),(-3522+3526)));_jN.BackgroundColor3=Color3.fromRGB((-4354+4609),(1143-888),(6987-6732));_jN.BorderSizePixel=(9392-9392);_jN.ZIndex=(-7342+7346)Instance.new(_lk(58),_jN).CornerRadius=UDim.new((2451-2450),(149-149))table.insert(_jL,{obj=_jN,x=math.random(),y=math.random(),speed=math.random((-742+744),(-2998+3004))/(1175-175)})end task.spawn(function()while task.wait(0.05)do if not _cD.SnowEnabled or not _dY.Visible then for _jO,_jP in ipairs(_jL)do _jP.obj.Visible=false end else for _jQ,_jR in ipairs(_jL)do _jR.obj.Visible=true;_jR.y=_jR.y+_jR.speed if _jR.y>(5501-5500)then _jR.y=(1524-1524);_jR.x=math.random()end _jR.obj.Position=UDim2.new(_jR.x,(9574-9574),_jR.y,(8358-8358))end end end end)local _jS=(-8227+8227)local _jT=0.1 _c.Heartbeat:Connect(function(_jU)_jS=_jS+_jU if _jS<_jT then return end _jS=(8149-8149)pcall(function()if not _cD.ESPEnabled and not _cD.BoxESP and not _cD.CornerBoxESP and not _cD.SkeletonESP and not _cD.NameTags and not _cD.HealthBar and not _cD.DistanceESP and not _cD.HeadDot and not _cD.Tracers then for _jV in pairs(_dz)do _dA(_jV)end return end local _jW=_i.Character and _i.Character:FindFirstChild(_lk(34))local _jX={}for _jY,_jZ in ipairs(_b:GetPlayers())do if _jZ~=_i then local _ka=_jZ.Character local _kb=_ka and _ka:FindFirstChild(_lk(34))local _kc=_ka and _ka:FindFirstChildOfClass(_lk(39))if _ka and _kb and _kc and _kc.Health>(-4427+4427)and _jW and(_kb.Position-_jW.Position).Magnitude<=_cD.ESPDist then local _kd=_jZ.UserId _jX[_kd]=true local _ke=_dK(_kd)local _kf,_kg=_h:WorldToViewportPoint(_kb.Position)local _kh=_ka:FindFirstChild(_lk(33))if _kh and _kg then local _ki,_kj=_h:WorldToViewportPoint(_kh.Position)local _kk=_kj and Vector2.new(math.floor(_ki.X),math.floor(_ki.Y-(8153-8137)))or Vector2.new(math.floor(_kf.X),math.floor(_kf.Y-(6481-6449)))local _kl=Vector2.new(math.floor(_kf.X),math.floor(_kf.Y+(-7968+7982)))local _km=math.abs(_kk.Y-_kl.Y);local _kn=_km*0.55 local _ko=Vector2.new(math.floor(_kf.X-_kn*0.5),math.floor(_kk.Y))local _kp=_cD.ESPColor if _cD.BoxESP then _ke.box.Visible=true;_ke.box.Position=_ko;_ke.box.Size=Vector2.new(_kn,_km);_ke.box.Color=_kp;_ke.box.Transparency=(-8981+8982)else _ke.box.Visible=false end if _cD.CornerBoxESP then local _kq=_kn*0.28;local _kr=_km*0.22 local _ks={{_ko,Vector2.new((7208-7207),(3105-3105)),Vector2.new((3174-3174),(-6179+6180))},{_ko+Vector2.new(_kn,(-3012+3012)),Vector2.new(-(9618-9617),(8444-8444)),Vector2.new((-260+260),(-5439+5440))},{_ko+Vector2.new((1738-1738),_km),Vector2.new((-6731+6732),(-6555+6555)),Vector2.new((-2363+2363),-(6437-6436))},{_ko+Vector2.new(_kn,_km),Vector2.new(-(-4722+4723),(-5135+5135)),Vector2.new((9885-9885),-(1726-1725))}}for _kt,_ku in ipairs(_ks)do local _kv=(_kt-(5947-5946))*(5568-5566)+(-4407+4408);local _kw=_kv+(-710+711)_ke.corners[_kv].Visible=true;_ke.corners[_kv].From=_ku[(-9462+9463)];_ke.corners[_kv].To=_ku[(-221+222)]+_ku[(-9952+9954)]*_kq;_ke.corners[_kv].Color=_kp;_ke.corners[_kv].Transparency=(-3627+3628)_ke.corners[_kw].Visible=true;_ke.corners[_kw].From=_ku[(9569-9568)];_ke.corners[_kw].To=_ku[(-8390+8391)]+_ku[(2030-2027)]*_kr;_ke.corners[_kw].Color=_kp;_ke.corners[_kw].Transparency=(-4093+4094)end else for _kx,_ky in ipairs(_ke.corners)do _ky.Visible=false end end if _cD.SkeletonESP then local _kz=_dI(_ka)for _kA,_kB in ipairs(_kz)do local _kC=_ka:FindFirstChild(_kB[(-3088+3089)]);local _kD=_ka:FindFirstChild(_kB[(6392-6390)])if _kC and _kD and _kC:IsA(_lk(46))and _kD:IsA(_lk(46))then local _kE,_kF=_h:WorldToViewportPoint(_kC.Position)local _kG,_kH=_h:WorldToViewportPoint(_kD.Position)if _kF and _kH then if not _ke.skeleton[_kA]then local _kI=Drawing.new(_lk(51));_kI.Thickness=1.2;_ke.skeleton[_kA]=_kI end _ke.skeleton[_kA].Visible=true;_ke.skeleton[_kA].From=Vector2.new(math.floor(_kE.X),math.floor(_kE.Y));_ke.skeleton[_kA].To=Vector2.new(math.floor(_kG.X),math.floor(_kG.Y));_ke.skeleton[_kA].Color=_kp;_ke.skeleton[_kA].Transparency=(8388-8387)elseif _ke.skeleton[_kA]then _ke.skeleton[_kA].Visible=false end elseif _ke.skeleton[_kA]then _ke.skeleton[_kA].Visible=false end end else for _kJ,_kK in pairs(_ke.skeleton)do pcall(function()_kK:Remove()end);_ke.skeleton[_kJ]=nil end end if _cD.HealthBar and _kc.Health>(1751-1751)then local _kL=_kc.Health/math.max(_kc.MaxHealth,(-5727+5728))local _kM=math.floor(_ko.X-(3852-3846));local _kN=math.floor(_ko.Y);local _kO=math.floor(_km)_ke.healthBarBg.Visible=true;_ke.healthBarBg.Position=Vector2.new(_kM,_kN);_ke.healthBarBg.Size=Vector2.new((808-806),_kO);_ke.healthBarBg.Color=Color3.fromRGB((907-907),(-8836+8836),(-1944+1944))_ke.healthBarFill.Visible=true;_ke.healthBarFill.Position=Vector2.new(_kM,math.floor(_kN+_kO*((2069-2068)-_kL)));_ke.healthBarFill.Size=Vector2.new((-3709+3711),math.floor(_kO*_kL));_ke.healthBarFill.Color=Color3.fromRGB(math.floor((4356-4101)*((9834-9833)-_kL)),math.floor((-1476+1731)*_kL),(588-588))else _ke.healthBarBg.Visible=false;_ke.healthBarFill.Visible=false end if _cD.HeadDot and _kj then _ke.headDot.Visible=true;_ke.headDot.Position=Vector2.new(math.floor(_ki.X),math.floor(_ki.Y));_ke.headDot.Color=_kp;_ke.headDot.Transparency=(-6680+6681)else _ke.headDot.Visible=false end if _cD.Tracers then _ke.tracer.Visible=true;_ke.tracer.From=Vector2.new(math.floor(_h.ViewportSize.X/(8059-8057)),math.floor(_h.ViewportSize.Y));_ke.tracer.To=Vector2.new(math.floor(_kf.X),math.floor(_kf.Y));_ke.tracer.Color=_kp else _ke.tracer.Visible=false end if _cD.ESPEnabled then if not _ke.highlight or not _ke.highlight.Parent then _ke.highlight=Instance.new(_lk(205));_ke.highlight.Parent=_ka end _ke.highlight.FillColor=_kp;_ke.highlight.FillTransparency=_cD.ESPFill;_ke.highlight.OutlineColor=_kp elseif _ke.highlight then _ke.highlight:Destroy();_ke.highlight=nil end if _cD.NameTags or _cD.DistanceESP then local _kP=(-7061+7061)if _cD.NameTags then _ke.nameTag.Visible=true;_ke.nameTag.Text=_jZ.Name;_ke.nameTag.Color=_kp _ke.nameTag.Position=Vector2.new(math.floor(_kf.X),math.floor(_kk.Y-(-8194+8206)));_kP=(1321-1309)else _ke.nameTag.Visible=false end if _cD.DistanceESP then local _kQ=math.floor((_kb.Position-_jW.Position).Magnitude)_ke.distTag.Visible=true;_ke.distTag.Text=_kQ.._lk(206);_ke.distTag.Color=_kp _ke.distTag.Position=Vector2.new(math.floor(_kf.X),math.floor(_kk.Y-(-2824+2836)-_kP))else _ke.distTag.Visible=false end else _ke.nameTag.Visible=false;_ke.distTag.Visible=false end else _ke.box.Visible=false;_ke.headDot.Visible=false;_ke.tracer.Visible=false _ke.healthBarBg.Visible=false;_ke.healthBarFill.Visible=false _ke.nameTag.Visible=false;_ke.distTag.Visible=false for _kR,_kS in ipairs(_ke.corners)do _kS.Visible=false end for _kT,_kU in pairs(_ke.skeleton)do _kU.Visible=false end end end end end for _kV in pairs(_dz)do if not _jX[_kV]then _dA(_kV)end end end)end)_c.RenderStepped:Connect(function(_kW)if _cD.Triggerbot then if not triggerCooldown then triggerCooldown=(8407-8407)end triggerCooldown=triggerCooldown-_kW if triggerCooldown<=(4697-4697)then local _kX=_h.ViewportSize/(-6252+6254)local _kY=_h:ViewportPointToRay(_kX.X,_kX.Y)local _kZ=RaycastParams.new()_kZ.FilterType=Enum.RaycastFilterType.Exclude _kZ.FilterDescendantsInstances={_i.Character}local _la=_f:Raycast(_kY.Origin,_kY.Direction*(-7864+8864),_kZ)if _la and _la.Instance then local _lb=_la.Instance:FindFirstAncestorOfClass(_lk(207))local _lc=_lb and _b:GetPlayerFromCharacter(_lb)if _lc and _lc~=_i and _du(_lb)then local _ld=_i.Character and _i.Character:FindFirstChildOfClass(_lk(68))if _ld then local _le=_z.Silent.Enabled _z.Silent.Enabled=true pcall(function()_ld:Activate()end)_z.Silent.Enabled=_le triggerCooldown=0.05 end end end end end end)local _lf=getgenv and getgenv()or _G if type(_lf.BXYloUnload)==_lk(42)then pcall(_lf.BXYloUnload)end _lf.BXYloUnload=function()for _lg,_lh in ipairs(_v)do pcall(function()_lh:Disconnect()end)end for _li,_lj in ipairs(_w)do pcall(_lj)end if _dy and _dy.Parent then _dy:Destroy()end _lf.BXYloUnload=nil end
+-- XYLO v118 — FULL FEATURES + DESIGN UI SHELL
+-- Added: Kill Check (skip targets at 0-10 HP), No Spread Bullet, No Delay Shoot, Infinite Studs
+
+local tbl = {
+    logo     = "rbxassetid://136023085551303",
+    aim      = "rbxassetid://109065124754087",
+    skip     = "rbxassetid://11726391094",
+    fov      = "rbxassetid://120129574453255",
+    distance = "rbxassetid://92161351496486",
+    body     = "rbxassetid://11476647085",
+    target   = "rbxassetid://77821300880184",
+    settings = "rbxassetid://92314298724048",
+    xylo     = "rbxassetid://99240011349045",
+    bgAsset  = "rbxassetid://86578023419081",
+    motoBg   = "rbxassetid://76310790599684",
+    icon1    = "rbxassetid://74596781340721",
+    icon2    = "rbxassetid://82211271146969",
+    icon3    = "rbxassetid://128239684719903",
+    icon4    = "rbxassetid://126863724157374",
+    icon5    = "rbxassetid://80035292627205",
+    icon6    = "rbxassetid://108049753883608",
+    icon7    = "rbxassetid://102084438000017",
+    icon8    = "rbxassetid://124369411136753",
+}
+
+local Players           = game:GetService("Players")
+local RunService        = game:GetService("RunService")
+local UserInputService  = game:GetService("UserInputService")
+local TweenService      = game:GetService("TweenService")
+local Workspace         = game:GetService("Workspace")
+local HttpService       = game:GetService("HttpService")
+local currentCamera     = Workspace.CurrentCamera
+local localPlayer       = Players.LocalPlayer
+
+local isMobile = UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled
+local RECOMMENDED_MOBILE = 0.65
+local RECOMMENDED_PC = 1.0
+local defaultUIScale = isMobile and RECOMMENDED_MOBILE or RECOMMENDED_PC
+
+local WIDE_HW, WIDE_HH = 640, 500
+local TALL_HW, TALL_HH = 380, 560
+local TITLEBAR_H = 38
+local TABBAR_H = 28
+
+local tbl5 = {
+    bg=Color3.fromRGB(10,10,10), bgHi=Color3.fromRGB(18,18,18),
+    bgRow=Color3.fromRGB(22,22,22), bgRowHi=Color3.fromRGB(32,32,32),
+    border=Color3.fromRGB(45,45,45), borderHi=Color3.fromRGB(70,70,70),
+    accent=Color3.fromRGB(130,130,130), accentHi=Color3.fromRGB(190,190,190),
+    accentDim=Color3.fromRGB(70,70,70), danger=Color3.fromRGB(200,70,70),
+    text=Color3.fromRGB(220,220,220), textDim=Color3.fromRGB(130,130,130),
+    textMute=Color3.fromRGB(80,80,80), white=Color3.fromRGB(255,255,255),
+}
+
+local tbl2 = {
+    Enabled=false, SkipAiming=false, SkipRollAim=false, FOV=200,
+    BodyPart="Head", ShowFOV=true, MaxDist=1000,
+    TeamCheck=true, LosRadius=0.05, UIScale=defaultUIScale,
+    Triggerbot=false,
+    RapidFire=false, RateOfFire=10000,
+    DamageChanger=false, DamageValue=100,
+    ESPEnabled=false, BoxESP=false, CornerBoxESP=false, SkeletonESP=false,
+    NameTags=false, HealthBar=false, DistanceESP=false, HeadDot=false, Tracers=false,
+    ESPDist=1000, ESPColor=Color3.fromRGB(220,220,225), ESPFill=0.5, OutlineThickness=1,
+    BackgroundType="Default", UITransparency=0, SnowEnabled=true, IconType="xylo",
+    IsTallMode=false,
+    -- NEW FEATURES
+    KillCheck=true, KillCheckMin=1, KillCheckMax=10,
+    NoSpread=false,
+    NoDelay=false,
+    InfiniteStuds=false,
+}
+local tbl3 = {}
+for k,v in pairs(tbl2) do tbl3[k]=v end
+
+local savedScale = nil
+pcall(function()
+    local r = readfile("uisave.txt")
+    if r and tonumber(r) then savedScale = tonumber(r) end
+end)
+if savedScale then tbl3.UIScale = savedScale else tbl3.UIScale = defaultUIScale end
+
+local function fn()
+    local ok,r = pcall(function() return HttpService:JSONEncode(tbl3) end)
+    if ok and r then pcall(function() writefile("alkedionsets.txt",r) end) end
+end
+
+(function()
+    local ok,r = pcall(function() return readfile("alkedionsets.txt") end)
+    if not ok or not r or r=="" then return end
+    local ok2,r2 = pcall(function() return HttpService:JSONDecode(r) end)
+    if not ok2 or type(r2)~="table" then return end
+    for k,v in pairs(tbl2) do
+        local v2=r2[k]
+        if v2~=nil and type(v2)==type(v) and k ~= "UIScale" then tbl3[k]=v2 end
+    end
+end)()
+
+local function formatNumber(n)
+    local str = tostring(math.floor(n))
+    local formatted = str:reverse():gsub("(%d%d%d)", "%1,"):reverse()
+    if formatted:sub(1,1) == "," then formatted = formatted:sub(2) end
+    return formatted
+end
+
+-- ═══════════════════════════════════════════════════════════════
+-- FEATURE CORE
+-- ═══════════════════════════════════════════════════════════════
+
+local function applyToolChanges(tool)
+    if not tool or not tool:IsA("Tool") then return end
+    if tbl3.RapidFire then
+        for _, attr in ipairs({"RateOfFire","rateOfFire","FireRate","fireRate","Cooldown"}) do
+            if tool:GetAttribute(attr) ~= nil then
+                if attr == "Cooldown" then tool:SetAttribute(attr, 1/tbl3.RateOfFire)
+                else tool:SetAttribute(attr, tbl3.RateOfFire) end
+            end
+        end
+    end
+    if tbl3.DamageChanger then
+        for _, attr in ipairs({"Damage","damage","Dmg","dmg","Power"}) do
+            if tool:GetAttribute(attr) ~= nil then tool:SetAttribute(attr, tbl3.DamageValue) end
+        end
+    end
+    -- NO DELAY / INFINITE STUDS / NO SPREAD via attributes
+    if tbl3.NoDelay then
+        for _, attr in ipairs({"FireDelay","Delay","Cooldown","ShootDelay","ReloadTime"}) do
+            if tool:GetAttribute(attr) ~= nil then tool:SetAttribute(attr, 0) end
+        end
+    end
+    if tbl3.NoSpread then
+        for _, attr in ipairs({"Spread","spread","BulletSpread","Accuracy"}) do
+            if tool:GetAttribute(attr) ~= nil then tool:SetAttribute(attr, 0) end
+        end
+    end
+    if tbl3.InfiniteStuds then
+        for _, attr in ipairs({"Range","range","BulletRange","Studs","StudDistance","MaxRange"}) do
+            if tool:GetAttribute(attr) ~= nil then tool:SetAttribute(attr, 999999) end
+        end
+    end
+    for _, v in ipairs(tool:GetDescendants()) do
+        if v:IsA("NumberValue") or v:IsA("IntValue") then
+            local name = v.Name:lower()
+            if tbl3.RapidFire and (name:find("rate") or name:find("fire") or name:find("cooldown") or name:find("delay")) then
+                v.Value = tbl3.RateOfFire
+            end
+            if tbl3.DamageChanger and (name:find("damage") or name:find("dmg") or name:find("power")) then
+                v.Value = tbl3.DamageValue
+            end
+            if tbl3.NoDelay and (name:find("delay") or name:find("cooldown") or name:find("reload")) then
+                v.Value = 0
+            end
+            if tbl3.NoSpread and (name:find("spread") or name:find("accuracy")) then
+                v.Value = 0
+            end
+            if tbl3.InfiniteStuds and (name:find("range") or name:find("studs") or name:find("distance")) then
+                v.Value = 999999
+            end
+        end
+    end
+end
+
+local function applyAllTools()
+    local char = localPlayer.Character
+    if char then for _,c in ipairs(char:GetChildren()) do if c:IsA("Tool") then applyToolChanges(c) end end end
+    local bp = localPlayer:FindFirstChildOfClass("Backpack")
+    if bp then for _,c in ipairs(bp:GetChildren()) do if c:IsA("Tool") then applyToolChanges(c) end end end
+end
+
+local function watchTools(container)
+    if not container then return end
+    for _,c in ipairs(container:GetChildren()) do if c:IsA("Tool") then applyToolChanges(c) end end
+    container.ChildAdded:Connect(function(c) if c:IsA("Tool") then applyToolChanges(c) end end)
+end
+
+if localPlayer.Character then watchTools(localPlayer.Character) end
+if localPlayer:FindFirstChildOfClass("Backpack") then watchTools(localPlayer:FindFirstChildOfClass("Backpack")) end
+localPlayer.CharacterAdded:Connect(watchTools)
+localPlayer.ChildAdded:Connect(function(c) if c:IsA("Backpack") then watchTools(c) end end)
+
+local index={}; index.__index=index
+index.new=function() return setmetatable({targets={},connections={},charDeathConns={}},index) end
+
+local function isEnemy(arg)
+    if not localPlayer or arg==localPlayer then return false end
+    if not tbl3.TeamCheck then return true end
+    if not arg.Character then return false end
+    if arg:GetAttribute("Downed") == true or arg:GetAttribute("IsDowned") == true then return false end
+    local a1=localPlayer:GetAttribute("StageTeamSide"); local a2=arg:GetAttribute("StageTeamSide")
+    if typeof(a1)=="number" and typeof(a2)=="number" then return a1~=a2 end
+    if localPlayer.Neutral or arg.Neutral then return true end
+    local v,v2
+    pcall(function() v=localPlayer.Team and localPlayer.Team.Name end)
+    pcall(function() v2=arg.Team and arg.Team.Name end)
+    if not v or not v2 then return true end
+    return v~=v2
+end
+
+-- KILL CHECK: skip low-HP targets (0-10 by default) so silent aim doesn't finish/detect them
+local function killCheckPass(character)
+    if not tbl3.KillCheck then return true end
+    if not character then return false end
+    local hum = character:FindFirstChildOfClass("Humanoid")
+    if not hum then return true end
+    local hp = hum.Health
+    if hp <= 0 then return false end
+    if hp >= tbl3.KillCheckMin and hp <= tbl3.KillCheckMax then return false end
+    return true
+end
+
+index._purge=function(arg,arg2)
+    arg.targets[arg2]=nil
+    local v=arg.charDeathConns[arg2]
+    if v then for _,v2 in ipairs(v) do if v2.Connected then v2:Disconnect() end end; arg.charDeathConns[arg2]=nil end
+end
+index._bindCharDeath=function(arg,arg2)
+    arg:_purge(arg2); local character=arg2.Character; if not character then return end
+    local tbl6={}; arg.charDeathConns[arg2]=tbl6
+    local function fn3() arg:_purge(arg2) end
+    local h=character:FindFirstChildOfClass("Humanoid")
+    if h then table.insert(tbl6,h.Died:Connect(fn3)) end
+    table.insert(tbl6,character.AncestryChanged:Connect(function(_,p) if not p then fn3() end end))
+end
+index._refresh=function(arg,arg2)
+    if arg2 and arg2~=localPlayer and arg2.Parent then
+        local c=arg2.Character
+        if c and c.Parent then
+            local h=c:FindFirstChildOfClass("Humanoid"); local hrp=c:FindFirstChild("HumanoidRootPart")
+            if h and hrp and h.Health>0 then arg.targets[arg2]={player=arg2,character=c,humanoid=h,hrp=hrp}; return end
+            arg:_purge(arg2); return
+        end
+        arg.targets[arg2]=nil; return
+    end
+    arg:_purge(arg2)
+end
+index._bindPlayer=function(arg,arg2)
+    if arg.connections[arg2] then return end
+    local tbl6={}; arg.connections[arg2]=tbl6
+    table.insert(tbl6,arg2.CharacterAdded:Connect(function() arg:_bindCharDeath(arg2); arg:_refresh(arg2) end))
+    table.insert(tbl6,arg2.CharacterRemoving:Connect(function() arg:_purge(arg2) end))
+    table.insert(tbl6,arg2:GetPropertyChangedSignal("Team"):Connect(function() arg:_refresh(arg2) end))
+    arg:_bindCharDeath(arg2); arg:_refresh(arg2)
+end
+index.start=function(arg)
+    for _,p in ipairs(Players:GetPlayers()) do if p~=localPlayer then arg:_bindPlayer(p) end end
+    table.insert(arg.connections,Players.PlayerAdded:Connect(function(p) if p~=localPlayer then arg:_bindPlayer(p) end end))
+    table.insert(arg.connections,Players.PlayerRemoving:Connect(function(p)
+        arg:_purge(p); local v=arg.connections[p]
+        if v then for _,v2 in ipairs(v) do if v2.Connected then v2:Disconnect() end end; arg.connections[p]=nil end
+    end))
+end
+index.getList=function(arg)
+    local tbl6={}
+    for _,p in ipairs(Players:GetPlayers()) do
+        if p ~= localPlayer then
+            local char = p.Character
+            local h = char and char:FindFirstChildOfClass("Humanoid")
+            local hrp = char and char:FindFirstChild("HumanoidRootPart")
+            if h and hrp and h.Health > 0 then
+                arg.targets[p] = {player=p, character=char, humanoid=h, hrp=hrp}
+            else arg.targets[p] = nil end
+        end
+    end
+    for k,t in pairs(arg.targets) do
+        if t.hrp and t.hrp.Parent and t.humanoid and t.humanoid.Parent and t.humanoid.Health>0 then
+            table.insert(tbl6,t)
+        else arg.targets[k]=nil end
+    end
+    return tbl6
+end
+local v=index.new(); v:start()
+
+local function withinDist(pos)
+    if tbl3.MaxDist==0 then return true end
+    local c=localPlayer.Character; local hrp=c and c:FindFirstChild("HumanoidRootPart")
+    if not hrp then return true end
+    return (pos-hrp.Position).Magnitude<=tbl3.MaxDist
+end
+local function targetPartOf(arg)
+    local c=arg.character; if not c or not c.Parent then return nil end
+    return c:FindFirstChild(tbl3.BodyPart) or arg.hrp
+end
+
+local lastTargetScan = 0
+local cachedTarget = nil
+local function scanTarget()
+    local now = os.clock()
+    if now - lastTargetScan < 0.05 then return cachedTarget end
+    lastTargetScan = now
+    local center = currentCamera.ViewportSize / 2
+    local vec=Vector2.new(center.X, center.Y); local fov=tbl3.FOV; local v2=nil
+    for _,v3 in ipairs(v:getList()) do
+        if isEnemy(v3.player) and killCheckPass(v3.character) then
+            local hrp=v3.hrp
+            if hrp and hrp.Parent and withinDist(hrp.Position) then
+                local v4=targetPartOf(v3)
+                if v4 then
+                    local v5,v6=currentCamera:WorldToViewportPoint(v4.Position)
+                    if v6 then
+                        local mag=(Vector2.new(v5.X,v5.Y)-vec).Magnitude
+                        if mag<fov then fov=mag; v2=v3 end
+                    end
+                end
+            end
+        end
+    end
+    cachedTarget = v2
+    return v2
+end
+
+local function getValidTarget(arg)
+    if not arg then return nil,nil end
+    local c=arg.character; if not c or not c.Parent then return nil,nil end
+    local h=arg.humanoid; if not h or not h.Parent or h.Health<=1 then return nil,nil end
+    if not killCheckPass(c) then return nil,nil end
+    local v2=targetPartOf(arg); if v2 and withinDist(v2.Position) then return v2,h end
+    return nil,nil
+end
+
+local cachedTargetPart = nil
+
+RunService.RenderStepped:Connect(function()
+    if tbl3.Enabled or tbl3.Triggerbot then
+        local best = scanTarget()
+        if best and best.humanoid and best.humanoid.Health > 0 then
+            local part = getValidTarget(best)
+            cachedTargetPart = part
+        else cachedTargetPart = nil end
+    else cachedTargetPart = nil end
+end)
+
+-- ── NO SPREAD / NO DELAY / INFINITE STUDS HOOKS ──
+local oldNamecall
+oldNamecall = hookmetamethod(game, "__namecall", function(self, ...)
+    local method = getnamecallmethod()
+    local args = {...}
+
+    -- SILENT AIM redirect
+    if tbl3.Enabled and cachedTargetPart and cachedTargetPart.Parent then
+        if method == "Raycast" or method == "FindPartOnRay" or method == "FindPartOnRayWithIgnoreList" then
+            local origin, direction
+            if method == "Raycast" then origin, direction = args[1], args[2]
+            else
+                local ray = args[1]
+                if typeof(ray) == "Ray" then origin, direction = ray.Origin, ray.Direction end
+            end
+            if typeof(origin) == "Vector3" and typeof(direction) == "Vector3" then
+                local toTarget = cachedTargetPart.Position - origin
+                local newMag = math.max(direction.Magnitude, toTarget.Magnitude + 5)
+                if method == "Raycast" then args[2] = toTarget.Unit * newMag
+                else args[1] = Ray.new(origin, toTarget.Unit * newMag) end
+                return oldNamecall(self, table.unpack(args))
+            end
+        end
+    end
+
+    -- NO SPREAD: force spread = 0 on shoot calls
+    if tbl3.NoSpread then
+        if method == "Fire" or method == "Shoot" or method == "FireWeapon" or method == "BulletFire" then
+            for i, a in ipairs(args) do
+                if typeof(a) == "number" and (i <= 4) then
+                    -- spread arg position varies; clamp small spread values
+                    if a > 0 and a < 5 then args[i] = 0 end
+                elseif typeof(a) == "Vector3" and a.Magnitude < 5 then
+                    args[i] = Vector3.zero
+                end
+            end
+            return oldNamecall(self, table.unpack(args))
+        end
+    end
+
+    -- INFINITE STUDS: extend bullet ray/range
+    if tbl3.InfiniteStuds then
+        if method == "Raycast" or method == "FindPartOnRay" or method == "FindPartOnRayWithIgnoreList" then
+            local origin, direction
+            if method == "Raycast" then origin, direction = args[1], args[2]
+            else
+                local ray = args[1]
+                if typeof(ray) == "Ray" then origin, direction = ray.Origin, ray.Direction end
+            end
+            if typeof(origin) == "Vector3" and typeof(direction) == "Vector3" then
+                local extended = direction.Unit * 999999
+                if method == "Raycast" then args[2] = extended
+                else args[1] = Ray.new(origin, extended) end
+                return oldNamecall(self, table.unpack(args))
+            end
+        end
+    end
+
+    return oldNamecall(self, ...)
+end)
+
+-- ── TOOL ACTIVATE HOOK for NO DELAY / INFINITE STUDS via Shoot/Activate ──
+local mt = getrawmetatable(game)
+local oldIndex = mt.__index
+setreadonly(mt, false)
+mt.__index = newcclosure(function(self, key)
+    if key == "Activate" and tbl3.NoDelay and typeof(self) == "Instance" and self:IsA("Tool") then
+        local ok, orig = pcall(function() return oldIndex(self, key) end)
+        if ok and type(orig) == "function" then
+            return function(...)
+                applyToolChanges(self)
+                return orig(...)
+            end
+        end
+    end
+    return oldIndex(self, key)
+end)
+setreadonly(mt, true)
+
+-- ═══════════════════════════════════════════════════════════════
+-- GUI SHELL
+-- ═══════════════════════════════════════════════════════════════
+
+local sg = Instance.new("ScreenGui")
+sg.Name = "XyloHubSA"; sg.ResetOnSpawn = false
+sg.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+sg.IgnoreGuiInset = true
+sg.Parent = game:GetService("CoreGui")
+
+local ESPObjects = {}
+local function hideESP(uid)
+    local e=ESPObjects[uid]; if not e then return end
+    if e.highlight then e.highlight:Destroy() end
+    if e.box then e.box:Remove() end
+    if e.headDot then e.headDot:Remove() end
+    if e.tracer then e.tracer:Remove() end
+    if e.healthBarBg then e.healthBarBg:Remove() end
+    if e.healthBarFill then e.healthBarFill:Remove() end
+    if e.nameTag then e.nameTag:Remove() end
+    if e.distTag then e.distTag:Remove() end
+    for _,l in ipairs(e.corners) do pcall(function() l:Remove() end) end
+    for _,l in pairs(e.skeleton) do pcall(function() l:Remove() end) end
+    ESPObjects[uid]=nil
+end
+
+localPlayer.CharacterAdded:Connect(function()
+    task.wait(0.5)
+    for uid in pairs(ESPObjects) do hideESP(uid) end
+    ESPObjects = {}
+end)
+
+local function getSkeletonJoints(char)
+    if char:FindFirstChild("UpperTorso") and char:FindFirstChild("LowerTorso") then
+        return {{"Head","UpperTorso"},{"UpperTorso","LowerTorso"},{"UpperTorso","LeftUpperArm"},{"LeftUpperArm","LeftLowerArm"},{"LeftLowerArm","LeftHand"},{"UpperTorso","RightUpperArm"},{"RightUpperArm","RightLowerArm"},{"RightLowerArm","RightHand"},{"LowerTorso","LeftUpperLeg"},{"LeftUpperLeg","LeftLowerLeg"},{"LeftLowerLeg","LeftFoot"},{"LowerTorso","RightUpperLeg"},{"RightUpperLeg","RightLowerLeg"},{"RightLowerLeg","RightFoot"}}
+    else return {{"Head","Torso"},{"Torso","Left Arm"},{"Torso","Right Arm"},{"Torso","Left Leg"},{"Torso","Right Leg"}} end
+end
+
+local function createESP(uid)
+    if ESPObjects[uid] then return ESPObjects[uid] end
+    local corners={}
+    for i=1,8 do local l=Drawing.new("Line"); l.Thickness=2; l.Visible=false; table.insert(corners,l) end
+    local hBg = Drawing.new("Square"); hBg.Thickness=1; hBg.Filled=true; hBg.Visible=false
+    local hFill = Drawing.new("Square"); hFill.Thickness=1; hFill.Filled=true; hFill.Visible=false
+    local nt = Drawing.new("Text"); nt.Size=14; nt.Center=true; nt.Outline=true; nt.Visible=false; nt.Font=2
+    local dt = Drawing.new("Text"); dt.Size=12; dt.Center=true; dt.Outline=true; dt.Visible=false; dt.Font=2
+    ESPObjects[uid]={ box=Drawing.new("Square"), corners=corners, skeleton={}, headDot=Drawing.new("Circle"), tracer=Drawing.new("Line"), healthBarBg=hBg, healthBarFill=hFill, nameTag=nt, distTag=dt, highlight=nil }
+    local e=ESPObjects[uid]
+    e.box.Thickness=1; e.box.Filled=false; e.box.Visible=false
+    e.headDot.Filled=true; e.headDot.Radius=3; e.headDot.Visible=false
+    e.tracer.Thickness=1; e.tracer.Transparency=0.7; e.tracer.Visible=false
+    return e
+end
+
+local SB = 54
+local sideBtn = Instance.new("TextButton", sg)
+sideBtn.Name = "XYLOToggle"
+sideBtn.Size = UDim2.new(0,54,0,54)
+sideBtn.Position = UDim2.new(1,-(SB+14),0.5,-27)
+sideBtn.BackgroundColor3 = Color3.fromRGB(10,10,12)
+sideBtn.BorderSizePixel = 0; sideBtn.Text = ""; sideBtn.AutoButtonColor = false
+sideBtn.ZIndex = 30; sideBtn.ClipsDescendants = true
+Instance.new("UICorner", sideBtn).CornerRadius = UDim.new(0,16)
+local sbStroke = Instance.new("UIStroke", sideBtn); sbStroke.Color = tbl5.border; sbStroke.Thickness = 1.5
+local sbIcon = Instance.new("ImageLabel", sideBtn)
+sbIcon.Image = tbl[tbl3.IconType] or tbl.xylo
+sbIcon.BackgroundColor3 = Color3.fromRGB(10,10,12); sbIcon.BackgroundTransparency = 0
+sbIcon.Size = UDim2.new(1,0,1,0); sbIcon.ScaleType = Enum.ScaleType.Fit; sbIcon.ZIndex = 31
+Instance.new("UICorner", sbIcon).CornerRadius = UDim.new(0,14)
+
+local frame = Instance.new("Frame", sg)
+frame.Name = "Hub"; frame.AnchorPoint = Vector2.new(1,0.5); frame.Position = UDim2.new(1,-(SB+14),0.5,0)
+frame.Size = UDim2.new(0,WIDE_HW,0,WIDE_HH); frame.BackgroundColor3 = tbl5.bg; frame.BorderSizePixel = 0
+frame.Active = true; frame.ZIndex = 2; frame.ClipsDescendants = true
+Instance.new("UICorner", frame).CornerRadius = UDim.new(0,20)
+
+local bgImg = Instance.new("ImageLabel", frame)
+bgImg.Size = UDim2.new(1,0,1,0); bgImg.BackgroundTransparency = 1; bgImg.ZIndex = 1
+bgImg.ScaleType = Enum.ScaleType.Crop
+Instance.new("UICorner", bgImg).CornerRadius = UDim.new(0,20)
+
+local function updateBg()
+    if tbl3.BackgroundType == "Theme1" then bgImg.Image = tbl.bgAsset; bgImg.ImageTransparency = 0.7
+    elseif tbl3.BackgroundType == "Theme2" then bgImg.Image = tbl.motoBg; bgImg.ImageTransparency = 0.7
+    else bgImg.Image = "" end
+end
+updateBg()
+
+local uiScaleInst = Instance.new("UIScale", frame); uiScaleInst.Scale = tbl3.UIScale
+local uiSt = Instance.new("UIStroke", frame); uiSt.Color = tbl5.border; uiSt.Thickness = 1; uiSt.Transparency = 0.05
+local uiGr = Instance.new("UIGradient", frame); uiGr.Rotation = 90
+uiGr.Color = ColorSequence.new({ColorSequenceKeypoint.new(0,tbl5.bgHi),ColorSequenceKeypoint.new(1,tbl5.bg)})
+
+local titleBar = Instance.new("Frame", frame)
+titleBar.Name = "TitleBar"; titleBar.Size = UDim2.new(1,0,0,TITLEBAR_H); titleBar.BackgroundTransparency = 1; titleBar.ZIndex = 5; titleBar.Active = true
+
+local titleLbl = Instance.new("TextLabel", titleBar)
+titleLbl.Size = UDim2.new(1,0,1,0); titleLbl.BackgroundTransparency = 1; titleLbl.Text = "XYLO | PREMIUM"
+titleLbl.TextColor3 = tbl5.text; titleLbl.TextSize = 12; titleLbl.Font = Enum.Font.GothamBold
+titleLbl.TextXAlignment = Enum.TextXAlignment.Center; titleLbl.ZIndex = 6
+
+local switchBtn = Instance.new("TextButton", titleBar)
+switchBtn.Size = UDim2.new(0, 80, 0, 24); switchBtn.Position = UDim2.new(0, 10, 0.5, -12)
+switchBtn.BackgroundColor3 = tbl5.bgRow; switchBtn.Text = "Switch Layout"; switchBtn.TextColor3 = tbl5.accentHi
+switchBtn.Font = Enum.Font.GothamBold; switchBtn.TextSize = 10; switchBtn.ZIndex = 7
+Instance.new("UICorner", switchBtn).CornerRadius = UDim.new(0, 4)
+
+local titleDiv = Instance.new("Frame", frame)
+titleDiv.Size = UDim2.new(1,0,0,1); titleDiv.Position = UDim2.new(0,0,0,TITLEBAR_H)
+titleDiv.BackgroundColor3 = tbl5.border; titleDiv.BorderSizePixel = 0; titleDiv.ZIndex = 4
+
+local wideContainer = Instance.new("Frame", frame)
+wideContainer.Size = UDim2.new(1,0,1,-(TITLEBAR_H+1)); wideContainer.Position = UDim2.new(0,0,0,TITLEBAR_H+1)
+wideContainer.BackgroundTransparency = 1; wideContainer.ZIndex = 5
+
+local tallContainer = Instance.new("Frame", frame)
+tallContainer.Size = UDim2.new(1,0,1,-(TITLEBAR_H+1)); tallContainer.Position = UDim2.new(0,0,0,TITLEBAR_H+1)
+tallContainer.BackgroundTransparency = 1; tallContainer.ZIndex = 5; tallContainer.Visible = false
+
+local function newPage(parent)
+    local p = Instance.new("ScrollingFrame", parent)
+    p.Size = UDim2.new(1,0,1,0); p.BackgroundTransparency = 1; p.ZIndex = 5; p.Visible = false
+    p.ScrollBarThickness = 2; p.ScrollBarImageColor3 = tbl5.accent; p.BorderSizePixel = 0
+    p.CanvasSize = UDim2.new(0,0,0,0); p.AutomaticCanvasSize = Enum.AutomaticSize.Y
+    local ul = Instance.new("UIListLayout", p); ul.Padding = UDim.new(0,8); ul.SortOrder = Enum.SortOrder.LayoutOrder
+    local up = Instance.new("UIPadding", p); up.PaddingLeft = UDim.new(0,10); up.PaddingRight = UDim.new(0,10); up.PaddingTop = UDim.new(0,8); up.PaddingBottom = UDim.new(0,14)
+    return p
+end
+
+local topTabBar = Instance.new("Frame", wideContainer)
+topTabBar.Name = "TabBar"; topTabBar.Size = UDim2.new(1,-20,0,TABBAR_H); topTabBar.Position = UDim2.new(0,10,0,4)
+topTabBar.BackgroundTransparency = 1; topTabBar.ZIndex = 5
+
+local topTabDiv = Instance.new("Frame", wideContainer)
+topTabDiv.Size = UDim2.new(1,0,0,1); topTabDiv.Position = UDim2.new(0,0,0,TABBAR_H+4)
+topTabDiv.BackgroundColor3 = tbl5.border; topTabDiv.BorderSizePixel = 0; topTabDiv.ZIndex = 4
+
+local topContentFrame = Instance.new("Frame", wideContainer)
+topContentFrame.Name = "Content"; topContentFrame.Position = UDim2.new(0,0,0,TABBAR_H+5)
+topContentFrame.Size = UDim2.new(1,0,1,-(TABBAR_H+5)); topContentFrame.BackgroundTransparency = 1; topContentFrame.ZIndex = 5
+
+local topAimPage = newPage(topContentFrame)
+local topVisPage = newPage(topContentFrame)
+local topExpPage = newPage(topContentFrame)
+local topCustPage = newPage(topContentFrame)
+
+local tallTabBar = Instance.new("ScrollingFrame", tallContainer)
+tallTabBar.Name = "TabBar"; tallTabBar.Size = UDim2.new(1,-20,0,TABBAR_H); tallTabBar.Position = UDim2.new(0,10,0,4)
+tallTabBar.BackgroundTransparency = 1; tallTabBar.ZIndex = 5; tallTabBar.ScrollBarThickness = 0
+tallTabBar.ScrollingDirection = Enum.ScrollingDirection.X
+tallTabBar.CanvasSize = UDim2.new(0, 0, 0, 0)
+tallTabBar.AutomaticCanvasSize = Enum.AutomaticSize.X
+
+local tallTabDiv = Instance.new("Frame", tallContainer)
+tallTabDiv.Size = UDim2.new(1,0,0,1); tallTabDiv.Position = UDim2.new(0,0,0,TABBAR_H+4)
+tallTabDiv.BackgroundColor3 = tbl5.border; tallTabDiv.BorderSizePixel = 0; tallTabDiv.ZIndex = 4
+
+local tallContentFrame = Instance.new("Frame", tallContainer)
+tallContentFrame.Name = "Content"; tallContentFrame.Position = UDim2.new(0,0,0,TABBAR_H+5)
+tallContentFrame.Size = UDim2.new(1,0,1,-(TABBAR_H+5)); tallContentFrame.BackgroundTransparency = 1; tallContentFrame.ZIndex = 5
+
+local tallAimPage = newPage(tallContentFrame)
+local tallVisPage = newPage(tallContentFrame)
+local tallExpPage = newPage(tallContentFrame)
+local tallCustPage = newPage(tallContentFrame)
+
+local tabDefs = {
+    {name="Aimbot",  page1=topAimPage,  page2=tallAimPage},
+    {name="Visuals", page1=topVisPage,  page2=tallVisPage},
+    {name="Exploits",page1=topExpPage,  page2=tallExpPage},
+    {name="Design",  page1=topCustPage, page2=tallCustPage},
+}
+local topTabButtons = {}
+local tallTabButtons = {}
+
+local function buildTopTabs()
+    local gl = Instance.new("UIListLayout", topTabBar)
+    gl.FillDirection = Enum.FillDirection.Horizontal
+    gl.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    gl.VerticalAlignment = Enum.VerticalAlignment.Center
+    gl.Padding = UDim.new(0, 6)
+    for i, def in ipairs(tabDefs) do
+        local btn = Instance.new("TextButton", topTabBar)
+        btn.Size = UDim2.new(0.24, 0, 1, 0)
+        btn.BackgroundColor3 = tbl5.bgRow; btn.BackgroundTransparency = 1
+        btn.BorderSizePixel = 0; btn.Text = ""; btn.AutoButtonColor = false; btn.ZIndex = 6; btn.LayoutOrder = i
+        Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 4)
+        local lb = Instance.new("TextLabel", btn); lb.Size = UDim2.new(1,0,1,0); lb.BackgroundTransparency = 1; lb.Text = def.name; lb.TextColor3 = tbl5.textDim; lb.TextSize = 10; lb.Font = Enum.Font.GothamMedium; lb.ZIndex = 7
+        local indicator = Instance.new("Frame", btn); indicator.Size = UDim2.new(1,-8,0,2); indicator.Position = UDim2.new(0,4,1,-2); indicator.BackgroundColor3 = tbl5.accentHi; indicator.BorderSizePixel = 0; indicator.Visible = false; indicator.ZIndex = 7
+        Instance.new("UICorner", indicator).CornerRadius = UDim.new(1, 0)
+        btn.MouseButton1Click:Connect(function()
+            for j, d in ipairs(tabDefs) do d.page1.Visible = (i == j) end
+            for j, b in ipairs(topTabButtons) do
+                local active = (i == j)
+                b.lb.TextColor3 = active and tbl5.text or tbl5.textDim
+                b.btn.BackgroundTransparency = active and 0.6 or 1
+                b.btn.BackgroundColor3 = active and tbl5.bgRowHi or tbl5.bgRow
+                b.indicator.Visible = active
+            end
+        end)
+        topTabButtons[i] = {btn=btn, lb=lb, indicator=indicator}
+    end
+end
+
+local function buildTallTabs()
+    local gl = Instance.new("UIListLayout", tallTabBar)
+    gl.FillDirection = Enum.FillDirection.Horizontal
+    gl.HorizontalAlignment = Enum.HorizontalAlignment.Left
+    gl.VerticalAlignment = Enum.VerticalAlignment.Center
+    gl.Padding = UDim.new(0, 6)
+    for i, def in ipairs(tabDefs) do
+        local btn = Instance.new("TextButton", tallTabBar)
+        btn.Size = UDim2.new(0, 105, 1, 0)
+        btn.BackgroundColor3 = tbl5.bgRow; btn.BackgroundTransparency = 1
+        btn.BorderSizePixel = 0; btn.Text = ""; btn.AutoButtonColor = false; btn.ZIndex = 6; btn.LayoutOrder = i
+        Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 4)
+        local lb = Instance.new("TextLabel", btn); lb.Size = UDim2.new(1,0,1,0); lb.BackgroundTransparency = 1; lb.Text = def.name; lb.TextColor3 = tbl5.textDim; lb.TextSize = 10; lb.Font = Enum.Font.GothamMedium; lb.ZIndex = 7
+        local indicator = Instance.new("Frame", btn); indicator.Size = UDim2.new(1,-8,0,2); indicator.Position = UDim2.new(0,4,1,-2); indicator.BackgroundColor3 = tbl5.accentHi; indicator.BorderSizePixel = 0; indicator.Visible = false; indicator.ZIndex = 7
+        Instance.new("UICorner", indicator).CornerRadius = UDim.new(1, 0)
+        btn.MouseButton1Click:Connect(function()
+            for j, d in ipairs(tabDefs) do d.page2.Visible = (i == j) end
+            for j, b in ipairs(tallTabButtons) do
+                local active = (i == j)
+                b.lb.TextColor3 = active and tbl5.text or tbl5.textDim
+                b.btn.BackgroundTransparency = active and 0.6 or 1
+                b.btn.BackgroundColor3 = active and tbl5.bgRowHi or tbl5.bgRow
+                b.indicator.Visible = active
+            end
+        end)
+        tallTabButtons[i] = {btn=btn, lb=lb, indicator=indicator}
+    end
+end
+
+buildTopTabs()
+buildTallTabs()
+
+local function updateLayout()
+    if tbl3.IsTallMode then
+        frame.Size = UDim2.new(0, TALL_HW, 0, TALL_HH)
+        wideContainer.Visible = false; tallContainer.Visible = true
+        for _, d in ipairs(tabDefs) do d.page1.Visible = false; d.page2.Visible = false end
+        tabDefs[1].page2.Visible = true
+        for j, b in ipairs(tallTabButtons) do
+            local active = (j == 1)
+            b.lb.TextColor3 = active and tbl5.text or tbl5.textDim
+            b.btn.BackgroundTransparency = active and 0.6 or 1
+            b.btn.BackgroundColor3 = active and tbl5.bgRowHi or tbl5.bgRow
+            b.indicator.Visible = active
+        end
+    else
+        frame.Size = UDim2.new(0, WIDE_HW, 0, WIDE_HH)
+        wideContainer.Visible = true; tallContainer.Visible = false
+        for _, d in ipairs(tabDefs) do d.page1.Visible = false; d.page2.Visible = false end
+        tabDefs[1].page1.Visible = true
+        for j, b in ipairs(topTabButtons) do
+            local active = (j == 1)
+            b.lb.TextColor3 = active and tbl5.text or tbl5.textDim
+            b.btn.BackgroundTransparency = active and 0.6 or 1
+            b.btn.BackgroundColor3 = active and tbl5.bgRowHi or tbl5.bgRow
+            b.indicator.Visible = active
+        end
+    end
+    fn()
+end
+
+switchBtn.MouseButton1Click:Connect(function()
+    tbl3.IsTallMode = not tbl3.IsTallMode
+    updateLayout()
+end)
+
+local function makeSection(parent, image, label)
+    local wrap = Instance.new("Frame", parent)
+    wrap.Size = UDim2.new(1,0,0,22); wrap.BackgroundTransparency = 1; wrap.ZIndex = 6
+    wrap.AutomaticSize = Enum.AutomaticSize.Y
+    local hdr = Instance.new("Frame", wrap)
+    hdr.Size = UDim2.new(1,0,0,22); hdr.BackgroundTransparency = 1; hdr.ZIndex = 7
+    local hi = Instance.new("ImageLabel", hdr)
+    hi.Image = image; hi.ImageColor3 = tbl5.accentDim; hi.BackgroundTransparency = 1
+    hi.Size = UDim2.new(0,11,0,11); hi.Position = UDim2.new(0,2,0.5,-5); hi.ZIndex = 8
+    local hl = Instance.new("TextLabel", hdr)
+    hl.Size = UDim2.new(1,-18,1,0); hl.Position = UDim2.new(0,18,0,0)
+    hl.BackgroundTransparency = 1; hl.Text = string.upper(label); hl.TextColor3 = tbl5.textMute; hl.TextSize = 9; hl.Font = Enum.Font.GothamBold
+    hl.TextXAlignment = Enum.TextXAlignment.Left; hl.ZIndex = 8
+    local container = Instance.new("Frame", wrap)
+    container.Size = UDim2.new(1, 0, 0, 0)
+    container.Position = UDim2.new(0, 0, 0, 25)
+    container.BackgroundTransparency = 1; container.ZIndex = 6
+    container.AutomaticSize = Enum.AutomaticSize.Y
+    local cList = Instance.new("UIListLayout", container)
+    cList.Padding = UDim.new(0, 4); cList.SortOrder = Enum.SortOrder.LayoutOrder
+    return container
+end
+
+local function makeRow(parent, height)
+    local row = Instance.new("Frame", parent)
+    row.Size = UDim2.new(1,0,0,height); row.BackgroundColor3 = tbl5.bgRow; row.BorderSizePixel = 0; row.ZIndex = 7
+    Instance.new("UICorner", row).CornerRadius = UDim.new(0,8)
+    local us = Instance.new("UIStroke", row); us.Color = tbl5.border; us.Thickness = 1; us.Transparency = 0.4
+    return row
+end
+
+local function makeToggle(parent, image, text, init, cb)
+    local row = makeRow(parent, 36)
+    local ic = Instance.new("ImageLabel", row)
+    ic.Image = image; ic.ImageColor3 = init and tbl5.accentHi or tbl5.textDim
+    ic.BackgroundTransparency = 1; ic.Size = UDim2.new(0,15,0,15); ic.Position = UDim2.new(0,12,0.5,-7); ic.ZIndex = 8
+    local lb = Instance.new("TextLabel", row)
+    lb.Size = UDim2.new(1,-82,1,0); lb.Position = UDim2.new(0,36,0,0)
+    lb.BackgroundTransparency = 1; lb.Text = text; lb.TextColor3 = tbl5.text; lb.TextSize = 12; lb.Font = Enum.Font.GothamMedium; lb.TextXAlignment = Enum.TextXAlignment.Left; lb.ZIndex = 8
+    local pill = Instance.new("TextButton", row)
+    pill.Size = UDim2.new(0,38,0,20); pill.Position = UDim2.new(1,-48,0.5,-10); pill.BackgroundColor3 = init and tbl5.accent or tbl5.bgHi
+    pill.BorderSizePixel = 0; pill.Text = ""; pill.AutoButtonColor = false; pill.ZIndex = 8
+    Instance.new("UICorner", pill).CornerRadius = UDim.new(1,0)
+    local ps = Instance.new("UIStroke", pill); ps.Color = init and tbl5.accentHi or tbl5.border; ps.Thickness = 1; ps.Transparency = 0.4
+    local knob = Instance.new("Frame", pill)
+    knob.Size = UDim2.new(0,13,0,13); knob.Position = init and UDim2.new(1,-15,0.5,-6) or UDim2.new(0,2,0.5,-6)
+    knob.BackgroundColor3 = tbl5.white; knob.BorderSizePixel = 0; knob.ZIndex = 9
+    Instance.new("UICorner", knob).CornerRadius = UDim.new(1,0)
+    local state = init
+    pill.MouseButton1Click:Connect(function()
+        state = not state; cb(state)
+        TweenService:Create(knob, TweenInfo.new(0.16, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = state and UDim2.new(1,-15,0.5,-6) or UDim2.new(0,2,0.5,-6)}):Play()
+        TweenService:Create(pill, TweenInfo.new(0.16), {BackgroundColor3 = state and tbl5.accent or tbl5.bgHi}):Play()
+        TweenService:Create(ps, TweenInfo.new(0.16), {Color = state and tbl5.accentHi or tbl5.border}):Play()
+        TweenService:Create(ic, TweenInfo.new(0.16), {ImageColor3 = state and tbl5.accentHi or tbl5.textDim}):Play()
+        fn()
+    end)
+    row.MouseEnter:Connect(function() TweenService:Create(row, TweenInfo.new(0.12), {BackgroundColor3 = tbl5.bgRowHi}):Play() end)
+    row.MouseLeave:Connect(function() TweenService:Create(row, TweenInfo.new(0.12), {BackgroundColor3 = tbl5.bgRow}):Play() end)
+    return row
+end
+
+local function makeSlider(parent, image, text, minV, maxV, initV, step, cb)
+    local row = makeRow(parent, 50)
+    local ic = Instance.new("ImageLabel", row)
+    ic.Image = image; ic.ImageColor3 = tbl5.accentDim; ic.BackgroundTransparency = 1
+    ic.Size = UDim2.new(0,15,0,15); ic.Position = UDim2.new(0,12,0,10); ic.ZIndex = 8
+    local lb = Instance.new("TextLabel", row)
+    lb.Size = UDim2.new(1,-90,0,15); lb.Position = UDim2.new(0,36,0,6)
+    lb.BackgroundTransparency = 1; lb.Text = text; lb.TextColor3 = tbl5.text; lb.TextSize = 12; lb.Font = Enum.Font.GothamMedium; lb.TextXAlignment = Enum.TextXAlignment.Left; lb.ZIndex = 8
+    local vl = Instance.new("TextLabel", row)
+    vl.Size = UDim2.new(0,52,0,15); vl.Position = UDim2.new(1,-60,0,6); vl.BackgroundTransparency = 1
+    vl.Text = string.format(step<1 and "%.2f" or "%d", initV); vl.TextColor3 = tbl5.accentHi; vl.TextSize = 12; vl.Font = Enum.Font.GothamBold; vl.TextXAlignment = Enum.TextXAlignment.Right; vl.ZIndex = 8
+    local track = Instance.new("Frame", row)
+    track.Size = UDim2.new(1,-24,0,4); track.Position = UDim2.new(0,12,0,34); track.BackgroundColor3 = tbl5.bgHi; track.BorderSizePixel = 0; track.ZIndex = 8
+    Instance.new("UICorner", track).CornerRadius = UDim.new(1,0)
+    local fill = Instance.new("Frame", track)
+    fill.Size = UDim2.new((initV-minV)/(maxV-minV),0,1,0); fill.BackgroundColor3 = tbl5.accent; fill.BorderSizePixel = 0; fill.ZIndex = 9
+    Instance.new("UICorner", fill).CornerRadius = UDim.new(1,0)
+    local thumb = Instance.new("Frame", track)
+    thumb.Size = UDim2.new(0,12,0,12); thumb.Position = UDim2.new((initV-minV)/(maxV-minV),-6,0.5,-6); thumb.BackgroundColor3 = tbl5.white; thumb.BorderSizePixel = 0; thumb.ZIndex = 10
+    Instance.new("UICorner", thumb).CornerRadius = UDim.new(1,0)
+    local dragging = false
+    local function upd(x)
+        local px = track.AbsolutePosition.X; local sx = track.AbsoluteSize.X; if sx <= 0 then return end
+        local t = math.clamp((x - px) / sx, 0, 1)
+        local raw = minV + t * (maxV - minV)
+        local sn = math.clamp(math.floor(raw/step+0.5)*step, minV, maxV)
+        local finalT = (sn-minV)/(maxV-minV)
+        fill.Size = UDim2.new(finalT,0,1,0); thumb.Position = UDim2.new(finalT,-6,0.5,-6)
+        vl.Text = string.format(step<1 and "%.2f" or "%d", sn)
+        cb(sn)
+    end
+    thumb.InputBegan:Connect(function(i)
+        if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then dragging = true end
+    end)
+    UserInputService.InputChanged:Connect(function(i)
+        if dragging and (i.UserInputType == Enum.UserInputType.MouseMovement or i.UserInputType == Enum.UserInputType.Touch) then upd(i.Position.X) end
+    end)
+    UserInputService.InputEnded:Connect(function(i)
+        if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then
+            if dragging then dragging = false; fn() end
+        end
+    end)
+    return row
+end
+
+local function makePillSelector(parent, image, text, options, currentValue, cb)
+    local row = makeRow(parent, 36)
+    local ic = Instance.new("ImageLabel", row)
+    ic.Image = image; ic.ImageColor3 = tbl5.accentHi; ic.BackgroundTransparency = 1
+    ic.Size = UDim2.new(0,15,0,15); ic.Position = UDim2.new(0,12,0.5,-7); ic.ZIndex = 11
+    local lb = Instance.new("TextLabel", row)
+    lb.Size = UDim2.new(1,-100,1,0); lb.Position = UDim2.new(0,36,0,0)
+    lb.BackgroundTransparency = 1; lb.Text = text; lb.TextColor3 = tbl5.text; lb.TextSize = 12; lb.Font = Enum.Font.GothamMedium; lb.TextXAlignment = Enum.TextXAlignment.Left; lb.ZIndex = 11
+    local btn = Instance.new("TextButton", row)
+    btn.Size = UDim2.new(0,70,0,22); btn.Position = UDim2.new(1,-80,0.5,-11); btn.BackgroundColor3 = tbl5.bgHi
+    btn.BorderSizePixel = 0; btn.Text = currentValue; btn.TextColor3 = tbl5.accentHi; btn.TextSize = 11; btn.Font = Enum.Font.GothamBold; btn.ZIndex = 11
+    Instance.new("UICorner", btn).CornerRadius = UDim.new(0,6)
+    local ps = Instance.new("UIStroke", btn); ps.Color = tbl5.border; ps.Thickness = 1
+    local container = Instance.new("ScrollingFrame", frame)
+    container.Size = UDim2.new(0,130,0,0); container.BackgroundColor3 = tbl5.bgHi; container.BorderSizePixel = 0; container.ZIndex = 999
+    container.Visible = false; container.ClipsDescendants = true; container.ScrollBarThickness = 0
+    container.AutomaticCanvasSize = Enum.AutomaticSize.Y
+    Instance.new("UICorner", container).CornerRadius = UDim.new(0,6)
+    Instance.new("UIStroke", container).Color = tbl5.border
+    local cList = Instance.new("UIListLayout", container); cList.Padding = UDim.new(0,2); cList.SortOrder = Enum.SortOrder.LayoutOrder
+    local cPadding = Instance.new("UIPadding", container); cPadding.PaddingTop = UDim.new(0,4); cPadding.PaddingBottom = UDim.new(0,4); cPadding.PaddingLeft = UDim.new(0,4); cPadding.PaddingRight = UDim.new(0,4)
+    for i, opt in ipairs(options) do
+        local optBtn = Instance.new("TextButton", container)
+        optBtn.Size = UDim2.new(1,0,0,24); optBtn.BackgroundColor3 = tbl5.bgRow
+        optBtn.BorderSizePixel = 0; optBtn.Text = opt; optBtn.TextColor3 = tbl5.text; optBtn.TextSize = 12; optBtn.Font = Enum.Font.GothamMedium; optBtn.ZIndex = 1000; optBtn.LayoutOrder = i
+        Instance.new("UICorner", optBtn).CornerRadius = UDim.new(0,4)
+        optBtn.MouseEnter:Connect(function() TweenService:Create(optBtn, TweenInfo.new(0.1), {BackgroundColor3 = tbl5.bgRowHi}):Play() end)
+        optBtn.MouseLeave:Connect(function() TweenService:Create(optBtn, TweenInfo.new(0.1), {BackgroundColor3 = tbl5.bgRow}):Play() end)
+        optBtn.MouseButton1Click:Connect(function() btn.Text = opt; cb(opt); container.Visible = false end)
+    end
+    local isOpen = false
+    btn.MouseButton1Click:Connect(function()
+        isOpen = not isOpen
+        if isOpen then
+            local absPos = btn.AbsolutePosition; local absSize = btn.AbsoluteSize
+            local frameAbsPos = frame.AbsolutePosition
+            container.Position = UDim2.fromOffset(absPos.X - frameAbsPos.X, absPos.Y - frameAbsPos.Y + absSize.Y + 4)
+            container.Size = UDim2.new(0, btn.AbsoluteSize.X, 0, math.min(#options * 26 + 8, 160))
+            container.Visible = true
+        else container.Visible = false end
+    end)
+    frame.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            container.Visible = false; isOpen = false
+        end
+    end)
+    UserInputService.InputBegan:Connect(function(input, gp)
+        if not gp and (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
+            if isOpen then
+                local mPos = Vector2.new(input.Position.X, input.Position.Y)
+                local cPos = container.AbsolutePosition; local cSize = container.AbsoluteSize
+                if not (mPos.X >= cPos.X and mPos.X <= cPos.X + cSize.X and mPos.Y >= cPos.Y and mPos.Y <= cPos.Y + cSize.Y) then
+                    isOpen = false; container.Visible = false
+                end
+            end
+        end
+    end)
+    row.MouseEnter:Connect(function() TweenService:Create(row, TweenInfo.new(0.12), {BackgroundColor3 = tbl5.bgRowHi}):Play() end)
+    row.MouseLeave:Connect(function() TweenService:Create(row, TweenInfo.new(0.12), {BackgroundColor3 = tbl5.bgRow}):Play() end)
+    return row
+end
+
+-- ═══════════════════════════════════════════════════════════════
+-- PAGE BUILD
+-- ═══════════════════════════════════════════════════════════════
+
+local function buildAimbotPage(pageAim)
+    local function addSection(page, img, text)
+        local s = makeSection(page, img, text)
+        local list = page:FindFirstChildOfClass("UIListLayout")
+        if list then s.LayoutOrder = #page:GetChildren() end
+        return s
+    end
+    local aimR = addSection(pageAim, tbl.aim, "Silent Aim")
+    makeToggle(aimR, tbl.aim, "Silent Aim", tbl3.Enabled, function(e) tbl3.Enabled = e; fn() end)
+    makeToggle(aimR, tbl.aim, "Triggerbot", tbl3.Triggerbot, function(e) tbl3.Triggerbot = e; fn() end)
+    makePillSelector(aimR, tbl.target, "Hitbox", {"Head", "HumanoidRootPart"}, tbl3.BodyPart, function(v) tbl3.BodyPart = v; fn() end)
+    makeSlider(aimR, tbl.distance, "Max Distance", 0, 1000, tbl3.MaxDist, 1, function(d) tbl3.MaxDist = d; fn() end)
+    makeToggle(aimR, tbl.skip, "Skip ADS", tbl3.SkipAiming, function(e) tbl3.SkipAiming = e; fn() end)
+    makeToggle(aimR, tbl.skip, "Skip Roll", tbl3.SkipRollAim, function(e) tbl3.SkipRollAim = e; fn() end)
+    makeToggle(aimR, tbl.target, "Team Check", tbl3.TeamCheck, function(e) tbl3.TeamCheck = e; fn() end)
+
+    local kcR = addSection(pageAim, tbl.target, "Kill Check")
+    makeToggle(kcR, tbl.target, "Kill Check", tbl3.KillCheck, function(e) tbl3.KillCheck = e; fn() end)
+    makeSlider(kcR, tbl.target, "Min HP", 0, 100, tbl3.KillCheckMin, 1, function(v) tbl3.KillCheckMin = v; fn() end)
+    makeSlider(kcR, tbl.target, "Max HP", 0, 100, tbl3.KillCheckMax, 1, function(v) tbl3.KillCheckMax = v; fn() end)
+
+    local fovR = addSection(pageAim, tbl.fov, "Field of View")
+    makeToggle(fovR, tbl.fov, "Show FOV", tbl3.ShowFOV, function(e) tbl3.ShowFOV = e; fn() end)
+    makeSlider(fovR, tbl.fov, "FOV Size", 10, 400, tbl3.FOV, 1, function(f) tbl3.FOV = f; fn() end)
+end
+
+local function buildVisualsPage(pageVis)
+    local function addSection(page, img, text)
+        local s = makeSection(page, img, text)
+        local list = page:FindFirstChildOfClass("UIListLayout")
+        if list then s.LayoutOrder = #page:GetChildren() end
+        return s
+    end
+    local espR = addSection(pageVis, tbl.fov, "Player ESP")
+    makeToggle(espR, tbl.fov, "Highlight ESP", tbl3.ESPEnabled, function(e) tbl3.ESPEnabled = e; fn() end)
+    makeToggle(espR, tbl.body, "Box ESP", tbl3.BoxESP, function(e) tbl3.BoxESP = e; fn() end)
+    makeToggle(espR, tbl.body, "Corner Box", tbl3.CornerBoxESP, function(e) tbl3.CornerBoxESP = e; fn() end)
+    makeToggle(espR, tbl.body, "Skeleton ESP", tbl3.SkeletonESP, function(e) tbl3.SkeletonESP = e; fn() end)
+    makeToggle(espR, tbl.target, "Name Tags", tbl3.NameTags, function(e) tbl3.NameTags = e; fn() end)
+    makeToggle(espR, tbl.body, "Health Bar (Side)", tbl3.HealthBar, function(e) tbl3.HealthBar = e; fn() end)
+    makeToggle(espR, tbl.distance, "Distance", tbl3.DistanceESP, function(e) tbl3.DistanceESP = e; fn() end)
+    makeToggle(espR, tbl.target, "Head Dot", tbl3.HeadDot, function(e) tbl3.HeadDot = e; fn() end)
+    makeToggle(espR, tbl.fov, "Tracers", tbl3.Tracers, function(e) tbl3.Tracers = e; fn() end)
+    makeSlider(espR, tbl.distance, "Max ESP Dist", 100, 5000, tbl3.ESPDist, 10, function(d) tbl3.ESPDist = d; fn() end)
+end
+
+local function buildExploitsPage(pageExp)
+    local function addSection(page, img, text)
+        local s = makeSection(page, img, text)
+        local list = page:FindFirstChildOfClass("UIListLayout")
+        if list then s.LayoutOrder = #page:GetChildren() end
+        return s
+    end
+    local wepR = addSection(pageExp, tbl.settings, "Weapon Mods")
+    makeToggle(wepR, tbl.aim, "Rapid Fire", tbl3.RapidFire, function(e) tbl3.RapidFire = e; fn(); applyAllTools() end)
+    makeSlider(wepR, tbl.settings, "Rate Of Fire", 1, 1000000, tbl3.RateOfFire, 1, function(v) tbl3.RateOfFire = v; fn(); applyAllTools() end)
+    makeToggle(wepR, tbl.aim, "Damage Changer", tbl3.DamageChanger, function(e) tbl3.DamageChanger = e; fn(); applyAllTools() end)
+    makeSlider(wepR, tbl.settings, "Damage Value", 1, 1000000, tbl3.DamageValue, 1, function(v) tbl3.DamageValue = v; fn(); applyAllTools() end)
+
+    local bulletR = addSection(pageExp, tbl.aim, "Bullet Mods")
+    makeToggle(bulletR, tbl.aim, "No Spread Bullet", tbl3.NoSpread, function(e) tbl3.NoSpread = e; fn(); applyAllTools() end)
+    makeToggle(bulletR, tbl.aim, "No Delay Shoot", tbl3.NoDelay, function(e) tbl3.NoDelay = e; fn(); applyAllTools() end)
+    makeToggle(bulletR, tbl.distance, "Infinite Studs", tbl3.InfiniteStuds, function(e) tbl3.InfiniteStuds = e; fn(); applyAllTools() end)
+end
+
+local function buildDesignPage(pageCust)
+    local function addSection(page, img, text)
+        local s = makeSection(page, img, text)
+        local list = page:FindFirstChildOfClass("UIListLayout")
+        if list then s.LayoutOrder = #page:GetChildren() end
+        return s
+    end
+    local desR = addSection(pageCust, tbl.settings, "Theme Selector")
+    local selRow = Instance.new("Frame", desR)
+    selRow.Size = UDim2.new(1,0,0,130); selRow.BackgroundTransparency = 1; selRow.ZIndex = 6
+    local themeElements = {}
+
+    local function makeTallBox(imgId, valName, labelText, xPos)
+        local box = Instance.new("TextButton", selRow)
+        box.Size = UDim2.new(0.3,-8,1,0); box.Position = UDim2.new(xPos,0,0,0)
+        box.BackgroundColor3 = tbl5.bgRow; box.Text = ""; box.AutoButtonColor = false; box.ZIndex = 7
+        box.ClipsDescendants = true
+        local stroke = Instance.new("UIStroke", box); stroke.Color = tbl5.border; stroke.Thickness = 1.5; stroke.Transparency = 0.2
+        Instance.new("UICorner", box).CornerRadius = UDim.new(0,8)
+        local bgFrame = Instance.new("Frame", box)
+        bgFrame.Size = UDim2.new(1,0,1,0); bgFrame.BackgroundColor3 = tbl5.bg; bgFrame.BorderSizePixel = 0; bgFrame.ZIndex = 8
+        Instance.new("UICorner", bgFrame).CornerRadius = UDim.new(0,8)
+        if imgId ~= "" then
+            local img = Instance.new("ImageLabel", box)
+            img.Size = UDim2.new(1,0,1,0); img.BackgroundTransparency = 1; img.Image = imgId; img.ScaleType = Enum.ScaleType.Crop; img.ZIndex = 8
+            Instance.new("UICorner", img).CornerRadius = UDim.new(0,8)
+            table.insert(themeElements, img)
+        end
+        local defLbl = Instance.new("TextLabel", box)
+        defLbl.Size = UDim2.new(1,0,1,0); defLbl.BackgroundTransparency = 1; defLbl.Text = labelText; defLbl.TextColor3 = tbl5.text; defLbl.Font = Enum.Font.GothamBold; defLbl.TextSize = 12; defLbl.ZIndex = 9
+        box.MouseButton1Click:Connect(function()
+            tbl3.BackgroundType = valName; updateBg(); fn()
+            for _, child in ipairs(selRow:GetChildren()) do
+                if child:IsA("TextButton") then
+                    local st = child:FindFirstChildOfClass("UIStroke")
+                    if st then TweenService:Create(st, TweenInfo.new(0.2), {Color=tbl5.border, Thickness=1.5, Transparency=0.2}):Play() end
+                end
+            end
+            TweenService:Create(stroke, TweenInfo.new(0.2), {Color=tbl5.accentHi, Thickness=2.5, Transparency=0}):Play()
+        end)
+        return box, stroke
+    end
+
+    local box1, str1 = makeTallBox("", "Default", "Default", 0)
+    local box2, str2 = makeTallBox(tbl.bgAsset, "Theme1", "Theme 1", 0.35)
+    local box3, str3 = makeTallBox(tbl.motoBg, "Theme2", "Theme 2", 0.70)
+    box1.BackgroundTransparency = 1; box2.BackgroundTransparency = 1; box3.BackgroundTransparency = 1
+    if box1:FindFirstChildOfClass("Frame") then box1:FindFirstChildOfClass("Frame").BackgroundTransparency = 1 end
+    if box2:FindFirstChildOfClass("Frame") then box2:FindFirstChildOfClass("Frame").BackgroundTransparency = 1 end
+    if box3:FindFirstChildOfClass("Frame") then box3:FindFirstChildOfClass("Frame").BackgroundTransparency = 1 end
+    if tbl3.BackgroundType == "Theme1" then str2.Color = tbl5.accentHi; str2.Thickness = 2.5; str2.Transparency = 0
+    elseif tbl3.BackgroundType == "Theme2" then str3.Color = tbl5.accentHi; str3.Thickness = 2.5; str3.Transparency = 0
+    else str1.Color = tbl5.accentHi; str1.Thickness = 2.5; str1.Transparency = 0 end
+
+    local iconR = addSection(pageCust, tbl.settings, "Icon Selector")
+    local iconScroll = Instance.new("ScrollingFrame", iconR)
+    iconScroll.Size = UDim2.new(1,0,0,82); iconScroll.BackgroundColor3 = tbl5.bgRow; iconScroll.BorderSizePixel = 0; iconScroll.ScrollBarThickness = 0; iconScroll.ScrollingDirection = Enum.ScrollingDirection.X; iconScroll.ZIndex = 6
+    Instance.new("UICorner", iconScroll).CornerRadius = UDim.new(0,12)
+    Instance.new("UIStroke", iconScroll).Color = tbl5.border
+    local iconLayout = Instance.new("UIListLayout", iconScroll); iconLayout.FillDirection = Enum.FillDirection.Horizontal; iconLayout.Padding = UDim.new(0,8); iconLayout.SortOrder = Enum.SortOrder.LayoutOrder; iconLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+    local iconPadding = Instance.new("UIPadding", iconScroll); iconPadding.PaddingLeft = UDim.new(0,10); iconPadding.PaddingRight = UDim.new(0,10)
+    local iconElements = {}
+
+    local function makeIconBox(imgId, valName)
+        local box = Instance.new("TextButton", iconScroll); box.Size = UDim2.new(0,58,0,58); box.BackgroundTransparency = 1; box.Text = ""; box.AutoButtonColor = false; box.ZIndex = 7; box.LayoutOrder = #iconElements + 1
+        local stroke = Instance.new("UIStroke", box); stroke.Color = tbl5.border; stroke.Thickness = 1.5; stroke.Transparency = 0.2
+        Instance.new("UICorner", box).CornerRadius = UDim.new(0,12)
+        local img = Instance.new("ImageLabel", box); img.Size = UDim2.new(1,0,1,0); img.BackgroundColor3 = tbl5.bg; img.Image = imgId; img.ScaleType = Enum.ScaleType.Fit; img.ZIndex = 8
+        Instance.new("UICorner", img).CornerRadius = UDim.new(0,12)
+        table.insert(iconElements, img)
+        box.MouseButton1Click:Connect(function()
+            tbl3.IconType = valName; sbIcon.Image = imgId; fn()
+            for _, b in ipairs(iconScroll:GetChildren()) do
+                if b:IsA("TextButton") then
+                    local st = b:FindFirstChildOfClass("UIStroke")
+                    if st then TweenService:Create(st, TweenInfo.new(0.2), {Color=tbl5.border, Thickness=1.5, Transparency=0.2}):Play() end
+                end
+            end
+            TweenService:Create(stroke, TweenInfo.new(0.2), {Color=tbl5.accentHi, Thickness=2.5, Transparency=0}):Play()
+        end)
+        return box, stroke
+    end
+    makeIconBox(tbl.xylo, "xylo")
+    makeIconBox(tbl.icon1, "icon1")
+    makeIconBox(tbl.icon2, "icon2")
+    makeIconBox(tbl.icon3, "icon3")
+    makeIconBox(tbl.icon4, "icon4")
+    makeIconBox(tbl.icon5, "icon5")
+    makeIconBox(tbl.icon6, "icon6")
+    makeIconBox(tbl.icon7, "icon7")
+    makeIconBox(tbl.icon8, "icon8")
+
+    task.defer(function() iconScroll.CanvasSize = UDim2.new(0, iconLayout.AbsoluteContentSize.X + 20, 0, 0) end)
+    iconLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+        iconScroll.CanvasSize = UDim2.new(0, iconLayout.AbsoluteContentSize.X + 20, 0, 0)
+    end)
+
+    for _, b in ipairs(iconScroll:GetChildren()) do
+        if b:IsA("TextButton") then
+            local st = b:FindFirstChildOfClass("UIStroke")
+            local img = b:FindFirstChildOfClass("ImageLabel")
+            if st and img then
+                if tbl[tbl3.IconType] == img.Image then TweenService:Create(st, TweenInfo.new(0.2), {Color=tbl5.accentHi, Thickness=2.5, Transparency=0}):Play()
+                else TweenService:Create(st, TweenInfo.new(0.2), {Color=tbl5.border, Thickness=1.5, Transparency=0.2}):Play() end
+            end
+        end
+    end
+
+    local appR = addSection(pageCust, tbl.settings, "Appearance")
+    local function applyTransparency(v)
+        for _, obj in ipairs(themeElements) do obj.BackgroundTransparency = 1 end
+        selRow.BackgroundTransparency = 1
+        for _, obj in ipairs(iconElements) do obj.BackgroundTransparency = 1 end
+        iconScroll.BackgroundTransparency = 1
+        for _, obj in ipairs(pageCust:GetDescendants()) do
+            if obj:IsA("Frame") and (obj.BackgroundColor3 == tbl5.bgRow or obj.BackgroundColor3 == tbl5.bgRowHi) then obj.BackgroundTransparency = v end
+            if obj:IsA("TextButton") and (obj.Parent == selRow) then
+                obj.BackgroundTransparency = 1
+                local bgF = obj:FindFirstChildOfClass("Frame")
+                if bgF then bgF.BackgroundTransparency = 1 end
+            end
+        end
+        if switchBtn then switchBtn.BackgroundTransparency = v end
+    end
+    makeSlider(appR, tbl.settings, "UI Transparency", 0, 0.9, tbl3.UITransparency, 0.05, function(v) tbl3.UITransparency = v; applyTransparency(v); fn() end)
+    makeToggle(appR, tbl.settings, "Snow Effect", tbl3.SnowEnabled, function(e) tbl3.SnowEnabled = e; fn() end)
+    task.spawn(function() task.wait(0.15); if tbl3.UITransparency > 0 then applyTransparency(tbl3.UITransparency) end end)
+
+    local uiR = addSection(pageCust, tbl.settings, "Interface")
+    makeSlider(uiR, tbl.settings, "UI Scale", 0.3, 1.5, tbl3.UIScale, 0.05, function(s)
+        uiScaleInst.Scale = s; tbl3.UIScale = s
+    end)
+    local saveBtn = Instance.new("TextButton", uiR)
+    saveBtn.Size = UDim2.new(1,0,0,30); saveBtn.BackgroundColor3 = tbl5.accentDim; saveBtn.Text = "Save UI Scale"; saveBtn.TextColor3 = tbl5.white; saveBtn.Font = Enum.Font.GothamBold; saveBtn.TextSize = 11; saveBtn.ZIndex = 6
+    Instance.new("UICorner", saveBtn).CornerRadius = UDim.new(0,8)
+    table.insert(themeElements, saveBtn)
+    saveBtn.MouseButton1Click:Connect(function()
+        pcall(function() writefile("uisave.txt", tostring(tbl3.UIScale)) end)
+        saveBtn.Text = "Saved!"; task.delay(1, function() saveBtn.Text = "Save UI Scale" end)
+    end)
+end
+
+buildAimbotPage(topAimPage); buildAimbotPage(tallAimPage)
+buildVisualsPage(topVisPage); buildVisualsPage(tallVisPage)
+buildExploitsPage(topExpPage); buildExploitsPage(tallExpPage)
+buildDesignPage(topCustPage); buildDesignPage(tallCustPage)
+
+updateLayout()
+
+local fovCircle = Instance.new("ImageLabel", sg)
+fovCircle.BackgroundTransparency=1; fovCircle.Image="rbxassetid://105197493436830"
+fovCircle.ImageColor3=tbl5.white; fovCircle.ImageTransparency=0.35
+fovCircle.ScaleType=Enum.ScaleType.Fit; fovCircle.AnchorPoint=Vector2.new(0.5,0.5)
+fovCircle.Visible=tbl3.ShowFOV; fovCircle.ZIndex=20
+
+local suppress = false
+sideBtn.InputBegan:Connect(function(i)
+    if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then
+        suppress = false; local startPos = sideBtn.Position; local startMouse = i.Position; local dragConn
+        dragConn = UserInputService.InputChanged:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+                local delta = input.Position - startMouse
+                if math.abs(delta.X) > 4 or math.abs(delta.Y) > 4 then
+                    suppress = true
+                    local vp = currentCamera.ViewportSize
+                    sideBtn.Position = UDim2.new(startPos.X.Scale, math.clamp(startPos.X.Offset + delta.X, -(vp.X - 54), 0), startPos.Y.Scale, math.clamp(startPos.Y.Offset + delta.Y, -27, vp.Y - 54))
+                    frame.Position = UDim2.new(1, -(SB+14), 0.5, sideBtn.Position.Y.Offset)
+                end
+            end
+        end)
+        UserInputService.InputEnded:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then if dragConn then dragConn:Disconnect() end end end)
+    end
+end)
+sideBtn.MouseButton1Click:Connect(function() if not suppress then frame.Visible = not frame.Visible end end)
+
+local hdrag = false; local hds = nil; local hsp = nil
+titleBar.InputBegan:Connect(function(i) if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then hdrag = true; hds = Vector2.new(i.Position.X, i.Position.Y); hsp = frame.Position end end)
+UserInputService.InputChanged:Connect(function(i) if not hdrag or (i.UserInputType ~= Enum.UserInputType.MouseMovement and i.UserInputType ~= Enum.UserInputType.Touch) then return end; local d = Vector2.new(i.Position.X, i.Position.Y) - hds; frame.Position = UDim2.new(hsp.X.Scale, hsp.X.Offset + d.X, hsp.Y.Scale, hsp.Y.Offset + d.Y) end)
+UserInputService.InputEnded:Connect(function(i) if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then hdrag = false end end)
+
+UserInputService.InputBegan:Connect(function(i, gp) if gp then return end; if i.KeyCode == Enum.KeyCode.RightShift then frame.Visible = not frame.Visible end end)
+
+local function updateScaleForViewport()
+    if not isMobile then return end
+    local vp = currentCamera.ViewportSize
+    if vp.X < 900 or vp.Y < 600 then
+        uiScaleInst.Scale = math.clamp(math.min((vp.X * 0.9) / WIDE_HW, (vp.Y * 0.9) / WIDE_HH), 0.4, tbl3.UIScale)
+    else uiScaleInst.Scale = tbl3.UIScale end
+end
+currentCamera:GetPropertyChangedSignal("ViewportSize"):Connect(updateScaleForViewport)
+task.defer(function() task.wait(0.1); updateScaleForViewport() end)
+
+local snowGui = Instance.new("Frame", frame)
+snowGui.Size = UDim2.new(1,0,1,0); snowGui.BackgroundTransparency = 1; snowGui.ZIndex = 3; snowGui.ClipsDescendants = true
+Instance.new("UICorner", snowGui).CornerRadius = UDim.new(0,20)
+local snowParticles = {}
+for i = 1, 15 do
+    local p = Instance.new("Frame", snowGui)
+    p.Size = UDim2.new(0, math.random(2,4), 0, math.random(2,4)); p.BackgroundColor3 = Color3.fromRGB(255,255,255); p.BorderSizePixel = 0; p.ZIndex = 4
+    Instance.new("UICorner", p).CornerRadius = UDim.new(1,0)
+    table.insert(snowParticles, {obj = p, x = math.random(), y = math.random(), speed = math.random(2,6)/1000})
+end
+task.spawn(function()
+    while task.wait(0.05) do
+        if not tbl3.SnowEnabled or not frame.Visible then
+            for _, p in ipairs(snowParticles) do p.obj.Visible = false end
+        else
+            for _, p in ipairs(snowParticles) do
+                p.obj.Visible = true; p.y = p.y + p.speed
+                if p.y > 1 then p.y = 0; p.x = math.random() end
+                p.obj.Position = UDim2.new(p.x, 0, p.y, 0)
+            end
+        end
+    end
+end)
+
+-- ═══════════════════════════════════════════════════════════════
+-- ESP LOOP + FOV / TRIGGERBOT RENDER
+-- ═══════════════════════════════════════════════════════════════
+
+local espTick = 0
+local espInterval = 0.1
+RunService.Heartbeat:Connect(function(dt)
+    espTick = espTick + dt
+    if espTick < espInterval then return end
+    espTick = 0
+    pcall(function()
+        if not tbl3.ESPEnabled and not tbl3.BoxESP and not tbl3.CornerBoxESP and not tbl3.SkeletonESP and not tbl3.NameTags and not tbl3.HealthBar and not tbl3.DistanceESP and not tbl3.HeadDot and not tbl3.Tracers then
+            for uid in pairs(ESPObjects) do hideESP(uid) end
+            return
+        end
+        local myHRP = localPlayer.Character and localPlayer.Character:FindFirstChild("HumanoidRootPart")
+        local activeUids = {}
+        for _,v3 in ipairs(v:getList()) do
+            local char = v3.character; local hrp = v3.hrp; local hum = v3.humanoid
+            local uid = v3.player.UserId
+            if hrp and myHRP and (hrp.Position - myHRP.Position).Magnitude <= tbl3.ESPDist then
+                activeUids[uid] = true
+                local e = createESP(uid)
+                local pos, onScreen = currentCamera:WorldToViewportPoint(hrp.Position)
+                local head = char:FindFirstChild("Head")
+                if head and onScreen then
+                    local headPos, headOnScreen = currentCamera:WorldToViewportPoint(head.Position)
+                    local top = headOnScreen and Vector2.new(math.floor(headPos.X), math.floor(headPos.Y - 16)) or Vector2.new(math.floor(pos.X), math.floor(pos.Y - 32))
+                    local bottom = Vector2.new(math.floor(pos.X), math.floor(pos.Y + 14))
+                    local height = math.abs(top.Y - bottom.Y); local width = height * 0.55
+                    local boxPos = Vector2.new(math.floor(pos.X - width*0.5), math.floor(top.Y))
+                    local col = tbl3.ESPColor
+                    if tbl3.BoxESP then e.box.Visible = true; e.box.Position = boxPos; e.box.Size = Vector2.new(width, height); e.box.Color = co
