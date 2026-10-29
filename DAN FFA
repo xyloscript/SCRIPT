@@ -505,7 +505,7 @@ local titleBar = Instance.new("Frame", frame)
 titleBar.Name = "TitleBar"; titleBar.Size = UDim2.new(1,0,0,TITLEBAR_H); titleBar.BackgroundTransparency = 1; titleBar.ZIndex = 5; titleBar.Active = true
 
 local titleLbl = Instance.new("TextLabel", titleBar)
-titleLbl.Size = UDim2.new(1,0,1,0); titleLbl.BackgroundTransparency = 1; titleLbl.Text = "XYLO | PREMIUM"
+titleLbl.Size = UDim2.new(1,0,1,0); titleLbl.BackgroundTransparency = 1; titleLbl.Text = "XYLO | DAN FFA PREMIUM"
 titleLbl.TextColor3 = tbl5.text; titleLbl.TextSize = 12; titleLbl.Font = Enum.Font.GothamBold
 titleLbl.TextXAlignment = Enum.TextXAlignment.Center; titleLbl.ZIndex = 6
 
@@ -1164,4 +1164,99 @@ RunService.Heartbeat:Connect(function(dt)
                     local height = math.abs(top.Y - bottom.Y); local width = height * 0.55
                     local boxPos = Vector2.new(math.floor(pos.X - width*0.5), math.floor(top.Y))
                     local col = tbl3.ESPColor
-                    if tbl3.BoxESP then e.box.Visible = true; e.box.Position = boxPos; e.box.Size = Vector2.new(width, height); e.box.Color = co
+                    if tbl3.BoxESP then e.box.Visible = true; e.box.Position = boxPos; e.box.Size = Vector2.new(width, height); e.box.Color = col; e.box.Transparency = 1
+                    else e.box.Visible = false end
+                    if tbl3.CornerBoxESP then
+                        local cw=width*0.28; local ch=height*0.22
+                        local corners={ {boxPos,Vector2.new(1,0),Vector2.new(0,1)}, {boxPos+Vector2.new(width,0),Vector2.new(-1,0),Vector2.new(0,1)}, {boxPos+Vector2.new(0,height),Vector2.new(1,0),Vector2.new(0,-1)}, {boxPos+Vector2.new(width,height),Vector2.new(-1,0),Vector2.new(0,-1)} }
+                        for ci,corner in ipairs(corners) do
+                            local idx1=(ci-1)*2+1; local idx2=idx1+1
+                            e.corners[idx1].Visible=true; e.corners[idx1].From=corner[1]; e.corners[idx1].To=corner[1]+corner[2]*cw; e.corners[idx1].Color=col; e.corners[idx1].Transparency=1
+                            e.corners[idx2].Visible=true; e.corners[idx2].From=corner[1]; e.corners[idx2].To=corner[1]+corner[3]*ch; e.corners[idx2].Color=col; e.corners[idx2].Transparency=1
+                        end
+                    else for _,l in ipairs(e.corners) do l.Visible=false end end
+                    if tbl3.SkeletonESP then
+                        local joints = getSkeletonJoints(char)
+                        for ji,joint in ipairs(joints) do
+                            local p1=char:FindFirstChild(joint[1]); local p2=char:FindFirstChild(joint[2])
+                            if p1 and p2 and p1:IsA("BasePart") and p2:IsA("BasePart") then
+                                local sp1,s1on=currentCamera:WorldToViewportPoint(p1.Position)
+                                local sp2,s2on=currentCamera:WorldToViewportPoint(p2.Position)
+                                if s1on and s2on then
+                                    if not e.skeleton[ji] then local l = Drawing.new("Line"); l.Thickness=1.2; e.skeleton[ji]=l end
+                                    e.skeleton[ji].Visible=true; e.skeleton[ji].From=Vector2.new(math.floor(sp1.X),math.floor(sp1.Y)); e.skeleton[ji].To=Vector2.new(math.floor(sp2.X),math.floor(sp2.Y)); e.skeleton[ji].Color=col; e.skeleton[ji].Transparency=1
+                                elseif e.skeleton[ji] then e.skeleton[ji].Visible=false end
+                            elseif e.skeleton[ji] then e.skeleton[ji].Visible=false end
+                        end
+                    else for k,l in pairs(e.skeleton) do pcall(function() l:Remove() end); e.skeleton[k]=nil end end
+                    if tbl3.HealthBar and hum.Health > 0 then
+                        local hpPct = hum.Health / math.max(hum.MaxHealth, 1)
+                        local hbX = math.floor(boxPos.X - 6); local hbY = math.floor(boxPos.Y); local hbH = math.floor(height)
+                        e.healthBarBg.Visible = true; e.healthBarBg.Position = Vector2.new(hbX, hbY); e.healthBarBg.Size = Vector2.new(2, hbH); e.healthBarBg.Color = Color3.fromRGB(0, 0, 0)
+                        e.healthBarFill.Visible = true; e.healthBarFill.Position = Vector2.new(hbX, math.floor(hbY + hbH * (1 - hpPct))); e.healthBarFill.Size = Vector2.new(2, math.floor(hbH * hpPct)); e.healthBarFill.Color = Color3.fromRGB(math.floor(255*(1-hpPct)), math.floor(255*hpPct), 0)
+                    else e.healthBarBg.Visible = false; e.healthBarFill.Visible = false end
+                    if tbl3.HeadDot and headOnScreen then e.headDot.Visible=true; e.headDot.Position=Vector2.new(math.floor(headPos.X), math.floor(headPos.Y)); e.headDot.Color=col; e.headDot.Transparency=1
+                    else e.headDot.Visible=false end
+                    if tbl3.Tracers then e.tracer.Visible=true; e.tracer.From=Vector2.new(math.floor(currentCamera.ViewportSize.X/2), math.floor(currentCamera.ViewportSize.Y)); e.tracer.To=Vector2.new(math.floor(pos.X), math.floor(pos.Y)); e.tracer.Color=col
+                    else e.tracer.Visible=false end
+                    if tbl3.ESPEnabled then
+                        if not e.highlight or not e.highlight.Parent then e.highlight = Instance.new("Highlight"); e.highlight.Parent = char end
+                        e.highlight.FillColor = col; e.highlight.FillTransparency = tbl3.ESPFill; e.highlight.OutlineColor = col
+                    elseif e.highlight then e.highlight:Destroy(); e.highlight=nil end
+                    if tbl3.NameTags or tbl3.DistanceESP then
+                        local yOff = 0
+                        if tbl3.NameTags then
+                            e.nameTag.Visible = true; e.nameTag.Text = v3.player.Name; e.nameTag.Color = col
+                            e.nameTag.Position = Vector2.new(math.floor(pos.X), math.floor(top.Y - 12)); yOff = 12
+                        else e.nameTag.Visible = false end
+                        if tbl3.DistanceESP then
+                            local d=math.floor((hrp.Position-myHRP.Position).Magnitude)
+                            e.distTag.Visible = true; e.distTag.Text = d.."m"; e.distTag.Color = col
+                            e.distTag.Position = Vector2.new(math.floor(pos.X), math.floor(top.Y - 12 - yOff))
+                        else e.distTag.Visible = false end
+                    else e.nameTag.Visible = false; e.distTag.Visible = false end
+                else
+                    e.box.Visible = false; e.headDot.Visible = false; e.tracer.Visible = false
+                    e.healthBarBg.Visible = false; e.healthBarFill.Visible = false
+                    e.nameTag.Visible = false; e.distTag.Visible = false
+                    for _,l in ipairs(e.corners) do l.Visible = false end
+                    for _,l in pairs(e.skeleton) do l.Visible = false end
+                end
+            end
+        end
+        for uid in pairs(ESPObjects) do if not activeUids[uid] then hideESP(uid) end end
+    end)
+end)
+
+RunService.RenderStepped:Connect(function(dt)
+    local center = currentCamera.ViewportSize / 2
+    fovCircle.Position = UDim2.fromOffset(center.X, center.Y)
+    fovCircle.Size = UDim2.new(0, tbl3.FOV * 2, 0, tbl3.FOV * 2)
+    fovCircle.Visible = tbl3.ShowFOV
+
+    if tbl3.Triggerbot then
+        if not triggerCooldown then triggerCooldown = 0 end
+        triggerCooldown = triggerCooldown - dt
+        if triggerCooldown <= 0 then
+            local centerRay = currentCamera:ViewportPointToRay(center.X, center.Y)
+            local rcpTrig = RaycastParams.new()
+            rcpTrig.FilterType = Enum.RaycastFilterType.Exclude
+            rcpTrig.FilterDescendantsInstances = {localPlayer.Character}
+            local rayResult = Workspace:Raycast(centerRay.Origin, centerRay.Direction * 1000, rcpTrig)
+            if rayResult and rayResult.Instance then
+                local hitChar = rayResult.Instance:FindFirstAncestorOfClass("Model")
+                local hitPlayer = hitChar and Players:GetPlayerFromCharacter(hitChar)
+                if hitPlayer and hitPlayer ~= localPlayer and isEnemy(hitPlayer) and killCheckPass(hitChar) then
+                    local tool = localPlayer.Character and localPlayer.Character:FindFirstChildOfClass("Tool")
+                    if tool then
+                        local oldEnabled = tbl3.Enabled
+                        tbl3.Enabled = true
+                        pcall(function() tool:Activate() end)
+                        tbl3.Enabled = oldEnabled
+                        triggerCooldown = 0.05
+                    end
+                end
+            end
+        end
+    end
+end)
