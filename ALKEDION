@@ -1,6 +1,4 @@
--- XYLO v119 — MASTERSAM FEATURE MERGE + TRIGGERBOT SMOOTHNESS
--- Base: XYLO v118. Added: TriggerbotSmoothness (pre-fire timing), saved to config,
--- slider under Triggerbot section. Fire rate path unchanged (Tool:Activate()).
+-- XYLO v120 — TRIGGERBOT SMOOTHNESS (0-100 scale mapped to 0.00-0.50s delay)
 
 local tbl = {
     logo     = "rbxassetid://136023085551303",
@@ -110,8 +108,8 @@ local tbl2 = {
     TriggerbotFOVTargetColor = Color3.fromRGB(255, 255, 255),
     TriggerbotFOVTransparency = 0.90,
 
-    -- [NEW] Triggerbot Smoothness (pre-fire timing delay, 0 = instant snap)
-    TriggerbotSmoothness = 0.00,
+    -- [NEW] Triggerbot Smoothness (0 to 100 scale)
+    TriggerbotSmoothness = 0,
 
     Fly = false,
     FlySpeed = 50,
@@ -501,7 +499,7 @@ local function sa2SetEnabled(enabled)
 end
 
 -- ============================================================
--- TRIGGERBOT (+ Smoothness)
+-- TRIGGERBOT (+ Smoothness 0-100)
 -- ============================================================
 local TriggerbotLastShot = 0
 local TriggerbotLastTarget = nil
@@ -1638,8 +1636,8 @@ local function buildContent(pageAim, pageAa, pageVis, pageExp, pageCust)
     makeToggle(tbR, tbl.aim, "Enable Triggerbot", tbl3.Triggerbot, function(e) tbl3.Triggerbot=e; TriggerbotLastTarget=nil; TriggerbotFirstSeen=0; fn() end)
     makeToggle(tbR, tbl.fov, "Show FOV", tbl3.TriggerbotFOVVisible, function(e) tbl3.TriggerbotFOVVisible=e; fn() end)
     makeSlider(tbR, tbl.fov, "FOV Radius", 10, 500, tbl3.TriggerbotFOV, 1, function(v) tbl3.TriggerbotFOV=v; fn() end)
-    -- [NEW] Triggerbot Smoothness slider
-    makeSlider(tbR, tbl.settings, "Smoothness", 0.00, 0.50, tbl3.TriggerbotSmoothness, 0.01, function(v) tbl3.TriggerbotSmoothness = v; fn() end)
+    -- [NEW] Triggerbot Smoothness slider: 0 to 100 (mapped to 0.00 - 0.50s)
+    makeSlider(tbR, tbl.settings, "Smoothness", 0, 100, tbl3.TriggerbotSmoothness, 1, function(v) tbl3.TriggerbotSmoothness = v; fn() end)
 
     local espR = addSection(pageVis, tbl.fov, "Player ESP")
     makeToggle(espR, tbl.fov, "Highlight ESP", tbl3.ESPEnabled, function(e) tbl3.ESPEnabled=e; fn() end)
@@ -2184,14 +2182,15 @@ RunService.RenderStepped:Connect(function(dt)
         end
         if tbl3.Triggerbot then
             local target = getTarget(tbl3.TriggerbotFOV)
-            -- [NEW] Smoothness gate: only fire after target has been held for TriggerbotSmoothness seconds
+            -- [NEW] Smoothness 0-100 mapping to 0.00-0.50 seconds
             if target then
                 if TriggerbotLastTarget ~= target then
                     TriggerbotLastTarget = target
                     TriggerbotFirstSeen = os.clock()
                 else
                     local held = os.clock() - TriggerbotFirstSeen
-                    if held >= (tbl3.TriggerbotSmoothness or 0) then
+                    local smoothDelay = (tbl3.TriggerbotSmoothness or 0) / 200 -- 100 => 0.50s
+                    if held >= smoothDelay then
                         triggerbotShoot()
                     end
                 end
