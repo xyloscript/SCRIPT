@@ -1,5 +1,5 @@
--- XYLO v118 — FULL FEATURES + DESIGN UI SHELL
--- Added: Kill Check (skip targets at 0-10 HP), No Spread Bullet, No Delay Shoot, Infinite Studs
+-- XYLO v121 — FULL FEATURES + DESIGN UI + FAKE MACRO (Custom Keybind)
+-- Added: Fake Macro Speed Slider, Hide Toggle, Interactive Keybind Button.
 
 local tbl = {
     logo     = "rbxassetid://136023085551303",
@@ -69,6 +69,9 @@ local tbl2 = {
     NoSpread=false,
     NoDelay=false,
     InfiniteStuds=false,
+    -- FAKE MACRO
+    FakeMacroEnabled=false, FakeMacroSpeed=325, FakeMacroVisible=false,
+    MacroKeybind=Enum.KeyCode.E
 }
 local tbl3 = {}
 for k,v in pairs(tbl2) do tbl3[k]=v end
@@ -92,7 +95,13 @@ end
     if not ok2 or type(r2)~="table" then return end
     for k,v in pairs(tbl2) do
         local v2=r2[k]
-        if v2~=nil and type(v2)==type(v) and k ~= "UIScale" then tbl3[k]=v2 end
+        if v2~=nil and type(v2)==type(v) and k ~= "UIScale" then 
+            if k == "MacroKeybind" and type(v2) == "string" then
+                tbl3[k] = Enum.KeyCode[v2] or Enum.KeyCode.E
+            else
+                tbl3[k]=v2 
+            end
+        end
     end
 end)()
 
@@ -122,7 +131,6 @@ local function applyToolChanges(tool)
             if tool:GetAttribute(attr) ~= nil then tool:SetAttribute(attr, tbl3.DamageValue) end
         end
     end
-    -- NO DELAY / INFINITE STUDS / NO SPREAD via attributes
     if tbl3.NoDelay then
         for _, attr in ipairs({"FireDelay","Delay","Cooldown","ShootDelay","ReloadTime"}) do
             if tool:GetAttribute(attr) ~= nil then tool:SetAttribute(attr, 0) end
@@ -141,21 +149,11 @@ local function applyToolChanges(tool)
     for _, v in ipairs(tool:GetDescendants()) do
         if v:IsA("NumberValue") or v:IsA("IntValue") then
             local name = v.Name:lower()
-            if tbl3.RapidFire and (name:find("rate") or name:find("fire") or name:find("cooldown") or name:find("delay")) then
-                v.Value = tbl3.RateOfFire
-            end
-            if tbl3.DamageChanger and (name:find("damage") or name:find("dmg") or name:find("power")) then
-                v.Value = tbl3.DamageValue
-            end
-            if tbl3.NoDelay and (name:find("delay") or name:find("cooldown") or name:find("reload")) then
-                v.Value = 0
-            end
-            if tbl3.NoSpread and (name:find("spread") or name:find("accuracy")) then
-                v.Value = 0
-            end
-            if tbl3.InfiniteStuds and (name:find("range") or name:find("studs") or name:find("distance")) then
-                v.Value = 999999
-            end
+            if tbl3.RapidFire and (name:find("rate") or name:find("fire") or name:find("cooldown") or name:find("delay")) then v.Value = tbl3.RateOfFire end
+            if tbl3.DamageChanger and (name:find("damage") or name:find("dmg") or name:find("power")) then v.Value = tbl3.DamageValue end
+            if tbl3.NoDelay and (name:find("delay") or name:find("cooldown") or name:find("reload")) then v.Value = 0 end
+            if tbl3.NoSpread and (name:find("spread") or name:find("accuracy")) then v.Value = 0 end
+            if tbl3.InfiniteStuds and (name:find("range") or name:find("studs") or name:find("distance")) then v.Value = 999999 end
         end
     end
 end
@@ -196,7 +194,6 @@ local function isEnemy(arg)
     return v~=v2
 end
 
--- KILL CHECK: skip low-HP targets (0-10 by default) so silent aim doesn't finish/detect them
 local function killCheckPass(character)
     if not tbl3.KillCheck then return true end
     if not character then return false end
@@ -256,14 +253,12 @@ index.getList=function(arg)
             local char = p.Character
             local h = char and char:FindFirstChildOfClass("Humanoid")
             local hrp = char and char:FindFirstChild("HumanoidRootPart")
-            if h and hrp and h.Health > 0 then
-                arg.targets[p] = {player=p, character=char, humanoid=h, hrp=hrp}
+            if h and hrp and h.Health > 0 then arg.targets[p] = {player=p, character=char, humanoid=h, hrp=hrp}
             else arg.targets[p] = nil end
         end
     end
     for k,t in pairs(arg.targets) do
-        if t.hrp and t.hrp.Parent and t.humanoid and t.humanoid.Parent and t.humanoid.Health>0 then
-            table.insert(tbl6,t)
+        if t.hrp and t.hrp.Parent and t.humanoid and t.humanoid.Parent and t.humanoid.Health>0 then table.insert(tbl6,t)
         else arg.targets[k]=nil end
     end
     return tbl6
@@ -329,13 +324,11 @@ RunService.RenderStepped:Connect(function()
     else cachedTargetPart = nil end
 end)
 
--- ── NO SPREAD / NO DELAY / INFINITE STUDS HOOKS ──
 local oldNamecall
 oldNamecall = hookmetamethod(game, "__namecall", function(self, ...)
     local method = getnamecallmethod()
     local args = {...}
 
-    -- SILENT AIM redirect
     if tbl3.Enabled and cachedTargetPart and cachedTargetPart.Parent then
         if method == "Raycast" or method == "FindPartOnRay" or method == "FindPartOnRayWithIgnoreList" then
             local origin, direction
@@ -354,12 +347,10 @@ oldNamecall = hookmetamethod(game, "__namecall", function(self, ...)
         end
     end
 
-    -- NO SPREAD: force spread = 0 on shoot calls
     if tbl3.NoSpread then
         if method == "Fire" or method == "Shoot" or method == "FireWeapon" or method == "BulletFire" then
             for i, a in ipairs(args) do
                 if typeof(a) == "number" and (i <= 4) then
-                    -- spread arg position varies; clamp small spread values
                     if a > 0 and a < 5 then args[i] = 0 end
                 elseif typeof(a) == "Vector3" and a.Magnitude < 5 then
                     args[i] = Vector3.zero
@@ -369,7 +360,6 @@ oldNamecall = hookmetamethod(game, "__namecall", function(self, ...)
         end
     end
 
-    -- INFINITE STUDS: extend bullet ray/range
     if tbl3.InfiniteStuds then
         if method == "Raycast" or method == "FindPartOnRay" or method == "FindPartOnRayWithIgnoreList" then
             local origin, direction
@@ -390,7 +380,6 @@ oldNamecall = hookmetamethod(game, "__namecall", function(self, ...)
     return oldNamecall(self, ...)
 end)
 
--- ── TOOL ACTIVATE HOOK for NO DELAY / INFINITE STUDS via Shoot/Activate ──
 local mt = getrawmetatable(game)
 local oldIndex = mt.__index
 setreadonly(mt, false)
@@ -407,6 +396,88 @@ mt.__index = newcclosure(function(self, key)
     return oldIndex(self, key)
 end)
 setreadonly(mt, true)
+
+-- ═══════════════════════════════════════════════════════════════
+-- FAKE MACRO LOGIC
+-- ═══════════════════════════════════════════════════════════════
+local fakeMacroGui = Instance.new("ScreenGui")
+fakeMacroGui.Name = "FakeMacroGui"
+fakeMacroGui.ResetOnSpawn = false
+fakeMacroGui.Parent = game:GetService("CoreGui")
+fakeMacroGui.Enabled = false
+
+local toggleButton = Instance.new("TextButton", fakeMacroGui)
+toggleButton.Name = "MacroButton"
+toggleButton.Size = UDim2.new(0, 140, 0, 45) 
+toggleButton.Position = UDim2.new(0.1, 0, 0.4, 0)
+toggleButton.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+toggleButton.BackgroundTransparency = 0.5
+toggleButton.TextColor3 = Color3.fromRGB(255, 50, 50)
+toggleButton.TextSize = 16
+toggleButton.Font = Enum.Font.GothamBold
+toggleButton.Text = "Macro: OFF"
+toggleButton.Active = true
+toggleButton.Draggable = true 
+toggleButton.ZIndex = 3 
+Instance.new("UICorner", toggleButton).CornerRadius = UDim.new(0, 8)
+
+local stroke = Instance.new("UIStroke", toggleButton)
+stroke.Color = Color3.fromRGB(255, 255, 255)
+stroke.Thickness = 1.5
+stroke.Transparency = 0.5
+
+local function toggleMacro()
+    tbl3.FakeMacroEnabled = not tbl3.FakeMacroEnabled
+    if tbl3.FakeMacroEnabled then
+        toggleButton.Text = "Macro: ON"
+        toggleButton.TextColor3 = Color3.fromRGB(50, 255, 50)
+        stroke.Color = Color3.fromRGB(50, 255, 50)
+    else
+        toggleButton.Text = "Macro: OFF"
+        toggleButton.TextColor3 = Color3.fromRGB(255, 50, 50)
+        stroke.Color = Color3.fromRGB(255, 255, 255)
+    end
+    fn()
+end
+
+toggleButton.MouseButton1Click:Connect(toggleMacro)
+
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    if input.KeyCode == tbl3.MacroKeybind then
+        toggleMacro()
+    end
+end)
+
+task.spawn(function()
+    while task.wait() do
+        if tbl3.FakeMacroEnabled then
+            pcall(function()
+                local char = localPlayer.Character
+                if char and char:FindFirstChild("HumanoidRootPart") then
+                    local humanoid = char:FindFirstChildOfClass("Humanoid")
+                    local rootPart = char.HumanoidRootPart
+                    
+                    if humanoid then
+                        humanoid.PlatformStand = false
+                        if humanoid:GetState() == Enum.HumanoidStateType.FallingDown or humanoid:GetState() == Enum.HumanoidStateType.Ragdoll then
+                            humanoid:ChangeState(Enum.HumanoidStateType.Running)
+                        end
+                    end
+                    
+                    if humanoid and humanoid.MoveDirection.Magnitude > 0 then
+                        local currentVelocity = rootPart.AssemblyLinearVelocity
+                        rootPart.AssemblyLinearVelocity = Vector3.new(
+                            humanoid.MoveDirection.X * tbl3.FakeMacroSpeed,
+                            currentVelocity.Y,
+                            humanoid.MoveDirection.Z * tbl3.FakeMacroSpeed
+                        )
+                    end
+                end
+            end)
+        end
+    end
+end)
 
 -- ═══════════════════════════════════════════════════════════════
 -- GUI SHELL
@@ -914,6 +985,69 @@ local function buildExploitsPage(pageExp)
     makeToggle(bulletR, tbl.aim, "No Spread Bullet", tbl3.NoSpread, function(e) tbl3.NoSpread = e; fn(); applyAllTools() end)
     makeToggle(bulletR, tbl.aim, "No Delay Shoot", tbl3.NoDelay, function(e) tbl3.NoDelay = e; fn(); applyAllTools() end)
     makeToggle(bulletR, tbl.distance, "Infinite Studs", tbl3.InfiniteStuds, function(e) tbl3.InfiniteStuds = e; fn(); applyAllTools() end)
+
+    -- Fake Macro Section
+    local macroR = addSection(pageExp, tbl.settings, "Fake Macro (Config)")
+    makeToggle(macroR, tbl.settings, "Enable Fake Macro", tbl3.FakeMacroEnabled, function(e)
+        tbl3.FakeMacroEnabled = e
+        if toggleButton then
+            if e then
+                toggleButton.Text = "Macro: ON"
+                toggleButton.TextColor3 = Color3.fromRGB(50, 255, 50)
+                stroke.Color = Color3.fromRGB(50, 255, 50)
+            else
+                toggleButton.Text = "Macro: OFF"
+                toggleButton.TextColor3 = Color3.fromRGB(255, 50, 50)
+                stroke.Color = Color3.fromRGB(255, 255, 255)
+            end
+        end
+        fn()
+    end)
+    makeToggle(macroR, tbl.settings, "Show Fake Macro UI", tbl3.FakeMacroVisible, function(e)
+        tbl3.FakeMacroVisible = e
+        if fakeMacroGui then fakeMacroGui.Enabled = e end
+        fn()
+    end)
+    makeSlider(macroR, tbl.settings, "Macro Speed", 10, 500, tbl3.FakeMacroSpeed, 5, function(v)
+        tbl3.FakeMacroSpeed = v
+        fn()
+    end)
+    
+    -- Interactive Keybind Rebind
+    local keyRow = makeRow(macroR, 36)
+    local keyIc = Instance.new("ImageLabel", keyRow)
+    keyIc.Image = tbl.settings; keyIc.ImageColor3 = tbl5.accentHi
+    keyIc.BackgroundTransparency = 1; keyIc.Size = UDim2.new(0,15,0,15); keyIc.Position = UDim2.new(0,12,0.5,-7); keyIc.ZIndex = 8
+    local keyLb = Instance.new("TextLabel", keyRow)
+    keyLb.Size = UDim2.new(1,-100,1,0); keyLb.Position = UDim2.new(0,36,0,0)
+    keyLb.BackgroundTransparency = 1; keyLb.Text = "Keybind"; keyLb.TextColor3 = tbl5.text; keyLb.TextSize = 12; keyLb.Font = Enum.Font.GothamMedium; keyLb.TextXAlignment = Enum.TextXAlignment.Left; keyLb.ZIndex = 8
+    
+    local keyBtn = Instance.new("TextButton", keyRow)
+    keyBtn.Size = UDim2.new(0,70,0,22); keyBtn.Position = UDim2.new(1,-80,0.5,-11); keyBtn.BackgroundColor3 = tbl5.bgHi
+    keyBtn.BorderSizePixel = 0; keyBtn.Text = tbl3.MacroKeybind.Name; keyBtn.TextColor3 = tbl5.accentHi; keyBtn.TextSize = 11; keyBtn.Font = Enum.Font.GothamBold; keyBtn.ZIndex = 8
+    Instance.new("UICorner", keyBtn).CornerRadius = UDim.new(0,6)
+    local keyPs = Instance.new("UIStroke", keyBtn); keyPs.Color = tbl5.border; keyPs.Thickness = 1
+    
+    local isListening = false
+    keyBtn.MouseButton1Click:Connect(function()
+        isListening = true
+        keyBtn.Text = "..."
+        keyBtn.TextColor3 = tbl5.danger
+        keyPs.Color = tbl5.danger
+    end)
+    
+    UserInputService.InputBegan:Connect(function(input, gp)
+        if not isListening then return end
+        if gp then return end
+        if input.UserInputType == Enum.UserInputType.Keyboard then
+            isListening = false
+            tbl3.MacroKeybind = input.KeyCode
+            keyBtn.Text = input.KeyCode.Name
+            keyBtn.TextColor3 = tbl5.accentHi
+            keyPs.Color = tbl5.border
+            fn()
+        end
+    end)
 end
 
 local function buildDesignPage(pageCust)
@@ -1132,10 +1266,6 @@ task.spawn(function()
     end
 end)
 
--- ═══════════════════════════════════════════════════════════════
--- ESP LOOP + FOV / TRIGGERBOT RENDER
--- ═══════════════════════════════════════════════════════════════
-
 local espTick = 0
 local espInterval = 0.1
 RunService.Heartbeat:Connect(function(dt)
@@ -1258,5 +1388,11 @@ RunService.RenderStepped:Connect(function(dt)
                 end
             end
         end
+    end
+end)
+
+task.defer(function()
+    if fakeMacroGui then
+        fakeMacroGui.Enabled = tbl3.FakeMacroVisible
     end
 end)
