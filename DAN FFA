@@ -1,5 +1,7 @@
 -- XYLO v121 — FULL FEATURES + DESIGN UI + FAKE MACRO (Custom Keybind)
 -- Added: Fake Macro Speed Slider, Hide Toggle, Interactive Keybind Button.
+-- Updated: Fake Macro keybind is now HOLD-TO-RUN (only active while key is held).
+--          Hold only works if "Enable Fake Macro" toggle is ON.
 
 local tbl = {
     logo     = "rbxassetid://136023085551303",
@@ -400,6 +402,11 @@ setreadonly(mt, true)
 -- ═══════════════════════════════════════════════════════════════
 -- FAKE MACRO LOGIC
 -- ═══════════════════════════════════════════════════════════════
+-- isHoldingMacro: true only while the MacroKeybind is physically held down.
+-- The macro loop runs only when BOTH FakeMacroEnabled is ON and the key is held.
+-- Releasing the key stops the macro immediately, regardless of toggle state.
+local isHoldingMacro = false
+
 local fakeMacroGui = Instance.new("ScreenGui")
 fakeMacroGui.Name = "FakeMacroGui"
 fakeMacroGui.ResetOnSpawn = false
@@ -426,8 +433,9 @@ stroke.Color = Color3.fromRGB(255, 255, 255)
 stroke.Thickness = 1.5
 stroke.Transparency = 0.5
 
-local function toggleMacro()
-    tbl3.FakeMacroEnabled = not tbl3.FakeMacroEnabled
+-- updateToggleButtonVisual: syncs the floating button to the current FakeMacroEnabled state.
+-- Does NOT reflect hold state — the toggle shows whether the macro is armed, not firing.
+local function updateToggleButtonVisual()
     if tbl3.FakeMacroEnabled then
         toggleButton.Text = "Macro: ON"
         toggleButton.TextColor3 = Color3.fromRGB(50, 255, 50)
@@ -436,22 +444,45 @@ local function toggleMacro()
         toggleButton.Text = "Macro: OFF"
         toggleButton.TextColor3 = Color3.fromRGB(255, 50, 50)
         stroke.Color = Color3.fromRGB(255, 255, 255)
+        -- Disarming also cancels any active hold so the loop stops.
+        isHoldingMacro = false
     end
+end
+
+local function toggleMacro()
+    tbl3.FakeMacroEnabled = not tbl3.FakeMacroEnabled
+    updateToggleButtonVisual()
     fn()
 end
 
 toggleButton.MouseButton1Click:Connect(toggleMacro)
 
+-- ── HOLD KEYBIND ─────────────────────────────────────────────
+-- InputBegan: arm the hold if macro is enabled and key matches.
+-- InputEnded: disarm on key release unconditionally (safe guard).
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
     if gameProcessed then return end
+    if input.UserInputType ~= Enum.UserInputType.Keyboard then return end
     if input.KeyCode == tbl3.MacroKeybind then
-        toggleMacro()
+        -- Only fires the hold if the master toggle is ON.
+        if tbl3.FakeMacroEnabled then
+            isHoldingMacro = true
+        end
     end
 end)
 
+UserInputService.InputEnded:Connect(function(input)
+    if input.UserInputType ~= Enum.UserInputType.Keyboard then return end
+    if input.KeyCode == tbl3.MacroKeybind then
+        isHoldingMacro = false
+    end
+end)
+-- ─────────────────────────────────────────────────────────────
+
 task.spawn(function()
     while task.wait() do
-        if tbl3.FakeMacroEnabled then
+        -- Runs only while macro is armed (enabled) AND the hold key is physically held.
+        if tbl3.FakeMacroEnabled and isHoldingMacro then
             pcall(function()
                 local char = localPlayer.Character
                 if char and char:FindFirstChild("HumanoidRootPart") then
@@ -990,17 +1021,9 @@ local function buildExploitsPage(pageExp)
     local macroR = addSection(pageExp, tbl.settings, "Fake Macro (Config)")
     makeToggle(macroR, tbl.settings, "Enable Fake Macro", tbl3.FakeMacroEnabled, function(e)
         tbl3.FakeMacroEnabled = e
-        if toggleButton then
-            if e then
-                toggleButton.Text = "Macro: ON"
-                toggleButton.TextColor3 = Color3.fromRGB(50, 255, 50)
-                stroke.Color = Color3.fromRGB(50, 255, 50)
-            else
-                toggleButton.Text = "Macro: OFF"
-                toggleButton.TextColor3 = Color3.fromRGB(255, 50, 50)
-                stroke.Color = Color3.fromRGB(255, 255, 255)
-            end
-        end
+        -- Disabling the master toggle also kills any active hold.
+        if not e then isHoldingMacro = false end
+        updateToggleButtonVisual()
         fn()
     end)
     makeToggle(macroR, tbl.settings, "Show Fake Macro UI", tbl3.FakeMacroVisible, function(e)
@@ -1020,7 +1043,7 @@ local function buildExploitsPage(pageExp)
     keyIc.BackgroundTransparency = 1; keyIc.Size = UDim2.new(0,15,0,15); keyIc.Position = UDim2.new(0,12,0.5,-7); keyIc.ZIndex = 8
     local keyLb = Instance.new("TextLabel", keyRow)
     keyLb.Size = UDim2.new(1,-100,1,0); keyLb.Position = UDim2.new(0,36,0,0)
-    keyLb.BackgroundTransparency = 1; keyLb.Text = "Keybind"; keyLb.TextColor3 = tbl5.text; keyLb.TextSize = 12; keyLb.Font = Enum.Font.GothamMedium; keyLb.TextXAlignment = Enum.TextXAlignment.Left; keyLb.ZIndex = 8
+    keyLb.BackgroundTransparency = 1; keyLb.Text = "Hold Keybind"; keyLb.TextColor3 = tbl5.text; keyLb.TextSize = 12; keyLb.Font = Enum.Font.GothamMedium; keyLb.TextXAlignment = Enum.TextXAlignment.Left; keyLb.ZIndex = 8
     
     local keyBtn = Instance.new("TextButton", keyRow)
     keyBtn.Size = UDim2.new(0,70,0,22); keyBtn.Position = UDim2.new(1,-80,0.5,-11); keyBtn.BackgroundColor3 = tbl5.bgHi
@@ -1031,6 +1054,7 @@ local function buildExploitsPage(pageExp)
     local isListening = false
     keyBtn.MouseButton1Click:Connect(function()
         isListening = true
+        isHoldingMacro = false  -- cancel any active hold while rebinding
         keyBtn.Text = "..."
         keyBtn.TextColor3 = tbl5.danger
         keyPs.Color = tbl5.danger
