@@ -1355,7 +1355,7 @@ local titleBar = Instance.new("Frame", frame)
 titleBar.Name = "TitleBar"; titleBar.Size = UDim2.new(1,0,0,TITLEBAR_H); titleBar.BackgroundTransparency = 1; titleBar.ZIndex = 5; titleBar.Active = true
 
 local titleLbl = Instance.new("TextLabel", titleBar)
-titleLbl.Size = UDim2.new(1,0,1,0); titleLbl.BackgroundTransparency = 1; titleLbl.Text = "XYLO | PREMIUM ALKEDION PVP"
+titleLbl.Size = UDim2.new(1,0,1,0); titleLbl.BackgroundTransparency = 1; titleLbl.Text = "XYLO | ALKEDION PVP"
 titleLbl.TextColor3 = tbl5.text; titleLbl.TextSize = 12; titleLbl.Font = Enum.Font.GothamBold
 titleLbl.TextXAlignment = Enum.TextXAlignment.Center; titleLbl.ZIndex = 6
 
@@ -1739,7 +1739,7 @@ local function buildContent(pageAim, pageAa, pageVis, pageExp, pageCust)
     end
 
     local aimR = addSection(pageAim, tbl.aim, "Silent Aim")
-    makeToggle(aimR, tbl.aim, "Enable Silent Aim", tbl3.Enabled, function(e) sa2SetEnabled(e); fn() end)
+    makeToggle(aimR, tbl.aim, "Silent Aim", tbl3.Enabled, function(e) sa2SetEnabled(e); fn() end)
     makeToggle(aimR, tbl.target, "Wall Check", tbl3.SilentWallCheck, function(e) tbl3.SilentWallCheck=e; tbl3.SA2_Wallcheck=e; fn() end)
     makeToggle(aimR, tbl.target, "Wallbang", tbl3.SilentWallbang, function(e) tbl3.SilentWallbang=e; tbl3.SA2_Wallbang=e; fn() end)
     makeToggle(aimR, tbl.target, "Bullet Teleport", tbl3.SilentBulletTeleport, function(e) tbl3.SilentBulletTeleport=e; tbl3.SA2_BulletTeleport=e; fn() end)
@@ -1749,8 +1749,8 @@ local function buildContent(pageAim, pageAa, pageVis, pageExp, pageCust)
     makeToggle(aimR, tbl.skip, "Skip Roll", tbl3.SkipRollAim, function(e) tbl3.SkipRollAim=e; fn() end)
 
     local sa2R = addSection(pageAim, tbl.settings, "Silent Aim Advanced")
-    makeSlider(sa2R, tbl.settings, "Hit Chance %", 0, 100, tbl3.SA2_HitChance, 1, function(v) tbl3.SA2_HitChance=v; fn() end)
-    makeSlider(sa2R, tbl.settings, "Headshot Chance %", 0, 100, tbl3.SA2_HeadshotChance, 1, function(v) tbl3.SA2_HeadshotChance=v; fn() end)
+    makeSlider(sa2R, tbl.settings, "Hit Chance", 0, 100, tbl3.SA2_HitChance, 1, function(v) tbl3.SA2_HitChance=v; fn() end)
+    makeSlider(sa2R, tbl.settings, "Headshot Chance", 0, 100, tbl3.SA2_HeadshotChance, 1, function(v) tbl3.SA2_HeadshotChance=v; fn() end)
     makeSlider(sa2R, tbl.distance, "Target Range", 50, 1000, tbl3.SA2_TargetRange, 10, function(v) tbl3.SA2_TargetRange=v; fn() end)
     makeSlider(sa2R, tbl.settings, "Prediction", 0, 0.5, tbl3.SA2_Prediction, 0.01, function(v) tbl3.SA2_Prediction=v; fn() end)
     makeToggle(sa2R, tbl.target, "360 Mode", tbl3.SA2_ThreeSixtyMode, function(e) tbl3.SA2_ThreeSixtyMode=e; fn() end)
@@ -1777,8 +1777,8 @@ local function buildContent(pageAim, pageAa, pageVis, pageExp, pageCust)
     end)
 
     local aaR = addSection(pageAa, tbl.aim, "Aimbot / Camlock")
-    makeToggle(aaR, tbl.aim, "Enable Aimbot", tbl3.AimAssistEnabled, function(e) tbl3.AimAssistEnabled = e; fn() end)
-    makeToggle(aaR, tbl.target, "Wall Check (LOS)", tbl3.AimAssistWallCheck, function(e) tbl3.AimAssistWallCheck = e; fn() end)
+    makeToggle(aaR, tbl.aim, "Aimbot", tbl3.AimAssistEnabled, function(e) tbl3.AimAssistEnabled = e; fn() end)
+    makeToggle(aaR, tbl.target, "Wall Check", tbl3.AimAssistWallCheck, function(e) tbl3.AimAssistWallCheck = e; fn() end)
     makeToggle(aaR, tbl.target, "Team Check", tbl3.TeamCheck, function(e) tbl3.TeamCheck = e; fn() end)
     makeToggle(aaR, tbl.fov, "Show FOV", tbl3.AimAssistShowFOV, function(e) tbl3.AimAssistShowFOV = e; fn() end)
     makePillSelector(aaR, tbl.aim, "Mode", {"Smooth", "Magnetism"}, tbl3.AimAssistMode, function(val) tbl3.AimAssistMode = val; fn() end)
@@ -1788,7 +1788,7 @@ local function buildContent(pageAim, pageAa, pageVis, pageExp, pageCust)
     makeSlider(aaR, tbl.distance, "Max Distance", 50, 2000, tbl3.AimAssistMaxDist, 10, function(v) tbl3.AimAssistMaxDist = v; fn() end)
 
     local tbR = addSection(pageAa, tbl.aim, "Triggerbot")
-    makeToggle(tbR, tbl.aim, "Enable Triggerbot", tbl3.Triggerbot, function(e) tbl3.Triggerbot=e; TriggerbotLastTarget=nil; TriggerbotFirstSeen=0; fn() end)
+    makeToggle(tbR, tbl.aim, "Triggerbot", tbl3.Triggerbot, function(e) tbl3.Triggerbot=e; TriggerbotLastTarget=nil; TriggerbotFirstSeen=0; fn() end)
     makeToggle(tbR, tbl.fov, "Show FOV", tbl3.TriggerbotFOVVisible, function(e) tbl3.TriggerbotFOVVisible=e; fn() end)
     makeSlider(tbR, tbl.fov, "FOV Radius", 10, 500, tbl3.TriggerbotFOV, 1, function(v) tbl3.TriggerbotFOV=v; fn() end)
     makeSlider(tbR, tbl.settings, "Smoothness", 0, 100, tbl3.TriggerbotSmoothness, 1, function(v) tbl3.TriggerbotSmoothness = v; fn() end)
@@ -1901,7 +1901,7 @@ local function buildContent(pageAim, pageAa, pageVis, pageExp, pageCust)
         customSound:Play()
         fn()
     end)
-    makeToggle(hsR, tbl.settings, "Test Fire (Hold)", tbl3.HitsoundTestFire, function(e)
+    makeToggle(hsR, tbl.settings, "Test Fire", tbl3.HitsoundTestFire, function(e)
         tbl3.HitsoundTestFire = e
         fn()
     end)
