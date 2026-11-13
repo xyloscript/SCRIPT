@@ -1,6 +1,5 @@
--- XYLO v121 — merged build
--- + Aura menu inside Exploits tab (Angel/Flow/Heavenly/Ribbon/Sakura/Star/Starlight/Wind/Skibidi RedRizz + None)
--- + Fixed drop-down (one-open-at-a-time, overlay, click-outside close, tall-mode safe)
+-- XYLO — Design Tab v3 + ALKEDION PVP full features
+-- Global UI Transparency fixed + Centered ALKEDION PVP FPS/Ping HUD
 
 local tbl = {
     logo     = "rbxassetid://136023085551303",
@@ -22,6 +21,11 @@ local tbl = {
     icon6    = "rbxassetid://108049753883608",
     icon7    = "rbxassetid://102084438000017",
     icon8    = "rbxassetid://124369411136753",
+
+    theme3Bg = "rbxassetid://84673074401340",
+    theme4Bg = "rbxassetid://101734963574115",
+    theme5Bg = "rbxassetid://90860665933094",
+    theme6Bg = "rbxassetid://129296564821726",
 }
 
 local Players           = game:GetService("Players")
@@ -38,35 +42,50 @@ local localPlayer       = Players.LocalPlayer
 
 local isMobile = UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled
 local RECOMMENDED_MOBILE = 0.65
-local RECOMMENDED_PC = 1.0
-local defaultUIScale = isMobile and RECOMMENDED_MOBILE or RECOMMENDED_PC
+local RECOMMENDED_PC     = 1.0
+local defaultUIScale     = isMobile and RECOMMENDED_MOBILE or RECOMMENDED_PC
 
 local WIDE_HW, WIDE_HH = 640, 500
-local TALL_HW, TALL_HH = 380, 560
+local TALL_HW, TALL_HH = 380, 580
 local TITLEBAR_H = 38
-local TABBAR_H = 28
+local TABBAR_H   = 28
 
 local tbl5 = {
-    bg=Color3.fromRGB(10,10,10), bgHi=Color3.fromRGB(18,18,18),
-    bgRow=Color3.fromRGB(22,22,22), bgRowHi=Color3.fromRGB(32,32,32),
-    border=Color3.fromRGB(45,45,45), borderHi=Color3.fromRGB(70,70,70),
-    accent=Color3.fromRGB(130,130,130), accentHi=Color3.fromRGB(190,190,190),
-    accentDim=Color3.fromRGB(70,70,70), danger=Color3.fromRGB(200,70,70),
-    text=Color3.fromRGB(220,220,220), textDim=Color3.fromRGB(130,130,130),
-    textMute=Color3.fromRGB(80,80,80), white=Color3.fromRGB(255,255,255),
+    bg        = Color3.fromRGB(10,10,10),
+    bgHi      = Color3.fromRGB(18,18,18),
+    bgRow     = Color3.fromRGB(22,22,22),
+    bgRowHi   = Color3.fromRGB(32,32,32),
+    border    = Color3.fromRGB(45,45,45),
+    borderHi  = Color3.fromRGB(70,70,70),
+    accent    = Color3.fromRGB(130,130,130),
+    accentHi  = Color3.fromRGB(190,190,190),
+    accentDim = Color3.fromRGB(70,70,70),
+    danger    = Color3.fromRGB(200,70,70),
+    text      = Color3.fromRGB(220,220,220),
+    textDim   = Color3.fromRGB(130,130,130),
+    textMute  = Color3.fromRGB(80,80,80),
+    white     = Color3.fromRGB(255,255,255),
 }
 
 local tbl2 = {
+    UIScale        = defaultUIScale,
+    IsTallMode     = false,
+    BackgroundType = "Default",
+    UITransparency = 0,
+    SnowEnabled    = true,
+    IconType       = "xylo",
+    HideSideBtn    = false,
+
     Enabled=false, SkipAiming=false, SkipRollAim=false, FOV=100,
     BodyPart="Head",
-    ShowFOV=true, MaxDist=1000,
-    FOVMode=1,
-    TeamCheck=true, LosRadius=0.05, UIScale=defaultUIScale,
+    ShowFOV=true, MaxDist=1000, FOVMode=1,
+    TeamCheck=true, LosRadius=0.05,
     Triggerbot=false,
     ShowTargetIndicator = true,
     RapidFire=false, RateOfFire=10000,
     DamageChanger=false, DamageValue=100,
     InvisibleDesync = false,
+
     AimAssistEnabled = false,
     AimAssistMode = "Smooth",
     AimAssistSmoothness = 0.25,
@@ -75,17 +94,8 @@ local tbl2 = {
     AimAssistWallCheck = true,
     AimAssistMaxDist = 500,
     AimAssistShowFOV = true,
-    SilentWallCheck = true,
-    BackgroundType="Default",
-    UITransparency=0,
-    SnowEnabled=true,
-    IconType="xylo",
-    GodMode=false,
-    ESPEnabled=false, BoxESP=false, CornerBoxESP=false, SkeletonESP=false,
-    NameTags=false, HealthBar=false, DistanceESP=false, HeadDot=false, Tracers=false,
-    ESPDist=1000, ESPColor=Color3.fromRGB(220,220,225), ESPFill=0.5, OutlineThickness=1,
-    IsTallMode = false,
 
+    SilentWallCheck = true,
     SilentWallbang = false,
     SilentBulletTeleport = false,
     SilentAimHK = false,
@@ -101,7 +111,7 @@ local tbl2 = {
     SA2_TargetRange = 500,
     SA2_Prediction = 0,
     SA2_GetTarget = "Closest",
-    
+
     TriggerbotRate = 100,
     TriggerbotInterval = 0.01,
     TriggerbotFOV = 10,
@@ -109,20 +119,13 @@ local tbl2 = {
     TriggerbotFOVColor = Color3.fromRGB(160, 90, 255),
     TriggerbotFOVTargetColor = Color3.fromRGB(255, 255, 255),
     TriggerbotFOVTransparency = 0.90,
-
-    -- Triggerbot Smoothness (0 to 100 scale)
     TriggerbotSmoothness = 0,
 
-    Fly = false,
-    FlySpeed = 50,
-    SpeedHack = false,
-    WalkSpeedValue = 16,
-    NoClip = false,
-    InfiniteJump = false,
-    HitboxExpander = false,
-    HitboxSize = 10,
-    BigHead = false,
-    BigHeadSize = 5,
+    Fly = false, FlySpeed = 50,
+    SpeedHack = false, WalkSpeedValue = 16,
+    NoClip = false, InfiniteJump = false,
+    HitboxExpander = false, HitboxSize = 10,
+    BigHead = false, BigHeadSize = 5,
     ViewCameraTP = false,
     CameraTPActive = false,
     CameraTPOriginalType = nil,
@@ -133,14 +136,18 @@ local tbl2 = {
     SpectateActive = false,
     SpectateTarget = nil,
     TeleportEnabled = true,
+    GodMode = false,
 
-    FPSMeterEnabled = false,
+    ESPEnabled=false, BoxESP=false, CornerBoxESP=false, SkeletonESP=false,
+    NameTags=false, HealthBar=false, DistanceESP=false, HeadDot=false, Tracers=false,
+    ESPDist=1000, ESPColor=Color3.fromRGB(220,220,225), ESPFill=0.5, OutlineThickness=1,
+
+    FPSMeterEnabled = true, -- Naka-ON by default para pag close ng menu lalabas agad
     PotatoGraphicsEnabled = false,
 
     HitsoundName = "Rust Headshot",
     HitsoundTestFire = true,
 
-    -- Aura
     AuraSelected = "None",
 }
 local tbl3 = {}
@@ -328,7 +335,7 @@ localPlayer.CharacterAdded:Connect(function()
 end)
 
 -- ============================================================
--- SILENT AIM (Blaster hook)
+-- SILENT AIM
 -- ============================================================
 local RS = game:GetService("ReplicatedStorage")
 local SA2 = { targetPart = nil, targetPlayer = nil }
@@ -348,8 +355,8 @@ local function sa2Enemy(player)
         return false
     end
     if tbl3.TeamCheck then
-        if localPlayer.Team and player.Team then 
-            return localPlayer.Team ~= player.Team 
+        if localPlayer.Team and player.Team then
+            return localPlayer.Team ~= player.Team
         end
         return true
     end
@@ -357,7 +364,7 @@ local function sa2Enemy(player)
 end
 
 local function sa2Visible(character, part)
-    if tbl3.SA2_Wallbang or tbl3.SilentWallbang then return true end 
+    if tbl3.SA2_Wallbang or tbl3.SilentWallbang then return true end
     if not tbl3.SA2_Wallcheck and not tbl3.SilentWallCheck then return true end
     if not character or not part then return false end
     local camera = Workspace.CurrentCamera
@@ -394,7 +401,7 @@ local function sa2FindTarget()
     local localCharacter = localPlayer.Character
     local localRoot = localCharacter and localCharacter:FindFirstChild("HumanoidRootPart")
     if not localRoot then return nil, nil end
-    
+
     for _, target in ipairs(Players:GetPlayers()) do
         if sa2Enemy(target) then
             local character = target.Character
@@ -403,7 +410,7 @@ local function sa2FindTarget()
             if hum and hum.Health > 0 and hrp then
                 local part = character:FindFirstChild(tbl3.BodyPart) or hrp
                 local worldDistance = (part.Position - localRoot.Position).Magnitude
-                
+
                 if worldDistance <= range and sa2Visible(character, part) then
                     local screen, onScreen = camera:WorldToViewportPoint(part.Position)
                     local inFov = false
@@ -416,7 +423,7 @@ local function sa2FindTarget()
                         screenDistance = dx * dx + dy * dy
                         inFov = screenDistance <= fovSq
                     end
-                    
+
                     if inFov then
                         local score
                         if tbl3.SA2_GetTarget == "Lowest Health" then
@@ -861,44 +868,71 @@ function PG.Disable()
 end
 
 -- ============================================================
--- FPS METER
+-- FPS METER (Top Centered HUD)
 -- ============================================================
-local fpsState = { enabled = false, frame = nil, label = nil, elapsed = 0, frames = 0, conn = nil }
+local fpsState = { enabled = true, frame = nil, label = nil, elapsed = 0, frames = 0, conn = nil }
+
+local function getPing()
+    local ping = 0
+    pcall(function()
+        ping = math.floor(game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValue())
+    end)
+    return ping
+end
+
 local function fpsDestroy()
     if fpsState.conn then fpsState.conn:Disconnect(); fpsState.conn = nil end
     if fpsState.frame then fpsState.frame:Destroy(); fpsState.frame = nil; fpsState.label = nil end
     fpsState.elapsed = 0; fpsState.frames = 0
 end
+
 local function fpsEnable(parentGui)
     fpsDestroy()
+    
     local frame = Instance.new("Frame")
-    frame.Name = "XYLO_FPS"; frame.AnchorPoint = Vector2.new(1, 0)
-    frame.Position = UDim2.new(1, -14, 0, 14); frame.Size = UDim2.fromOffset(90, 26)
-    frame.BackgroundColor3 = tbl5.bgHi; frame.BackgroundTransparency = 0.12
-    frame.BorderSizePixel = 0; frame.ZIndex = 100; frame.Parent = parentGui
+    frame.Name = "ALKEDION_HUD"
+    frame.AnchorPoint = Vector2.new(0.5, 0) -- Gitna sa X-axis, taas sa Y-axis
+    frame.Position = UDim2.new(0.5, 0, 0, 8) -- Nasa tuktok
+    frame.Size = UDim2.fromOffset(210, 24) 
+    frame.BackgroundColor3 = Color3.fromRGB(42, 52, 65)
+    frame.BackgroundTransparency = 0.15
+    frame.BorderSizePixel = 0
+    frame.ZIndex = 100
+    frame.Parent = parentGui
+    frame.Visible = false -- Naka-hide sa umpisa
+    
     Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 8)
-    local stroke = Instance.new("UIStroke", frame); stroke.Color = tbl5.border; stroke.Thickness = 1; stroke.Transparency = 0.3
-    local tag = Instance.new("TextLabel", frame)
-    tag.Position = UDim2.fromOffset(8, 0); tag.Size = UDim2.new(0.4, 0, 1, 0)
-    tag.BackgroundTransparency = 1; tag.Text = "FPS"
-    tag.TextColor3 = tbl5.accentHi; tag.TextSize = 10; tag.Font = Enum.Font.GothamBold
-    tag.TextXAlignment = Enum.TextXAlignment.Left; tag.ZIndex = 101
+    local stroke = Instance.new("UIStroke", frame)
+    stroke.Color = Color3.fromRGB(100, 100, 100)
+    stroke.Thickness = 1
+    stroke.Transparency = 0.5
+    
     local value = Instance.new("TextLabel", frame)
-    value.Position = UDim2.new(0.4, 0, 0, 0); value.Size = UDim2.new(0.6, -8, 1, 0)
-    value.BackgroundTransparency = 1; value.Text = "-- FPS"
-    value.TextColor3 = Color3.fromRGB(80, 230, 140); value.TextSize = 10
-    value.Font = Enum.Font.GothamBold; value.TextXAlignment = Enum.TextXAlignment.Right
+    value.Size = UDim2.new(1, -16, 1, 0)
+    value.Position = UDim2.new(0, 8, 0, 0)
+    value.BackgroundTransparency = 1
+    value.Text = "ALKEDION PVP | -- FPS | --ms"
+    value.TextColor3 = Color3.fromRGB(255, 255, 255)
+    value.TextSize = 12
+    value.Font = Enum.Font.GothamBold
+    value.TextXAlignment = Enum.TextXAlignment.Center
     value.ZIndex = 101
-    fpsState.frame = frame; fpsState.label = value
+    
+    fpsState.frame = frame
+    fpsState.label = value
+    
     fpsState.conn = RunService.RenderStepped:Connect(function(dt)
         if not fpsState.enabled or not fpsState.label then return end
         if dt > 0 then fpsState.elapsed = fpsState.elapsed + dt; fpsState.frames = fpsState.frames + 1 end
         if fpsState.elapsed >= 1 then
-            fpsState.label.Text = tostring(math.floor(fpsState.frames / fpsState.elapsed + 0.5)) .. " FPS"
+            local fps = math.floor(fpsState.frames / fpsState.elapsed + 0.5)
+            local ping = getPing()
+            fpsState.label.Text = string.format("ALKEDION PVP | %d FPS | %dms", fps, ping)
             fpsState.elapsed = 0; fpsState.frames = 0
         end
     end)
 end
+
 local function fpsSetEnabled(enabled, parentGui)
     fpsState.enabled = enabled
     if enabled then fpsEnable(parentGui) else fpsDestroy() end
@@ -1144,10 +1178,10 @@ task.spawn(function()
 end)
 
 -- ============================================================
--- GUI
+-- GUI ROOT
 -- ============================================================
 local sg = Instance.new("ScreenGui")
-sg.Name = "XyloHubSA"
+sg.Name = "XyloDesign"
 sg.ResetOnSpawn = false
 sg.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 sg.IgnoreGuiInset = true
@@ -1221,7 +1255,6 @@ triggerbotFOVGui.BorderSizePixel = 0
 triggerbotFOVGui.Visible = false
 triggerbotFOVGui.Parent = sg
 Instance.new("UICorner", triggerbotFOVGui).CornerRadius = UDim.new(1, 0)
-
 local triggerbotFOVStroke = Instance.new("UIStroke")
 triggerbotFOVStroke.Thickness = 1
 triggerbotFOVStroke.Parent = triggerbotFOVGui
@@ -1294,7 +1327,7 @@ tdot.Size = UDim2.new(0,18,0,18); tdot.AnchorPoint = Vector2.new(0.5,0.5)
 tdot.Visible = false; tdot.ZIndex = 21
 
 -- ============================================================
--- DROP-DOWN FIX: single global open container, screenGui-level, click-outside close
+-- DROP-DOWN CONTROLLER
 -- ============================================================
 local OPEN_DROPDOWN = nil
 local function closeOpenDropdown()
@@ -1303,10 +1336,11 @@ local function closeOpenDropdown()
         OPEN_DROPDOWN = nil
     end
 end
+
 UserInputService.InputBegan:Connect(function(input, gp)
     if gp then return end
     if input.UserInputType == Enum.UserInputType.MouseButton1
-       or input.UserInputType == Enum.UserInputType.Touch then
+    or input.UserInputType == Enum.UserInputType.Touch then
         closeOpenDropdown()
     end
 end)
@@ -1320,17 +1354,21 @@ sideBtn.BackgroundColor3 = Color3.fromRGB(10,10,12)
 sideBtn.BorderSizePixel = 0; sideBtn.Text = ""; sideBtn.AutoButtonColor = false
 sideBtn.ZIndex = 30; sideBtn.ClipsDescendants = true
 Instance.new("UICorner", sideBtn).CornerRadius = UDim.new(0,16)
-local sbStroke = Instance.new("UIStroke", sideBtn); sbStroke.Color = tbl5.border; sbStroke.Thickness = 1.5
+local sbStroke = Instance.new("UIStroke", sideBtn)
+sbStroke.Color = tbl5.border; sbStroke.Thickness = 1.5
 local sbIcon = Instance.new("ImageLabel", sideBtn)
 sbIcon.Image = tbl[tbl3.IconType] or tbl.xylo
 sbIcon.BackgroundColor3 = Color3.fromRGB(10,10,12); sbIcon.BackgroundTransparency = 0
-sbIcon.Size = UDim2.new(1,0,1,0); sbIcon.Position = UDim2.new(0,0,0,0)
-sbIcon.ScaleType = Enum.ScaleType.Fit; sbIcon.ZIndex = 31
+sbIcon.Size = UDim2.new(1,0,1,0); sbIcon.ScaleType = Enum.ScaleType.Fit; sbIcon.ZIndex = 31
 Instance.new("UICorner", sbIcon).CornerRadius = UDim.new(0,14)
 
+if tbl3.HideSideBtn then sideBtn.Visible = false end
+
 local frame = Instance.new("Frame", sg)
-frame.Name = "Hub"; frame.AnchorPoint = Vector2.new(1,0.5); frame.Position = UDim2.new(1,-(SB+14),0.5,0)
-frame.Size = UDim2.new(0,WIDE_HW,0,WIDE_HH); frame.BackgroundColor3 = tbl5.bg; frame.BorderSizePixel = 0
+frame.Name = "Hub"; frame.AnchorPoint = Vector2.new(1,0.5)
+frame.Position = UDim2.new(1,-(SB+14),0.5,0)
+frame.Size = UDim2.new(0,WIDE_HW,0,WIDE_HH)
+frame.BackgroundColor3 = tbl5.bg; frame.BorderSizePixel = 0
 frame.Active = true; frame.ZIndex = 2; frame.ClipsDescendants = true
 Instance.new("UICorner", frame).CornerRadius = UDim.new(0,20)
 
@@ -1340,41 +1378,63 @@ bgImg.ScaleType = Enum.ScaleType.Crop
 Instance.new("UICorner", bgImg).CornerRadius = UDim.new(0,20)
 
 local function updateBg()
-    if tbl3.BackgroundType == "Theme1" then bgImg.Image = tbl.bgAsset; bgImg.ImageTransparency = 0.7
-    elseif tbl3.BackgroundType == "Theme2" then bgImg.Image = tbl.motoBg; bgImg.ImageTransparency = 0.7
-    else bgImg.Image = "" end
+    if     tbl3.BackgroundType == "Theme1" then bgImg.Image = tbl.bgAsset;   bgImg.ImageTransparency = 0.7
+    elseif tbl3.BackgroundType == "Theme2" then bgImg.Image = tbl.motoBg;    bgImg.ImageTransparency = 0.7
+    elseif tbl3.BackgroundType == "Theme3" then bgImg.Image = tbl.theme3Bg;  bgImg.ImageTransparency = 0.7
+    elseif tbl3.BackgroundType == "Theme4" then bgImg.Image = tbl.theme4Bg;  bgImg.ImageTransparency = 0.7
+    elseif tbl3.BackgroundType == "Theme5" then bgImg.Image = tbl.theme5Bg;  bgImg.ImageTransparency = 0.7
+    elseif tbl3.BackgroundType == "Theme6" then bgImg.Image = tbl.theme6Bg;  bgImg.ImageTransparency = 0.7
+    else                                        bgImg.Image = ""
+    end
 end
 updateBg()
 
-local uiScaleInst = Instance.new("UIScale", frame); uiScaleInst.Scale = tbl3.UIScale
-local uiSt = Instance.new("UIStroke", frame); uiSt.Color = tbl5.border; uiSt.Thickness = 1; uiSt.Transparency = 0.05
-local uiGr = Instance.new("UIGradient", frame); uiGr.Rotation = 90
-uiGr.Color = ColorSequence.new({ColorSequenceKeypoint.new(0,tbl5.bgHi),ColorSequenceKeypoint.new(1,tbl5.bg)})
+local uiScaleInst = Instance.new("UIScale", frame)
+uiScaleInst.Scale = tbl3.UIScale
 
+local uiSt = Instance.new("UIStroke", frame)
+uiSt.Color = tbl5.border; uiSt.Thickness = 0.8; uiSt.Transparency = 0.3
+
+local uiGr = Instance.new("UIGradient", frame); uiGr.Rotation = 90
+uiGr.Color = ColorSequence.new({
+    ColorSequenceKeypoint.new(0,   tbl5.bgHi),
+    ColorSequenceKeypoint.new(0.6, tbl5.bg),
+    ColorSequenceKeypoint.new(1,   tbl5.bg),
+})
+
+-- Title bar
 local titleBar = Instance.new("Frame", frame)
-titleBar.Name = "TitleBar"; titleBar.Size = UDim2.new(1,0,0,TITLEBAR_H); titleBar.BackgroundTransparency = 1; titleBar.ZIndex = 5; titleBar.Active = true
+titleBar.Name = "TitleBar"; titleBar.Size = UDim2.new(1,0,0,TITLEBAR_H)
+titleBar.BackgroundTransparency = 1; titleBar.ZIndex = 5; titleBar.Active = true
 
 local titleLbl = Instance.new("TextLabel", titleBar)
-titleLbl.Size = UDim2.new(1,0,1,0); titleLbl.BackgroundTransparency = 1; titleLbl.Text = "XYLO | ALKEDION PVP"
-titleLbl.TextColor3 = tbl5.text; titleLbl.TextSize = 12; titleLbl.Font = Enum.Font.GothamBold
+titleLbl.Size = UDim2.new(1,0,1,0); titleLbl.BackgroundTransparency = 1
+titleLbl.Text = "XYLO | ALKEDION PVP"; titleLbl.TextColor3 = tbl5.text
+titleLbl.TextSize = 12; titleLbl.Font = Enum.Font.GothamBold
 titleLbl.TextXAlignment = Enum.TextXAlignment.Center; titleLbl.ZIndex = 6
 
 local switchBtn = Instance.new("TextButton", titleBar)
-switchBtn.Size = UDim2.new(0, 80, 0, 24); switchBtn.Position = UDim2.new(0, 10, 0.5, -12)
-switchBtn.BackgroundColor3 = tbl5.bgRow; switchBtn.Text = "Switch Layout"; switchBtn.TextColor3 = tbl5.accentHi
-switchBtn.Font = Enum.Font.GothamBold; switchBtn.TextSize = 10; switchBtn.ZIndex = 7
-Instance.new("UICorner", switchBtn).CornerRadius = UDim.new(0, 4)
+switchBtn.Size = UDim2.new(0,80,0,24); switchBtn.Position = UDim2.new(0,10,0.5,-12)
+switchBtn.BackgroundColor3 = tbl5.bgRow; switchBtn.Text = "Switch Layout"
+switchBtn.TextColor3 = tbl5.accentHi; switchBtn.Font = Enum.Font.GothamBold
+switchBtn.TextSize = 10; switchBtn.ZIndex = 7
+Instance.new("UICorner", switchBtn).CornerRadius = UDim.new(0,4)
 
 local titleDiv = Instance.new("Frame", frame)
 titleDiv.Size = UDim2.new(1,0,0,1); titleDiv.Position = UDim2.new(0,0,0,TITLEBAR_H)
 titleDiv.BackgroundColor3 = tbl5.border; titleDiv.BorderSizePixel = 0; titleDiv.ZIndex = 4
 
+-- ============================================================
+-- WIDE / TALL CONTAINERS
+-- ============================================================
 local wideContainer = Instance.new("Frame", frame)
-wideContainer.Size = UDim2.new(1,0,1,-(TITLEBAR_H+1)); wideContainer.Position = UDim2.new(0,0,0,TITLEBAR_H+1)
+wideContainer.Size = UDim2.new(1,0,1,-(TITLEBAR_H+1))
+wideContainer.Position = UDim2.new(0,0,0,TITLEBAR_H+1)
 wideContainer.BackgroundTransparency = 1; wideContainer.ZIndex = 5
 
 local tallContainer = Instance.new("Frame", frame)
-tallContainer.Size = UDim2.new(1,0,1,-(TITLEBAR_H+1)); tallContainer.Position = UDim2.new(0,0,0,TITLEBAR_H+1)
+tallContainer.Size = UDim2.new(1,0,1,-(TITLEBAR_H+1))
+tallContainer.Position = UDim2.new(0,0,0,TITLEBAR_H+1)
 tallContainer.BackgroundTransparency = 1; tallContainer.ZIndex = 5; tallContainer.Visible = false
 
 local function newPage(parent)
@@ -1382,14 +1442,18 @@ local function newPage(parent)
     p.Size = UDim2.new(1,0,1,0); p.BackgroundTransparency = 1; p.ZIndex = 5; p.Visible = false
     p.ScrollBarThickness = 2; p.ScrollBarImageColor3 = tbl5.accent; p.BorderSizePixel = 0
     p.CanvasSize = UDim2.new(0,0,0,0); p.AutomaticCanvasSize = Enum.AutomaticSize.Y
-    local ul = Instance.new("UIListLayout", p); ul.Padding = UDim.new(0,8); ul.SortOrder = Enum.SortOrder.LayoutOrder
-    local up = Instance.new("UIPadding", p); up.PaddingLeft = UDim.new(0,10); up.PaddingRight = UDim.new(0,10); up.PaddingTop = UDim.new(0,8); up.PaddingBottom = UDim.new(0,14)
+    local ul = Instance.new("UIListLayout", p)
+    ul.Padding = UDim.new(0,8); ul.SortOrder = Enum.SortOrder.LayoutOrder
+    local up = Instance.new("UIPadding", p)
+    up.PaddingLeft = UDim.new(0,10); up.PaddingRight = UDim.new(0,10)
+    up.PaddingTop = UDim.new(0,8);   up.PaddingBottom = UDim.new(0,14)
     return p
 end
 
+-- Wide tab bar
 local topTabBar = Instance.new("Frame", wideContainer)
-topTabBar.Name = "TabBar"; topTabBar.Size = UDim2.new(1,-20,0,TABBAR_H); topTabBar.Position = UDim2.new(0,10,0,4)
-topTabBar.BackgroundTransparency = 1; topTabBar.ZIndex = 5
+topTabBar.Name = "TabBar"; topTabBar.Size = UDim2.new(1,-20,0,TABBAR_H)
+topTabBar.Position = UDim2.new(0,10,0,4); topTabBar.BackgroundTransparency = 1; topTabBar.ZIndex = 5
 
 local topTabDiv = Instance.new("Frame", wideContainer)
 topTabDiv.Size = UDim2.new(1,0,0,1); topTabDiv.Position = UDim2.new(0,0,0,TABBAR_H+4)
@@ -1397,20 +1461,21 @@ topTabDiv.BackgroundColor3 = tbl5.border; topTabDiv.BorderSizePixel = 0; topTabD
 
 local topContentFrame = Instance.new("Frame", wideContainer)
 topContentFrame.Name = "Content"; topContentFrame.Position = UDim2.new(0,0,0,TABBAR_H+5)
-topContentFrame.Size = UDim2.new(1,0,1,-(TABBAR_H+5)); topContentFrame.BackgroundTransparency = 1; topContentFrame.ZIndex = 5
+topContentFrame.Size = UDim2.new(1,0,1,-(TABBAR_H+5))
+topContentFrame.BackgroundTransparency = 1; topContentFrame.ZIndex = 5
 
-local topAimPage = newPage(topContentFrame)
-local topAaPage = newPage(topContentFrame)
-local topVisPage = newPage(topContentFrame)
-local topExpPage = newPage(topContentFrame)
+local topAimPage  = newPage(topContentFrame)
+local topAaPage   = newPage(topContentFrame)
+local topVisPage  = newPage(topContentFrame)
+local topExpPage  = newPage(topContentFrame)
 local topCustPage = newPage(topContentFrame)
 
+-- Tall tab bar
 local tallTabBar = Instance.new("ScrollingFrame", tallContainer)
-tallTabBar.Name = "TabBar"; tallTabBar.Size = UDim2.new(1,-20,0,TABBAR_H); tallTabBar.Position = UDim2.new(0,10,0,4)
-tallTabBar.BackgroundTransparency = 1; tallTabBar.ZIndex = 5; tallTabBar.ScrollBarThickness = 0
-tallTabBar.ScrollingDirection = Enum.ScrollingDirection.X
-tallTabBar.CanvasSize = UDim2.new(0, 0, 0, 0)
-tallTabBar.AutomaticCanvasSize = Enum.AutomaticSize.X
+tallTabBar.Name = "TabBar"; tallTabBar.Size = UDim2.new(1,-20,0,TABBAR_H)
+tallTabBar.Position = UDim2.new(0,10,0,4); tallTabBar.BackgroundTransparency = 1; tallTabBar.ZIndex = 5
+tallTabBar.ScrollBarThickness = 0; tallTabBar.ScrollingDirection = Enum.ScrollingDirection.X
+tallTabBar.CanvasSize = UDim2.new(0,0,0,0); tallTabBar.AutomaticCanvasSize = Enum.AutomaticSize.X
 
 local tallTabDiv = Instance.new("Frame", tallContainer)
 tallTabDiv.Size = UDim2.new(1,0,0,1); tallTabDiv.Position = UDim2.new(0,0,0,TABBAR_H+4)
@@ -1418,22 +1483,23 @@ tallTabDiv.BackgroundColor3 = tbl5.border; tallTabDiv.BorderSizePixel = 0; tallT
 
 local tallContentFrame = Instance.new("Frame", tallContainer)
 tallContentFrame.Name = "Content"; tallContentFrame.Position = UDim2.new(0,0,0,TABBAR_H+5)
-tallContentFrame.Size = UDim2.new(1,0,1,-(TABBAR_H+5)); tallContentFrame.BackgroundTransparency = 1; tallContentFrame.ZIndex = 5
+tallContentFrame.Size = UDim2.new(1,0,1,-(TABBAR_H+5))
+tallContentFrame.BackgroundTransparency = 1; tallContentFrame.ZIndex = 5
 
-local tallAimPage = newPage(tallContentFrame)
-local tallAaPage = newPage(tallContentFrame)
-local tallVisPage = newPage(tallContentFrame)
-local tallExpPage = newPage(tallContentFrame)
+local tallAimPage  = newPage(tallContentFrame)
+local tallAaPage   = newPage(tallContentFrame)
+local tallVisPage  = newPage(tallContentFrame)
+local tallExpPage  = newPage(tallContentFrame)
 local tallCustPage = newPage(tallContentFrame)
 
 local tabDefs = {
-    {name="Silent Aim", page1=topAimPage,  page2=tallAimPage},
-    {name="Aimbot",     page1=topAaPage,   page2=tallAaPage},
-    {name="Visuals",    page1=topVisPage,  page2=tallVisPage},
-    {name="Exploits",   page1=topExpPage,  page2=tallExpPage},
-    {name="Design",     page1=topCustPage, page2=tallCustPage},
+    { name = "Silent Aim", page1 = topAimPage,  page2 = tallAimPage  },
+    { name = "Aimbot",     page1 = topAaPage,   page2 = tallAaPage   },
+    { name = "Visuals",    page1 = topVisPage,  page2 = tallVisPage  },
+    { name = "Exploits",   page1 = topExpPage,  page2 = tallExpPage  },
+    { name = "Design",     page1 = topCustPage, page2 = tallCustPage },
 }
-local topTabButtons = {}
+local topTabButtons  = {}
 local tallTabButtons = {}
 
 local function buildTopTabs()
@@ -1441,16 +1507,17 @@ local function buildTopTabs()
     gl.FillDirection = Enum.FillDirection.Horizontal
     gl.HorizontalAlignment = Enum.HorizontalAlignment.Center
     gl.VerticalAlignment = Enum.VerticalAlignment.Center
-    gl.Padding = UDim.new(0, 6)
+    gl.Padding = UDim.new(0,6)
     for i, def in ipairs(tabDefs) do
         local btn = Instance.new("TextButton", topTabBar)
-        btn.Size = UDim2.new(0.19, 0, 1, 0)
-        btn.BackgroundColor3 = tbl5.bgRow; btn.BackgroundTransparency = 1
-        btn.BorderSizePixel = 0; btn.Text = ""; btn.AutoButtonColor = false; btn.ZIndex = 6; btn.LayoutOrder = i
-        Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 4)
-        local lb = Instance.new("TextLabel", btn); lb.Size = UDim2.new(1,0,1,0); lb.BackgroundTransparency = 1; lb.Text = def.name; lb.TextColor3 = tbl5.textDim; lb.TextSize = 10; lb.Font = Enum.Font.GothamMedium; lb.ZIndex = 7
-        local indicator = Instance.new("Frame", btn); indicator.Size = UDim2.new(1,-8,0,2); indicator.Position = UDim2.new(0,4,1,-2); indicator.BackgroundColor3 = tbl5.accentHi; indicator.BorderSizePixel = 0; indicator.Visible = false; indicator.ZIndex = 7
-        Instance.new("UICorner", indicator).CornerRadius = UDim.new(1, 0)
+        btn.Size = UDim2.new(0.19,0,1,0); btn.BackgroundColor3 = tbl5.bgRow
+        btn.BackgroundTransparency = 1; btn.BorderSizePixel = 0
+        btn.Text = ""; btn.AutoButtonColor = false; btn.ZIndex = 6; btn.LayoutOrder = i
+        Instance.new("UICorner", btn).CornerRadius = UDim.new(0,4)
+        local lb = Instance.new("TextLabel", btn)
+        lb.Size = UDim2.new(1,0,1,0); lb.BackgroundTransparency = 1
+        lb.Text = def.name; lb.TextColor3 = tbl5.textDim
+        lb.TextSize = 10; lb.Font = Enum.Font.GothamMedium; lb.ZIndex = 7
         btn.MouseButton1Click:Connect(function()
             for j, d in ipairs(tabDefs) do d.page1.Visible = (i == j) end
             for j, b in ipairs(topTabButtons) do
@@ -1458,10 +1525,9 @@ local function buildTopTabs()
                 b.lb.TextColor3 = active and tbl5.text or tbl5.textDim
                 b.btn.BackgroundTransparency = active and 0.6 or 1
                 b.btn.BackgroundColor3 = active and tbl5.bgRowHi or tbl5.bgRow
-                b.indicator.Visible = active
             end
         end)
-        topTabButtons[i] = {btn=btn, lb=lb, indicator=indicator}
+        topTabButtons[i] = { btn=btn, lb=lb }
     end
 end
 
@@ -1470,16 +1536,17 @@ local function buildTallTabs()
     gl.FillDirection = Enum.FillDirection.Horizontal
     gl.HorizontalAlignment = Enum.HorizontalAlignment.Left
     gl.VerticalAlignment = Enum.VerticalAlignment.Center
-    gl.Padding = UDim.new(0, 6)
+    gl.Padding = UDim.new(0,6)
     for i, def in ipairs(tabDefs) do
         local btn = Instance.new("TextButton", tallTabBar)
-        btn.Size = UDim2.new(0, 105, 1, 0)
-        btn.BackgroundColor3 = tbl5.bgRow; btn.BackgroundTransparency = 1
-        btn.BorderSizePixel = 0; btn.Text = ""; btn.AutoButtonColor = false; btn.ZIndex = 6; btn.LayoutOrder = i
-        Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 4)
-        local lb = Instance.new("TextLabel", btn); lb.Size = UDim2.new(1,0,1,0); lb.BackgroundTransparency = 1; lb.Text = def.name; lb.TextColor3 = tbl5.textDim; lb.TextSize = 10; lb.Font = Enum.Font.GothamMedium; lb.ZIndex = 7
-        local indicator = Instance.new("Frame", btn); indicator.Size = UDim2.new(1,-8,0,2); indicator.Position = UDim2.new(0,4,1,-2); indicator.BackgroundColor3 = tbl5.accentHi; indicator.BorderSizePixel = 0; indicator.Visible = false; indicator.ZIndex = 7
-        Instance.new("UICorner", indicator).CornerRadius = UDim.new(1, 0)
+        btn.Size = UDim2.new(0,105,1,0); btn.BackgroundColor3 = tbl5.bgRow
+        btn.BackgroundTransparency = 1; btn.BorderSizePixel = 0
+        btn.Text = ""; btn.AutoButtonColor = false; btn.ZIndex = 6; btn.LayoutOrder = i
+        Instance.new("UICorner", btn).CornerRadius = UDim.new(0,4)
+        local lb = Instance.new("TextLabel", btn)
+        lb.Size = UDim2.new(1,0,1,0); lb.BackgroundTransparency = 1
+        lb.Text = def.name; lb.TextColor3 = tbl5.textDim
+        lb.TextSize = 10; lb.Font = Enum.Font.GothamMedium; lb.ZIndex = 7
         btn.MouseButton1Click:Connect(function()
             for j, d in ipairs(tabDefs) do d.page2.Visible = (i == j) end
             for j, b in ipairs(tallTabButtons) do
@@ -1487,21 +1554,30 @@ local function buildTallTabs()
                 b.lb.TextColor3 = active and tbl5.text or tbl5.textDim
                 b.btn.BackgroundTransparency = active and 0.6 or 1
                 b.btn.BackgroundColor3 = active and tbl5.bgRowHi or tbl5.bgRow
-                b.indicator.Visible = active
             end
         end)
-        tallTabButtons[i] = {btn=btn, lb=lb, indicator=indicator}
+        tallTabButtons[i] = { btn=btn, lb=lb }
     end
 end
 
 buildTopTabs()
 buildTallTabs()
 
+task.defer(function()
+    local gl = tallTabBar:FindFirstChildOfClass("UIListLayout")
+    if gl then
+        local function recalc()
+            tallTabBar.CanvasSize = UDim2.new(0, gl.AbsoluteContentSize.X + 10, 0, 0)
+        end
+        recalc()
+        gl:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(recalc)
+    end
+end)
+
 local function updateLayout()
     if tbl3.IsTallMode then
-        frame.Size = UDim2.new(0, TALL_HW, 0, TALL_HH)
-        wideContainer.Visible = false
-        tallContainer.Visible = true
+        frame.Size = UDim2.new(0,TALL_HW,0,TALL_HH)
+        wideContainer.Visible = false; tallContainer.Visible = true
         for _, d in ipairs(tabDefs) do d.page1.Visible = false; d.page2.Visible = false end
         tabDefs[1].page2.Visible = true
         for j, b in ipairs(tallTabButtons) do
@@ -1509,12 +1585,10 @@ local function updateLayout()
             b.lb.TextColor3 = active and tbl5.text or tbl5.textDim
             b.btn.BackgroundTransparency = active and 0.6 or 1
             b.btn.BackgroundColor3 = active and tbl5.bgRowHi or tbl5.bgRow
-            b.indicator.Visible = active
         end
     else
-        frame.Size = UDim2.new(0, WIDE_HW, 0, WIDE_HH)
-        wideContainer.Visible = true
-        tallContainer.Visible = false
+        frame.Size = UDim2.new(0,WIDE_HW,0,WIDE_HH)
+        wideContainer.Visible = true; tallContainer.Visible = false
         for _, d in ipairs(tabDefs) do d.page1.Visible = false; d.page2.Visible = false end
         tabDefs[1].page1.Visible = true
         for j, b in ipairs(topTabButtons) do
@@ -1522,7 +1596,6 @@ local function updateLayout()
             b.lb.TextColor3 = active and tbl5.text or tbl5.textDim
             b.btn.BackgroundTransparency = active and 0.6 or 1
             b.btn.BackgroundColor3 = active and tbl5.bgRowHi or tbl5.bgRow
-            b.indicator.Visible = active
         end
     end
     fn()
@@ -1533,147 +1606,159 @@ switchBtn.MouseButton1Click:Connect(function()
     updateLayout()
 end)
 
-local function makeSection(parent, image, label)
+-- ============================================================
+-- WIDGET BUILDERS
+-- ============================================================
+local function makeSection(parent, label)
     local wrap = Instance.new("Frame", parent)
-    wrap.Size = UDim2.new(1,0,0,22); wrap.BackgroundTransparency = 1; wrap.ZIndex = 6
+    wrap.Size = UDim2.new(1,0,0,16)
+    wrap.BackgroundTransparency = 1; wrap.ZIndex = 6
     wrap.AutomaticSize = Enum.AutomaticSize.Y
+
     local hdr = Instance.new("Frame", wrap)
-    hdr.Size = UDim2.new(1,0,0,22); hdr.BackgroundTransparency = 1; hdr.ZIndex = 7
-    local hi = Instance.new("ImageLabel", hdr)
-    hi.Image = image; hi.ImageColor3 = tbl5.accentDim; hi.BackgroundTransparency = 1
-    hi.Size = UDim2.new(0,11,0,11); hi.Position = UDim2.new(0,2,0.5,-5); hi.ZIndex = 8
+    hdr.Size = UDim2.new(1,0,0,16); hdr.BackgroundTransparency = 1; hdr.ZIndex = 7
+
     local hl = Instance.new("TextLabel", hdr)
-    hl.Size = UDim2.new(1,-18,1,0); hl.Position = UDim2.new(0,18,0,0)
-    hl.BackgroundTransparency = 1; hl.Text = string.upper(label); hl.TextColor3 = tbl5.textMute; hl.TextSize = 9; hl.Font = Enum.Font.GothamBold
+    hl.Size = UDim2.new(1,0,1,0); hl.Position = UDim2.new(0,4,0,0)
+    hl.BackgroundTransparency = 1; hl.Text = string.upper(label)
+    hl.TextColor3 = tbl5.textMute; hl.TextSize = 9; hl.Font = Enum.Font.GothamBold
     hl.TextXAlignment = Enum.TextXAlignment.Left; hl.ZIndex = 8
+
     local container = Instance.new("Frame", wrap)
-    container.Size = UDim2.new(1, 0, 0, 0)
-    container.Position = UDim2.new(0, 0, 0, 25)
-    container.BackgroundTransparency = 1
-    container.ZIndex = 6
+    container.Size = UDim2.new(1,0,0,0); container.Position = UDim2.new(0,0,0,20)
+    container.BackgroundTransparency = 1; container.ZIndex = 6
     container.AutomaticSize = Enum.AutomaticSize.Y
     local cList = Instance.new("UIListLayout", container)
-    cList.Padding = UDim.new(0, 4)
-    cList.SortOrder = Enum.SortOrder.LayoutOrder
+    cList.Padding = UDim.new(0,4); cList.SortOrder = Enum.SortOrder.LayoutOrder
     return container
 end
 
 local function makeRow(parent, height)
     local row = Instance.new("Frame", parent)
-    row.Size = UDim2.new(1,0,0,height); row.BackgroundColor3 = tbl5.bgRow; row.BorderSizePixel = 0; row.ZIndex = 7
+    row.Size = UDim2.new(1,0,0,height); row.BackgroundColor3 = tbl5.bgRow
+    row.BorderSizePixel = 0; row.ZIndex = 7
     Instance.new("UICorner", row).CornerRadius = UDim.new(0,8)
-    local us = Instance.new("UIStroke", row); us.Color = tbl5.border; us.Thickness = 1; us.Transparency = 0.4
+    local us = Instance.new("UIStroke", row)
+    us.Color = tbl5.border; us.Thickness = 1; us.Transparency = 0.4
     return row
 end
 
-local function makeToggle(parent, image, text, init, cb)
+local function makeToggle(parent, text, init, cb)
     local row = makeRow(parent, 36)
-    local ic = Instance.new("ImageLabel", row)
-    ic.Image = image; ic.ImageColor3 = init and tbl5.accentHi or tbl5.textDim
-    ic.BackgroundTransparency = 1; ic.Size = UDim2.new(0,15,0,15); ic.Position = UDim2.new(0,12,0.5,-7); ic.ZIndex = 8
     local lb = Instance.new("TextLabel", row)
-    lb.Size = UDim2.new(1,-82,1,0); lb.Position = UDim2.new(0,36,0,0)
-    lb.BackgroundTransparency = 1; lb.Text = text; lb.TextColor3 = tbl5.text; lb.TextSize = 12; lb.Font = Enum.Font.GothamMedium; lb.TextXAlignment = Enum.TextXAlignment.Left; lb.ZIndex = 8
+    lb.Size = UDim2.new(1,-82,1,0); lb.Position = UDim2.new(0,14,0,0)
+    lb.BackgroundTransparency = 1; lb.Text = text; lb.TextColor3 = tbl5.text
+    lb.TextSize = 12; lb.Font = Enum.Font.GothamMedium
+    lb.TextXAlignment = Enum.TextXAlignment.Left; lb.ZIndex = 8
     local pill = Instance.new("TextButton", row)
-    pill.Size = UDim2.new(0,38,0,20); pill.Position = UDim2.new(1,-48,0.5,-10); pill.BackgroundColor3 = init and tbl5.accent or tbl5.bgHi
+    pill.Size = UDim2.new(0,38,0,20); pill.Position = UDim2.new(1,-48,0.5,-10)
+    pill.BackgroundColor3 = init and tbl5.accent or tbl5.bgHi
     pill.BorderSizePixel = 0; pill.Text = ""; pill.AutoButtonColor = false; pill.ZIndex = 8
     Instance.new("UICorner", pill).CornerRadius = UDim.new(1,0)
-    local ps = Instance.new("UIStroke", pill); ps.Color = init and tbl5.accentHi or tbl5.border; ps.Thickness = 1; ps.Transparency = 0.4
+    local ps = Instance.new("UIStroke", pill)
+    ps.Color = init and tbl5.accentHi or tbl5.border; ps.Thickness = 1; ps.Transparency = 0.4
     local knob = Instance.new("Frame", pill)
-    knob.Size = UDim2.new(0,13,0,13); knob.Position = init and UDim2.new(1,-15,0.5,-6) or UDim2.new(0,2,0.5,-6)
+    knob.Size = UDim2.new(0,13,0,13)
+    knob.Position = init and UDim2.new(1,-15,0.5,-6) or UDim2.new(0,2,0.5,-6)
     knob.BackgroundColor3 = tbl5.white; knob.BorderSizePixel = 0; knob.ZIndex = 9
     Instance.new("UICorner", knob).CornerRadius = UDim.new(1,0)
     local state = init
     pill.MouseButton1Click:Connect(function()
         state = not state; cb(state)
-        TweenService:Create(knob, TweenInfo.new(0.16, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = state and UDim2.new(1,-15,0.5,-6) or UDim2.new(0,2,0.5,-6)}):Play()
-        TweenService:Create(pill, TweenInfo.new(0.16), {BackgroundColor3 = state and tbl5.accent or tbl5.bgHi}):Play()
-        TweenService:Create(ps, TweenInfo.new(0.16), {Color = state and tbl5.accentHi or tbl5.border}):Play()
-        TweenService:Create(ic, TweenInfo.new(0.16), {ImageColor3 = state and tbl5.accentHi or tbl5.textDim}):Play()
+        TweenService:Create(knob, TweenInfo.new(0.16, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+            { Position = state and UDim2.new(1,-15,0.5,-6) or UDim2.new(0,2,0.5,-6) }):Play()
+        TweenService:Create(pill, TweenInfo.new(0.16), { BackgroundColor3 = state and tbl5.accent or tbl5.bgHi }):Play()
+        TweenService:Create(ps,   TweenInfo.new(0.16), { Color = state and tbl5.accentHi or tbl5.border }):Play()
         fn()
     end)
-    row.MouseEnter:Connect(function() TweenService:Create(row, TweenInfo.new(0.12), {BackgroundColor3 = tbl5.bgRowHi}):Play() end)
-    row.MouseLeave:Connect(function() TweenService:Create(row, TweenInfo.new(0.12), {BackgroundColor3 = tbl5.bgRow}):Play() end)
+    row.MouseEnter:Connect(function() TweenService:Create(row, TweenInfo.new(0.12), { BackgroundColor3 = tbl5.bgRowHi }):Play() end)
+    row.MouseLeave:Connect(function() TweenService:Create(row, TweenInfo.new(0.12), { BackgroundColor3 = tbl5.bgRow }):Play() end)
     return row
 end
 
-local function makeSlider(parent, image, text, minV, maxV, initV, step, cb)
+local function makeSlider(parent, text, minV, maxV, initV, step, cb)
     local row = makeRow(parent, 50)
-    local ic = Instance.new("ImageLabel", row)
-    ic.Image = image; ic.ImageColor3 = tbl5.accentDim; ic.BackgroundTransparency = 1
-    ic.Size = UDim2.new(0,15,0,15); ic.Position = UDim2.new(0,12,0,10); ic.ZIndex = 8
     local lb = Instance.new("TextLabel", row)
-    lb.Size = UDim2.new(1,-90,0,15); lb.Position = UDim2.new(0,36,0,6)
-    lb.BackgroundTransparency = 1; lb.Text = text; lb.TextColor3 = tbl5.text; lb.TextSize = 12; lb.Font = Enum.Font.GothamMedium; lb.TextXAlignment = Enum.TextXAlignment.Left; lb.ZIndex = 8
+    lb.Size = UDim2.new(1,-90,0,15); lb.Position = UDim2.new(0,14,0,6)
+    lb.BackgroundTransparency = 1; lb.Text = text; lb.TextColor3 = tbl5.text
+    lb.TextSize = 12; lb.Font = Enum.Font.GothamMedium
+    lb.TextXAlignment = Enum.TextXAlignment.Left; lb.ZIndex = 8
     local vl = Instance.new("TextLabel", row)
-    vl.Size = UDim2.new(0,52,0,15); vl.Position = UDim2.new(1,-60,0,6); vl.BackgroundTransparency = 1
-    vl.Text = string.format(step<1 and "%.2f" or "%d", initV); vl.TextColor3 = tbl5.accentHi; vl.TextSize = 12; vl.Font = Enum.Font.GothamBold; vl.TextXAlignment = Enum.TextXAlignment.Right; vl.ZIndex = 8
+    vl.Size = UDim2.new(0,52,0,15); vl.Position = UDim2.new(1,-60,0,6)
+    vl.BackgroundTransparency = 1
+    vl.Text = string.format(step < 1 and "%.2f" or "%d", initV)
+    vl.TextColor3 = tbl5.accentHi; vl.TextSize = 12; vl.Font = Enum.Font.GothamBold
+    vl.TextXAlignment = Enum.TextXAlignment.Right; vl.ZIndex = 8
     local track = Instance.new("Frame", row)
-    track.Size = UDim2.new(1,-24,0,4); track.Position = UDim2.new(0,12,0,34); track.BackgroundColor3 = tbl5.bgHi; track.BorderSizePixel = 0; track.ZIndex = 8
+    track.Size = UDim2.new(1,-24,0,4); track.Position = UDim2.new(0,12,0,34)
+    track.BackgroundColor3 = tbl5.bgHi; track.BorderSizePixel = 0; track.ZIndex = 8
     Instance.new("UICorner", track).CornerRadius = UDim.new(1,0)
     local fill = Instance.new("Frame", track)
-    fill.Size = UDim2.new((initV-minV)/(maxV-minV),0,1,0); fill.BackgroundColor3 = tbl5.accent; fill.BorderSizePixel = 0; fill.ZIndex = 9
+    fill.Size = UDim2.new((initV-minV)/(maxV-minV),0,1,0)
+    fill.BackgroundColor3 = tbl5.accent; fill.BorderSizePixel = 0; fill.ZIndex = 9
     Instance.new("UICorner", fill).CornerRadius = UDim.new(1,0)
     local thumb = Instance.new("Frame", track)
-    thumb.Size = UDim2.new(0,12,0,12); thumb.Position = UDim2.new((initV-minV)/(maxV-minV),-6,0.5,-6); thumb.BackgroundColor3 = tbl5.white; thumb.BorderSizePixel = 0; thumb.ZIndex = 10
+    thumb.Size = UDim2.new(0,12,0,12)
+    thumb.Position = UDim2.new((initV-minV)/(maxV-minV),-6,0.5,-6)
+    thumb.BackgroundColor3 = tbl5.white; thumb.BorderSizePixel = 0; thumb.ZIndex = 10
     Instance.new("UICorner", thumb).CornerRadius = UDim.new(1,0)
     local dragging = false
     local function upd(x)
-        local px = track.AbsolutePosition.X; local sx = track.AbsoluteSize.X; if sx <= 0 then return end
-        local t = math.clamp((x - px) / sx, 0, 1)
-        local raw = minV + t * (maxV - minV)
+        local px = track.AbsolutePosition.X; local sx = track.AbsoluteSize.X
+        if sx <= 0 then return end
+        local t = math.clamp((x-px)/sx, 0, 1)
+        local raw = minV + t*(maxV-minV)
         local sn = math.clamp(math.floor(raw/step+0.5)*step, minV, maxV)
         local finalT = (sn-minV)/(maxV-minV)
         fill.Size = UDim2.new(finalT,0,1,0); thumb.Position = UDim2.new(finalT,-6,0.5,-6)
-        vl.Text = string.format(step<1 and "%.2f" or "%d", sn)
+        vl.Text = string.format(step < 1 and "%.2f" or "%d", sn)
         cb(sn)
     end
     thumb.InputBegan:Connect(function(i)
-        if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then dragging = true end
+        if i.UserInputType == Enum.UserInputType.MouseButton1
+        or i.UserInputType == Enum.UserInputType.Touch then dragging = true end
     end)
     UserInputService.InputChanged:Connect(function(i)
-        if dragging and (i.UserInputType == Enum.UserInputType.MouseMovement or i.UserInputType == Enum.UserInputType.Touch) then upd(i.Position.X) end
+        if dragging and (i.UserInputType == Enum.UserInputType.MouseMovement
+        or i.UserInputType == Enum.UserInputType.Touch) then upd(i.Position.X) end
     end)
     UserInputService.InputEnded:Connect(function(i)
-        if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then
+        if i.UserInputType == Enum.UserInputType.MouseButton1
+        or i.UserInputType == Enum.UserInputType.Touch then
             if dragging then dragging = false; fn() end
         end
     end)
     return row
 end
 
--- ============================================================
--- FIXED DROPDOWN
--- ============================================================
-local function makePillSelector(parent, image, text, options, currentValue, cb)
+local function makePillSelector(parent, text, options, currentValue, cb)
     local row = makeRow(parent, 36)
-    local ic = Instance.new("ImageLabel", row)
-    ic.Image = image; ic.ImageColor3 = tbl5.accentHi; ic.BackgroundTransparency = 1
-    ic.Size = UDim2.new(0,15,0,15); ic.Position = UDim2.new(0,12,0.5,-7); ic.ZIndex = 11
     local lb = Instance.new("TextLabel", row)
-    lb.Size = UDim2.new(1,-100,1,0); lb.Position = UDim2.new(0,36,0,0)
-    lb.BackgroundTransparency = 1; lb.Text = text; lb.TextColor3 = tbl5.text; lb.TextSize = 12; lb.Font = Enum.Font.GothamMedium; lb.TextXAlignment = Enum.TextXAlignment.Left; lb.ZIndex = 11
+    lb.Size = UDim2.new(1,-100,1,0); lb.Position = UDim2.new(0,14,0,0)
+    lb.BackgroundTransparency = 1; lb.Text = text; lb.TextColor3 = tbl5.text
+    lb.TextSize = 12; lb.Font = Enum.Font.GothamMedium
+    lb.TextXAlignment = Enum.TextXAlignment.Left; lb.ZIndex = 11
     local btn = Instance.new("TextButton", row)
-    btn.Size = UDim2.new(0,80,0,22); btn.Position = UDim2.new(1,-90,0.5,-11); btn.BackgroundColor3 = tbl5.bgHi
-    btn.BorderSizePixel = 0; btn.Text = currentValue; btn.TextColor3 = tbl5.accentHi; btn.TextSize = 11; btn.Font = Enum.Font.GothamBold; btn.ZIndex = 11
+    btn.Size = UDim2.new(0,80,0,22); btn.Position = UDim2.new(1,-90,0.5,-11)
+    btn.BackgroundColor3 = tbl5.bgHi; btn.BorderSizePixel = 0
+    btn.Text = currentValue; btn.TextColor3 = tbl5.accentHi
+    btn.TextSize = 11; btn.Font = Enum.Font.GothamBold; btn.ZIndex = 11
     Instance.new("UICorner", btn).CornerRadius = UDim.new(0,6)
     local ps = Instance.new("UIStroke", btn); ps.Color = tbl5.border; ps.Thickness = 1
 
-    -- Overlay list: parented to sg (not frame), so it never gets clipped.
     local container = Instance.new("ScrollingFrame", sg)
     container.Name = "DropDown_" .. text
     container.BackgroundColor3 = tbl5.bgHi
-    container.BorderSizePixel = 0
-    container.ZIndex = 999
-    container.Visible = false
-    container.ClipsDescendants = true
+    container.BorderSizePixel = 0; container.ZIndex = 999
+    container.Visible = false; container.ClipsDescendants = true
     container.ScrollBarThickness = 2
     container.ScrollBarImageColor3 = tbl5.accent
     container.AutomaticCanvasSize = Enum.AutomaticSize.Y
     container.CanvasSize = UDim2.new(0,0,0,0)
     Instance.new("UICorner", container).CornerRadius = UDim.new(0,6)
     local cStroke = Instance.new("UIStroke", container); cStroke.Color = tbl5.border
-    local cList = Instance.new("UIListLayout", container); cList.Padding = UDim.new(0,2); cList.SortOrder = Enum.SortOrder.LayoutOrder
+    local cList = Instance.new("UIListLayout", container)
+    cList.Padding = UDim.new(0,2); cList.SortOrder = Enum.SortOrder.LayoutOrder
     local cPadding = Instance.new("UIPadding", container)
     cPadding.PaddingTop = UDim.new(0,4); cPadding.PaddingBottom = UDim.new(0,4)
     cPadding.PaddingLeft = UDim.new(0,4); cPadding.PaddingRight = UDim.new(0,4)
@@ -1703,7 +1788,6 @@ local function makePillSelector(parent, image, text, options, currentValue, cb)
         local absPos = btn.AbsolutePosition
         local absSize = btn.AbsoluteSize
 
-        -- Clamp to viewport so it never goes off-screen
         local listW = math.max(absSize.X, 120)
         local listH = math.min(#options * 26 + 8, 180)
         local vp = currentCamera.ViewportSize
@@ -1720,113 +1804,111 @@ local function makePillSelector(parent, image, text, options, currentValue, cb)
         OPEN_DROPDOWN = container
     end)
 
-    row.MouseEnter:Connect(function() TweenService:Create(row, TweenInfo.new(0.12), {BackgroundColor3 = tbl5.bgRowHi}):Play() end)
-    row.MouseLeave:Connect(function() TweenService:Create(row, TweenInfo.new(0.12), {BackgroundColor3 = tbl5.bgRow}):Play() end)
+    row.MouseEnter:Connect(function() TweenService:Create(row, TweenInfo.new(0.12), { BackgroundColor3 = tbl5.bgRowHi }):Play() end)
+    row.MouseLeave:Connect(function() TweenService:Create(row, TweenInfo.new(0.12), { BackgroundColor3 = tbl5.bgRow }):Play() end)
     return row
 end
 
 -- ============================================================
--- CONTENT
+-- TAB CONTENT BUILDERS
 -- ============================================================
-local CameraTPButton, stopCameraTP -- forward declared
+local CameraTPButton, stopCameraTP
 
-local function buildContent(pageAim, pageAa, pageVis, pageExp, pageCust)
-    local function addSection(page, img, text)
-        local s = makeSection(page, img, text)
-        local list = page:FindFirstChildOfClass("UIListLayout")
-        if list then s.LayoutOrder = #page:GetChildren() end
-        return s
-    end
+local function buildAimContent(pageAim)
+    local aimR = makeSection(pageAim, "Silent Aim")
+    makeToggle(aimR, "Silent Aim", tbl3.Enabled, function(e) sa2SetEnabled(e); fn() end)
+    makeToggle(aimR, "Wall Check", tbl3.SilentWallCheck, function(e) tbl3.SilentWallCheck=e; tbl3.SA2_Wallcheck=e; fn() end)
+    makeToggle(aimR, "Wallbang", tbl3.SilentWallbang, function(e) tbl3.SilentWallbang=e; tbl3.SA2_Wallbang=e; fn() end)
+    makeToggle(aimR, "Bullet Teleport", tbl3.SilentBulletTeleport, function(e) tbl3.SilentBulletTeleport=e; tbl3.SA2_BulletTeleport=e; fn() end)
+    makeToggle(aimR, "Target Indicator", tbl3.ShowTargetIndicator, function(e) tbl3.ShowTargetIndicator=e; if not e then tdot.Visible=false; line.Visible=false end; fn() end)
+    makeSlider(aimR, "Max Distance", 0, 1000, tbl3.MaxDist, 1, function(d) tbl3.MaxDist=d; fn() end)
+    makeToggle(aimR, "Skip ADS", tbl3.SkipAiming, function(e) tbl3.SkipAiming=e; fn() end)
+    makeToggle(aimR, "Skip Roll", tbl3.SkipRollAim, function(e) tbl3.SkipRollAim=e; fn() end)
 
-    local aimR = addSection(pageAim, tbl.aim, "Silent Aim")
-    makeToggle(aimR, tbl.aim, "Silent Aim", tbl3.Enabled, function(e) sa2SetEnabled(e); fn() end)
-    makeToggle(aimR, tbl.target, "Wall Check", tbl3.SilentWallCheck, function(e) tbl3.SilentWallCheck=e; tbl3.SA2_Wallcheck=e; fn() end)
-    makeToggle(aimR, tbl.target, "Wallbang", tbl3.SilentWallbang, function(e) tbl3.SilentWallbang=e; tbl3.SA2_Wallbang=e; fn() end)
-    makeToggle(aimR, tbl.target, "Bullet Teleport", tbl3.SilentBulletTeleport, function(e) tbl3.SilentBulletTeleport=e; tbl3.SA2_BulletTeleport=e; fn() end)
-    makeToggle(aimR, tbl.target, "Target Indicator", tbl3.ShowTargetIndicator, function(e) tbl3.ShowTargetIndicator=e; if not e then tdot.Visible=false; line.Visible=false end; fn() end)
-    makeSlider(aimR, tbl.distance, "Max Distance", 0, 1000, tbl3.MaxDist, 1, function(d) tbl3.MaxDist=d; fn() end)
-    makeToggle(aimR, tbl.skip, "Skip ADS", tbl3.SkipAiming, function(e) tbl3.SkipAiming=e; fn() end)
-    makeToggle(aimR, tbl.skip, "Skip Roll", tbl3.SkipRollAim, function(e) tbl3.SkipRollAim=e; fn() end)
+    local sa2R = makeSection(pageAim, "Silent Aim Advanced")
+    makeSlider(sa2R, "Hit Chance", 0, 100, tbl3.SA2_HitChance, 1, function(v) tbl3.SA2_HitChance=v; fn() end)
+    makeSlider(sa2R, "Headshot Chance", 0, 100, tbl3.SA2_HeadshotChance, 1, function(v) tbl3.SA2_HeadshotChance=v; fn() end)
+    makeSlider(sa2R, "Target Range", 50, 1000, tbl3.SA2_TargetRange, 10, function(v) tbl3.SA2_TargetRange=v; fn() end)
+    makeSlider(sa2R, "Prediction", 0, 0.5, tbl3.SA2_Prediction, 0.01, function(v) tbl3.SA2_Prediction=v; fn() end)
+    makeToggle(sa2R, "360 Mode", tbl3.SA2_ThreeSixtyMode, function(e) tbl3.SA2_ThreeSixtyMode=e; fn() end)
+    makePillSelector(sa2R, "Get Target", {"Closest", "Lowest Health"}, tbl3.SA2_GetTarget, function(v) tbl3.SA2_GetTarget=v; fn() end)
 
-    local sa2R = addSection(pageAim, tbl.settings, "Silent Aim Advanced")
-    makeSlider(sa2R, tbl.settings, "Hit Chance", 0, 100, tbl3.SA2_HitChance, 1, function(v) tbl3.SA2_HitChance=v; fn() end)
-    makeSlider(sa2R, tbl.settings, "Headshot Chance", 0, 100, tbl3.SA2_HeadshotChance, 1, function(v) tbl3.SA2_HeadshotChance=v; fn() end)
-    makeSlider(sa2R, tbl.distance, "Target Range", 50, 1000, tbl3.SA2_TargetRange, 10, function(v) tbl3.SA2_TargetRange=v; fn() end)
-    makeSlider(sa2R, tbl.settings, "Prediction", 0, 0.5, tbl3.SA2_Prediction, 0.01, function(v) tbl3.SA2_Prediction=v; fn() end)
-    makeToggle(sa2R, tbl.target, "360 Mode", tbl3.SA2_ThreeSixtyMode, function(e) tbl3.SA2_ThreeSixtyMode=e; fn() end)
-    makePillSelector(sa2R, tbl.target, "Get Target", {"Closest", "Lowest Health"}, tbl3.SA2_GetTarget, function(v) tbl3.SA2_GetTarget=v; fn() end)
-
-    local tgtR = addSection(pageAim, tbl.settings, "Targeting")
-    makePillSelector(tgtR, tbl.target, "Target Part", {"Head", "Body", "Torso", "L-Arm", "R-Arm"},
+    local tgtR = makeSection(pageAim, "Targeting")
+    makePillSelector(tgtR, "Target Part", {"Head", "Body", "Torso", "L-Arm", "R-Arm"},
         (tbl3.BodyPart == "HumanoidRootPart" and "Body" or (tbl3.BodyPart == "Left Arm" and "L-Arm" or (tbl3.BodyPart == "Right Arm" and "R-Arm" or tbl3.BodyPart))),
         function(val)
             tbl3.BodyPart = (val == "Body") and "HumanoidRootPart" or (val == "L-Arm") and "Left Arm" or (val == "R-Arm") and "Right Arm" or val
             tbl3.SA2_TargetPart = tbl3.BodyPart
             fn()
         end)
-    makeToggle(tgtR, tbl.target, "Team Check", tbl3.TeamCheck, function(e) tbl3.TeamCheck=e; fn() end)
+    makeToggle(tgtR, "Team Check", tbl3.TeamCheck, function(e) tbl3.TeamCheck=e; fn() end)
 
-    local fovR = addSection(pageAim, tbl.fov, "Field of View")
-    makeToggle(fovR, tbl.fov, "Show FOV", tbl3.ShowFOV, function(e) tbl3.ShowFOV=e; fovCircleImg.Visible=e; fn() end)
-    makeSlider(fovR, tbl.fov, "FOV Size", 10, 400, tbl3.FOV, 1, function(f) tbl3.FOV=f; fovCircleImg.Size=UDim2.new(0,f*2,0,f*2); fn() end)
-    makePillSelector(fovR, tbl.fov, "FOV Type", {"Circle", "Oval", "Original"}, (tbl3.FOVMode == 1 and "Circle" or (tbl3.FOVMode == 2 and "Oval" or "Original")), function(val)
+    local fovR = makeSection(pageAim, "Field of View")
+    makeToggle(fovR, "Show FOV", tbl3.ShowFOV, function(e) tbl3.ShowFOV=e; fn() end)
+    makeSlider(fovR, "FOV Size", 10, 400, tbl3.FOV, 1, function(f) tbl3.FOV=f; fn() end)
+    makePillSelector(fovR, "FOV Type", {"Circle", "Oval", "Original"}, (tbl3.FOVMode == 1 and "Circle" or (tbl3.FOVMode == 2 and "Oval" or "Original")), function(val)
         if val == "Circle" then tbl3.FOVMode = 1
         elseif val == "Oval" then tbl3.FOVMode = 2
         elseif val == "Original" then tbl3.FOVMode = 3 end
         fn()
     end)
+end
 
-    local aaR = addSection(pageAa, tbl.aim, "Aimbot / Camlock")
-    makeToggle(aaR, tbl.aim, "Aimbot", tbl3.AimAssistEnabled, function(e) tbl3.AimAssistEnabled = e; fn() end)
-    makeToggle(aaR, tbl.target, "Wall Check", tbl3.AimAssistWallCheck, function(e) tbl3.AimAssistWallCheck = e; fn() end)
-    makeToggle(aaR, tbl.target, "Team Check", tbl3.TeamCheck, function(e) tbl3.TeamCheck = e; fn() end)
-    makeToggle(aaR, tbl.fov, "Show FOV", tbl3.AimAssistShowFOV, function(e) tbl3.AimAssistShowFOV = e; fn() end)
-    makePillSelector(aaR, tbl.aim, "Mode", {"Smooth", "Magnetism"}, tbl3.AimAssistMode, function(val) tbl3.AimAssistMode = val; fn() end)
-    makeSlider(aaR, tbl.settings, "Smoothness", 0.05, 1.0, tbl3.AimAssistSmoothness, 0.05, function(v) tbl3.AimAssistSmoothness = v; fn() end)
-    makeSlider(aaR, tbl.settings, "Strength", 0.05, 1.0, tbl3.AimAssistStrength, 0.05, function(v) tbl3.AimAssistStrength = v; fn() end)
-    makeSlider(aaR, tbl.fov, "FOV Size", 10, 500, tbl3.AimAssistFOV, 1, function(v) tbl3.AimAssistFOV = v; fn() end)
-    makeSlider(aaR, tbl.distance, "Max Distance", 50, 2000, tbl3.AimAssistMaxDist, 10, function(v) tbl3.AimAssistMaxDist = v; fn() end)
+local function buildAaContent(pageAa)
+    local aaR = makeSection(pageAa, "Aimbot / Camlock")
+    makeToggle(aaR, "Aimbot", tbl3.AimAssistEnabled, function(e) tbl3.AimAssistEnabled = e; fn() end)
+    makeToggle(aaR, "Wall Check", tbl3.AimAssistWallCheck, function(e) tbl3.AimAssistWallCheck = e; fn() end)
+    makeToggle(aaR, "Team Check", tbl3.TeamCheck, function(e) tbl3.TeamCheck = e; fn() end)
+    makeToggle(aaR, "Show FOV", tbl3.AimAssistShowFOV, function(e) tbl3.AimAssistShowFOV = e; fn() end)
+    makePillSelector(aaR, "Mode", {"Smooth", "Magnetism"}, tbl3.AimAssistMode, function(val) tbl3.AimAssistMode = val; fn() end)
+    makeSlider(aaR, "Smoothness", 0.05, 1.0, tbl3.AimAssistSmoothness, 0.05, function(v) tbl3.AimAssistSmoothness = v; fn() end)
+    makeSlider(aaR, "Strength", 0.05, 1.0, tbl3.AimAssistStrength, 0.05, function(v) tbl3.AimAssistStrength = v; fn() end)
+    makeSlider(aaR, "FOV Size", 10, 500, tbl3.AimAssistFOV, 1, function(v) tbl3.AimAssistFOV = v; fn() end)
+    makeSlider(aaR, "Max Distance", 50, 2000, tbl3.AimAssistMaxDist, 10, function(v) tbl3.AimAssistMaxDist = v; fn() end)
 
-    local tbR = addSection(pageAa, tbl.aim, "Triggerbot")
-    makeToggle(tbR, tbl.aim, "Triggerbot", tbl3.Triggerbot, function(e) tbl3.Triggerbot=e; TriggerbotLastTarget=nil; TriggerbotFirstSeen=0; fn() end)
-    makeToggle(tbR, tbl.fov, "Show FOV", tbl3.TriggerbotFOVVisible, function(e) tbl3.TriggerbotFOVVisible=e; fn() end)
-    makeSlider(tbR, tbl.fov, "FOV Radius", 10, 500, tbl3.TriggerbotFOV, 1, function(v) tbl3.TriggerbotFOV=v; fn() end)
-    makeSlider(tbR, tbl.settings, "Smoothness", 0, 100, tbl3.TriggerbotSmoothness, 1, function(v) tbl3.TriggerbotSmoothness = v; fn() end)
+    local tbR = makeSection(pageAa, "Triggerbot")
+    makeToggle(tbR, "Triggerbot", tbl3.Triggerbot, function(e) tbl3.Triggerbot=e; TriggerbotLastTarget=nil; TriggerbotFirstSeen=0; fn() end)
+    makeToggle(tbR, "Show FOV", tbl3.TriggerbotFOVVisible, function(e) tbl3.TriggerbotFOVVisible=e; fn() end)
+    makeSlider(tbR, "FOV Radius", 10, 500, tbl3.TriggerbotFOV, 1, function(v) tbl3.TriggerbotFOV=v; fn() end)
+    makeSlider(tbR, "Smoothness", 0, 100, tbl3.TriggerbotSmoothness, 1, function(v) tbl3.TriggerbotSmoothness = v; fn() end)
+end
 
-    local espR = addSection(pageVis, tbl.fov, "Player ESP")
-    makeToggle(espR, tbl.fov, "Highlight ESP", tbl3.ESPEnabled, function(e) tbl3.ESPEnabled=e; fn() end)
-    makeToggle(espR, tbl.body, "Box ESP", tbl3.BoxESP, function(e) tbl3.BoxESP=e; fn() end)
-    makeToggle(espR, tbl.body, "Corner Box", tbl3.CornerBoxESP, function(e) tbl3.CornerBoxESP=e; fn() end)
-    makeToggle(espR, tbl.body, "Skeleton ESP", tbl3.SkeletonESP, function(e) tbl3.SkeletonESP=e; fn() end)
-    makeToggle(espR, tbl.target, "Name Tags", tbl3.NameTags, function(e) tbl3.NameTags=e; fn() end)
-    makeToggle(espR, tbl.body, "Health Bar", tbl3.HealthBar, function(e) tbl3.HealthBar=e; fn() end)
-    makeToggle(espR, tbl.distance, "Distance", tbl3.DistanceESP, function(e) tbl3.DistanceESP=e; fn() end)
-    makeToggle(espR, tbl.target, "Head Dot", tbl3.HeadDot, function(e) tbl3.HeadDot=e; fn() end)
-    makeToggle(espR, tbl.fov, "Tracers", tbl3.Tracers, function(e) tbl3.Tracers=e; fn() end)
-    makeSlider(espR, tbl.distance, "Max ESP Dist", 100, 3000, tbl3.ESPDist, 10, function(d) tbl3.ESPDist=d; fn() end)
+local function buildVisContent(pageVis)
+    local espR = makeSection(pageVis, "Player ESP")
+    makeToggle(espR, "Highlight ESP", tbl3.ESPEnabled, function(e) tbl3.ESPEnabled=e; fn() end)
+    makeToggle(espR, "Box ESP", tbl3.BoxESP, function(e) tbl3.BoxESP=e; fn() end)
+    makeToggle(espR, "Corner Box", tbl3.CornerBoxESP, function(e) tbl3.CornerBoxESP=e; fn() end)
+    makeToggle(espR, "Skeleton ESP", tbl3.SkeletonESP, function(e) tbl3.SkeletonESP=e; fn() end)
+    makeToggle(espR, "Name Tags", tbl3.NameTags, function(e) tbl3.NameTags=e; fn() end)
+    makeToggle(espR, "Health Bar", tbl3.HealthBar, function(e) tbl3.HealthBar=e; fn() end)
+    makeToggle(espR, "Distance", tbl3.DistanceESP, function(e) tbl3.DistanceESP=e; fn() end)
+    makeToggle(espR, "Head Dot", tbl3.HeadDot, function(e) tbl3.HeadDot=e; fn() end)
+    makeToggle(espR, "Tracers", tbl3.Tracers, function(e) tbl3.Tracers=e; fn() end)
+    makeSlider(espR, "Max ESP Dist", 100, 3000, tbl3.ESPDist, 10, function(d) tbl3.ESPDist=d; fn() end)
+end
 
-    local wepR = addSection(pageExp, tbl.settings, "Weapon Mods")
-    makeToggle(wepR, tbl.aim, "Rapid Fire", tbl3.RapidFire, function(e) tbl3.RapidFire = e; fn() end)
-    makeSlider(wepR, tbl.settings, "Rate Of Fire", 1, 1000000, tbl3.RateOfFire, 1, function(v) tbl3.RateOfFire = v; fn() end)
-    makeToggle(wepR, tbl.aim, "Damage Changer", tbl3.DamageChanger, function(e) tbl3.DamageChanger = e; fn() end)
-    makeSlider(wepR, tbl.settings, "Damage Value", 1, 1000000, tbl3.DamageValue, 1, function(v) tbl3.DamageValue = v; fn() end)
+local function buildExpContent(pageExp)
+    local wepR = makeSection(pageExp, "Weapon Mods")
+    makeToggle(wepR, "Rapid Fire", tbl3.RapidFire, function(e) tbl3.RapidFire = e; fn() end)
+    makeSlider(wepR, "Rate Of Fire", 1, 1000000, tbl3.RateOfFire, 1, function(v) tbl3.RateOfFire = v; fn() end)
+    makeToggle(wepR, "Damage Changer", tbl3.DamageChanger, function(e) tbl3.DamageChanger = e; fn() end)
+    makeSlider(wepR, "Damage Value", 1, 1000000, tbl3.DamageValue, 1, function(v) tbl3.DamageValue = v; fn() end)
 
-    -- AURA SECTION inside Exploits
-    local auraR = addSection(pageExp, tbl.settings, "Aura")
+    local auraR = makeSection(pageExp, "Aura")
     local auraOptions = {"None"}
     for _, a in ipairs(AURA_LIST) do table.insert(auraOptions, a.name) end
-    makePillSelector(auraR, tbl.settings, "Select Aura", auraOptions, tbl3.AuraSelected, function(val)
+    makePillSelector(auraR, "Select Aura", auraOptions, tbl3.AuraSelected, function(val)
         tbl3.AuraSelected = val
         auraApplyByName(val)
         fn()
     end)
 
-    local mvR = addSection(pageExp, tbl.settings, "Character Mods")
-    makeToggle(mvR, tbl.settings, "God Mode", tbl3.GodMode, function(e) tbl3.GodMode = e; getgenv().demisethebest = e; fn() end)
-    makeToggle(mvR, tbl.settings, "Invisible Desync", tbl3.InvisibleDesync, function(e) tbl3.InvisibleDesync = e; toggleDesync(); fn() end)
-    makeToggle(mvR, tbl.settings, "Fly", tbl3.Fly, function(e) tbl3.Fly = e; fn() end)
-    makeSlider(mvR, tbl.settings, "Fly Speed", 10, 200, tbl3.FlySpeed, 5, function(v) tbl3.FlySpeed = v; fn() end)
-    makeToggle(mvR, tbl.settings, "Speed Hack", tbl3.SpeedHack, function(e)
+    local mvR = makeSection(pageExp, "Character Mods")
+    makeToggle(mvR, "God Mode", tbl3.GodMode, function(e) tbl3.GodMode = e; getgenv().demisethebest = e; fn() end)
+    makeToggle(mvR, "Invisible Desync", tbl3.InvisibleDesync, function(e) tbl3.InvisibleDesync = e; toggleDesync(); fn() end)
+    makeToggle(mvR, "Fly", tbl3.Fly, function(e) tbl3.Fly = e; fn() end)
+    makeSlider(mvR, "Fly Speed", 10, 200, tbl3.FlySpeed, 5, function(v) tbl3.FlySpeed = v; fn() end)
+    makeToggle(mvR, "Speed Hack", tbl3.SpeedHack, function(e)
         tbl3.SpeedHack = e
         local char = localPlayer.Character
         local hum = char and char:FindFirstChildOfClass("Humanoid")
@@ -1835,7 +1917,7 @@ local function buildContent(pageAim, pageAa, pageVis, pageExp, pageCust)
         end
         fn()
     end)
-    makeSlider(mvR, tbl.settings, "WalkSpeed", 16, 250, tbl3.WalkSpeedValue, 5, function(v)
+    makeSlider(mvR, "WalkSpeed", 16, 250, tbl3.WalkSpeedValue, 5, function(v)
         tbl3.WalkSpeedValue = v
         if tbl3.SpeedHack then
             local char = localPlayer.Character
@@ -1844,24 +1926,24 @@ local function buildContent(pageAim, pageAa, pageVis, pageExp, pageCust)
         end
         fn()
     end)
-    makeToggle(mvR, tbl.settings, "NoClip", tbl3.NoClip, function(e) tbl3.NoClip = e; fn() end)
-    makeToggle(mvR, tbl.settings, "Infinite Jump", tbl3.InfiniteJump, function(e) tbl3.InfiniteJump = e; fn() end)
-    makeToggle(mvR, tbl.settings, "Hitbox Expander", tbl3.HitboxExpander, function(e) tbl3.HitboxExpander = e; updateRealHitbox(); fn() end)
-    makeSlider(mvR, tbl.settings, "Hitbox Size", 2, 20, tbl3.HitboxSize, 1, function(v) tbl3.HitboxSize = v; updateRealHitbox(); fn() end)
-    makeToggle(mvR, tbl.settings, "Big Head", tbl3.BigHead, function(e) tbl3.BigHead = e; updateRealHitbox(); fn() end)
+    makeToggle(mvR, "NoClip", tbl3.NoClip, function(e) tbl3.NoClip = e; fn() end)
+    makeToggle(mvR, "Infinite Jump", tbl3.InfiniteJump, function(e) tbl3.InfiniteJump = e; fn() end)
+    makeToggle(mvR, "Hitbox Expander", tbl3.HitboxExpander, function(e) tbl3.HitboxExpander = e; updateRealHitbox(); fn() end)
+    makeSlider(mvR, "Hitbox Size", 2, 20, tbl3.HitboxSize, 1, function(v) tbl3.HitboxSize = v; updateRealHitbox(); fn() end)
+    makeToggle(mvR, "Big Head", tbl3.BigHead, function(e) tbl3.BigHead = e; updateRealHitbox(); fn() end)
 
-    local tpR = addSection(pageExp, tbl.settings, "Teleport & Utility")
-    makeToggle(tpR, tbl.settings, "View Camera TP [Q]", tbl3.ViewCameraTP, function(e)
+    local tpR = makeSection(pageExp, "Teleport & Utility")
+    makeToggle(tpR, "View Camera TP [Q]", tbl3.ViewCameraTP, function(e)
         tbl3.ViewCameraTP = e
         if CameraTPButton then CameraTPButton.Visible = e end
         if not e and tbl3.CameraTPActive then stopCameraTP(true) end
         fn()
     end)
-    makeSlider(tpR, tbl.settings, "Camera TP Speed", 1, 200, tbl3.CameraTPSpeed, 1, function(v) tbl3.CameraTPSpeed = v; fn() end)
+    makeSlider(tpR, "Camera TP Speed", 1, 200, tbl3.CameraTPSpeed, 1, function(v) tbl3.CameraTPSpeed = v; fn() end)
 
     local telePlayerList = {"Select..."}
     for _, p in ipairs(Players:GetPlayers()) do if p ~= localPlayer then table.insert(telePlayerList, p.Name) end end
-    makePillSelector(tpR, tbl.settings, "Teleport To", telePlayerList, "Select...", function(val)
+    makePillSelector(tpR, "Teleport To", telePlayerList, "Select...", function(val)
         if val == "Select..." then return end
         local targetPlayer = Players:FindFirstChild(val)
         if targetPlayer then teleportToPlayer(targetPlayer) end
@@ -1869,7 +1951,7 @@ local function buildContent(pageAim, pageAa, pageVis, pageExp, pageCust)
 
     local specPlayerList = {"Select..."}
     for _, p in ipairs(Players:GetPlayers()) do if p ~= localPlayer then table.insert(specPlayerList, p.Name) end end
-    makePillSelector(tpR, tbl.settings, "Spectate Target", specPlayerList, "Select...", function(val)
+    makePillSelector(tpR, "Spectate Target", specPlayerList, "Select...", function(val)
         if val == "Select..." then stopSpectating(true); return end
         local targetPlayer = Players:FindFirstChild(val)
         if targetPlayer then
@@ -1878,95 +1960,171 @@ local function buildContent(pageAim, pageAa, pageVis, pageExp, pageCust)
         end
     end)
 
-    local perfR = addSection(pageExp, tbl.settings, "Performance")
-    makeToggle(perfR, tbl.settings, "FPS Meter", tbl3.FPSMeterEnabled, function(e)
+    local perfR = makeSection(pageExp, "Performance")
+    makeToggle(perfR, "FPS Meter", tbl3.FPSMeterEnabled, function(e)
         tbl3.FPSMeterEnabled = e
         fpsSetEnabled(e, sg)
         fn()
     end)
-    makeToggle(perfR, tbl.settings, "Potato Graphics", tbl3.PotatoGraphicsEnabled, function(e)
+    makeToggle(perfR, "Potato Graphics", tbl3.PotatoGraphicsEnabled, function(e)
         tbl3.PotatoGraphicsEnabled = e
         if e then PG.Enable() else PG.Disable() end
         fn()
     end)
 
-    local hsR = addSection(pageExp, tbl.settings, "Hitsound Menu")
+    local hsR = makeSection(pageExp, "Hitsound Menu")
     local soundNames = {}
     for name in pairs(SoundsList) do table.insert(soundNames, name) end
     table.sort(soundNames)
-    makePillSelector(hsR, tbl.settings, "Hitsound", soundNames, tbl3.HitsoundName, function(val)
+    makePillSelector(hsR, "Hitsound", soundNames, tbl3.HitsoundName, function(val)
         tbl3.HitsoundName = val
         customSound.SoundId = SoundsList[val]
         customSound.TimePosition = 0
         customSound:Play()
         fn()
     end)
-    makeToggle(hsR, tbl.settings, "Test Fire", tbl3.HitsoundTestFire, function(e)
+    makeToggle(hsR, "Test Fire", tbl3.HitsoundTestFire, function(e)
         tbl3.HitsoundTestFire = e
         fn()
     end)
+end
 
-    local desR = addSection(pageCust, tbl.settings, "Theme Selector")
-    local selRow = Instance.new("Frame", desR)
-    selRow.Size = UDim2.new(1,0,0,130); selRow.BackgroundTransparency = 1; selRow.ZIndex = 6
+-- ============================================================
+-- DESIGN TAB CONTENT + GLOBAL TRANSPARENCY
+-- ============================================================
+local function buildDesignContent(pageCust)
     local themeElements = {}
+    local iconElements  = {}
 
-    local function makeTallBox(imgId, valName, labelText, xPos)
-        local box = Instance.new("TextButton", selRow)
-        box.Size = UDim2.new(0.3,-8,1,0); box.Position = UDim2.new(xPos,0,0,0)
-        box.BackgroundColor3 = tbl5.bgRow; box.Text = ""; box.AutoButtonColor = false; box.ZIndex = 7
-        box.ClipsDescendants = true
-        local stroke = Instance.new("UIStroke", box); stroke.Color = tbl5.border; stroke.Thickness = 1.5; stroke.Transparency = 0.2
-        Instance.new("UICorner", box).CornerRadius = UDim.new(0,8)
+    local desR = makeSection(pageCust, "Theme Selector")
+
+    local CARD_W, CARD_H = 100, 148
+    local themeScroll = Instance.new("ScrollingFrame", desR)
+    themeScroll.Size = UDim2.new(1,0,0,CARD_H + 4)
+    themeScroll.BackgroundTransparency = 1
+    themeScroll.BorderSizePixel = 0
+    themeScroll.ScrollBarThickness = 0
+    themeScroll.ScrollingDirection = Enum.ScrollingDirection.X
+    themeScroll.ZIndex = 6
+    themeScroll.CanvasSize = UDim2.new(0,0,0,0)
+    themeScroll.AutomaticCanvasSize = Enum.AutomaticSize.X
+    themeScroll.ClipsDescendants = true
+
+    local themeLayout = Instance.new("UIListLayout", themeScroll)
+    themeLayout.FillDirection = Enum.FillDirection.Horizontal
+    themeLayout.Padding = UDim.new(0,8)
+    themeLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    themeLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+
+    local themePad = Instance.new("UIPadding", themeScroll)
+    themePad.PaddingLeft  = UDim.new(0,4)
+    themePad.PaddingRight = UDim.new(0,4)
+    themePad.PaddingTop   = UDim.new(0,2)
+    themePad.PaddingBottom = UDim.new(0,2)
+
+    task.defer(function()
+        themeScroll.CanvasSize = UDim2.new(0, themeLayout.AbsoluteContentSize.X + 12, 0, 0)
+    end)
+    themeLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+        themeScroll.CanvasSize = UDim2.new(0, themeLayout.AbsoluteContentSize.X + 12, 0, 0)
+    end)
+
+    local function makeTallBox(imgId, valName, labelText)
+        local box = Instance.new("TextButton", themeScroll)
+        box.Size = UDim2.new(0, CARD_W, 0, CARD_H)
+        box.BackgroundColor3 = tbl5.bgRow
+        box.Text = ""; box.AutoButtonColor = false
+        box.ZIndex = 7; box.ClipsDescendants = true
+        box.LayoutOrder = #themeElements + 1
+        Instance.new("UICorner", box).CornerRadius = UDim.new(0,10)
+
+        local stroke = Instance.new("UIStroke", box)
+        stroke.Color = tbl5.border; stroke.Thickness = 1.5; stroke.Transparency = 0.2
+
         local bgFrame = Instance.new("Frame", box)
-        bgFrame.Size = UDim2.new(1,0,1,0); bgFrame.BackgroundColor3 = tbl5.bg; bgFrame.BorderSizePixel = 0; bgFrame.ZIndex = 8
-        Instance.new("UICorner", bgFrame).CornerRadius = UDim.new(0,8)
+        bgFrame.Size = UDim2.new(1,0,1,0)
+        bgFrame.BackgroundColor3 = tbl5.bg
+        bgFrame.BorderSizePixel = 0; bgFrame.ZIndex = 7
+        Instance.new("UICorner", bgFrame).CornerRadius = UDim.new(0,10)
+
         if imgId ~= "" then
             local img = Instance.new("ImageLabel", box)
-            img.Size = UDim2.new(1,0,1,0); img.BackgroundTransparency = 1; img.Image = imgId; img.ScaleType = Enum.ScaleType.Crop; img.ZIndex = 8
-            Instance.new("UICorner", img).CornerRadius = UDim.new(0,8)
+            img.Size = UDim2.new(1,0,1,0); img.BackgroundTransparency = 1
+            img.Image = imgId; img.ScaleType = Enum.ScaleType.Crop; img.ZIndex = 8
+            Instance.new("UICorner", img).CornerRadius = UDim.new(0,10)
             table.insert(themeElements, img)
         end
+
         local defLbl = Instance.new("TextLabel", box)
-        defLbl.Size = UDim2.new(1,0,1,0); defLbl.BackgroundTransparency = 1; defLbl.Text = labelText; defLbl.TextColor3 = tbl5.text; defLbl.Font = Enum.Font.GothamBold; defLbl.TextSize = 12; defLbl.ZIndex = 9
+        defLbl.Size = UDim2.new(1,0,1,0)
+        defLbl.BackgroundTransparency = 1
+        defLbl.Text = labelText; defLbl.TextColor3 = tbl5.white
+        defLbl.Font = Enum.Font.GothamBold; defLbl.TextSize = 12; defLbl.ZIndex = 10
+
         box.MouseButton1Click:Connect(function()
             tbl3.BackgroundType = valName; updateBg(); fn()
-            for _, child in ipairs(selRow:GetChildren()) do
+            for _, child in ipairs(themeScroll:GetChildren()) do
                 if child:IsA("TextButton") then
                     local st = child:FindFirstChildOfClass("UIStroke")
-                    if st then TweenService:Create(st, TweenInfo.new(0.2), {Color=tbl5.border, Thickness=1.5, Transparency=0.2}):Play() end
+                    if st then
+                        TweenService:Create(st, TweenInfo.new(0.2),
+                            { Color=tbl5.border, Thickness=1.5, Transparency=0.2 }):Play()
+                    end
                 end
             end
-            TweenService:Create(stroke, TweenInfo.new(0.2), {Color=tbl5.accentHi, Thickness=2.5, Transparency=0}):Play()
+            TweenService:Create(stroke, TweenInfo.new(0.2),
+                { Color=tbl5.accentHi, Thickness=2.5, Transparency=0 }):Play()
         end)
         return box, stroke
     end
 
-    local box1, str1 = makeTallBox("", "Default", "Default", 0)
-    local box2, str2 = makeTallBox(tbl.bgAsset, "Theme1", "Theme 1", 0.35)
-    local box3, str3 = makeTallBox(tbl.motoBg, "Theme2", "Theme 2", 0.70)
-    box1.BackgroundTransparency = 1; box2.BackgroundTransparency = 1; box3.BackgroundTransparency = 1
-    if box1:FindFirstChildOfClass("Frame") then box1:FindFirstChildOfClass("Frame").BackgroundTransparency = 1 end
-    if box2:FindFirstChildOfClass("Frame") then box2:FindFirstChildOfClass("Frame").BackgroundTransparency = 1 end
-    if box3:FindFirstChildOfClass("Frame") then box3:FindFirstChildOfClass("Frame").BackgroundTransparency = 1 end
-    if tbl3.BackgroundType == "Theme1" then str2.Color = tbl5.accentHi; str2.Thickness = 2.5; str2.Transparency = 0
-    elseif tbl3.BackgroundType == "Theme2" then str3.Color = tbl5.accentHi; str3.Thickness = 2.5; str3.Transparency = 0
-    else str1.Color = tbl5.accentHi; str1.Thickness = 2.5; str1.Transparency = 0 end
+    local _, str1 = makeTallBox("",           "Default", "Default")
+    local _, str2 = makeTallBox(tbl.bgAsset,  "Theme1",  "Theme 1")
+    local _, str3 = makeTallBox(tbl.motoBg,   "Theme2",  "Theme 2")
+    local _, str4 = makeTallBox(tbl.theme3Bg, "Theme3",  "Theme 3")
+    local _, str5 = makeTallBox(tbl.theme4Bg, "Theme4",  "Theme 4")
+    local _, str6 = makeTallBox(tbl.theme5Bg, "Theme5",  "Theme 5")
+    local _, str7 = makeTallBox(tbl.theme6Bg, "Theme6",  "Theme 6")
 
-    local iconR = addSection(pageCust, tbl.settings, "Icon Selector")
+    if     tbl3.BackgroundType == "Theme1" then str2.Color=tbl5.accentHi; str2.Thickness=2.5; str2.Transparency=0
+    elseif tbl3.BackgroundType == "Theme2" then str3.Color=tbl5.accentHi; str3.Thickness=2.5; str3.Transparency=0
+    elseif tbl3.BackgroundType == "Theme3" then str4.Color=tbl5.accentHi; str4.Thickness=2.5; str4.Transparency=0
+    elseif tbl3.BackgroundType == "Theme4" then str5.Color=tbl5.accentHi; str5.Thickness=2.5; str5.Transparency=0
+    elseif tbl3.BackgroundType == "Theme5" then str6.Color=tbl5.accentHi; str6.Thickness=2.5; str6.Transparency=0
+    elseif tbl3.BackgroundType == "Theme6" then str7.Color=tbl5.accentHi; str7.Thickness=2.5; str7.Transparency=0
+    else                                        str1.Color=tbl5.accentHi; str1.Thickness=2.5; str1.Transparency=0 end
+
+    local iconR = makeSection(pageCust, "Icon Selector")
+
     local iconScroll = Instance.new("ScrollingFrame", iconR)
-    iconScroll.Size = UDim2.new(1,0,0,82); iconScroll.BackgroundColor3 = tbl5.bgRow; iconScroll.BorderSizePixel = 0; iconScroll.ScrollBarThickness = 0; iconScroll.ScrollingDirection = Enum.ScrollingDirection.X; iconScroll.ZIndex = 6
+    iconScroll.Size = UDim2.new(1,0,0,90)
+    iconScroll.BackgroundColor3 = tbl5.bgRow
+    iconScroll.BorderSizePixel = 0; iconScroll.ScrollBarThickness = 0
+    iconScroll.ScrollingDirection = Enum.ScrollingDirection.X; iconScroll.ZIndex = 6
     Instance.new("UICorner", iconScroll).CornerRadius = UDim.new(0,12)
-    local iconRowStroke = Instance.new("UIStroke", iconScroll); iconRowStroke.Color = tbl5.border; iconRowStroke.Thickness = 1; iconRowStroke.Transparency = 0.4
-    local iconLayout = Instance.new("UIListLayout", iconScroll); iconLayout.FillDirection = Enum.FillDirection.Horizontal; iconLayout.Padding = UDim.new(0,8); iconLayout.SortOrder = Enum.SortOrder.LayoutOrder; iconLayout.VerticalAlignment = Enum.VerticalAlignment.Center
-    local iconPadding = Instance.new("UIPadding", iconScroll); iconPadding.PaddingLeft = UDim.new(0,10); iconPadding.PaddingRight = UDim.new(0,10)
-    local iconElements = {}
+    local iconRowStroke = Instance.new("UIStroke", iconScroll)
+    iconRowStroke.Color = tbl5.border; iconRowStroke.Thickness = 1; iconRowStroke.Transparency = 0.4
+    local iconLayout = Instance.new("UIListLayout", iconScroll)
+    iconLayout.FillDirection = Enum.FillDirection.Horizontal
+    iconLayout.Padding = UDim.new(0,8)
+    iconLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    iconLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+    local iconPadding = Instance.new("UIPadding", iconScroll)
+    iconPadding.PaddingLeft  = UDim.new(0,10)
+    iconPadding.PaddingRight = UDim.new(0,10)
 
     local function makeIconBox(imgId, valName)
-        local box = Instance.new("TextButton", iconScroll); box.Size = UDim2.new(0,58,0,58); box.BackgroundTransparency = 1; box.Text = ""; box.AutoButtonColor = false; box.ZIndex = 7; box.LayoutOrder = #iconElements + 1
-        local stroke = Instance.new("UIStroke", box); stroke.Color = tbl5.border; stroke.Thickness = 1.5; stroke.Transparency = 0.2
+        local box = Instance.new("TextButton", iconScroll)
+        box.Size = UDim2.new(0,66,0,66)
+        box.BackgroundTransparency = 1
+        box.Text = ""; box.AutoButtonColor = false; box.ZIndex = 7
+        box.LayoutOrder = #iconElements + 1
+        local stroke = Instance.new("UIStroke", box)
+        stroke.Color = tbl5.border; stroke.Thickness = 1.5; stroke.Transparency = 0.2
         Instance.new("UICorner", box).CornerRadius = UDim.new(0,12)
-        local img = Instance.new("ImageLabel", box); img.Size = UDim2.new(1,0,1,0); img.BackgroundColor3 = tbl5.bg; img.Image = imgId; img.ScaleType = Enum.ScaleType.Fit; img.ZIndex = 8
+        local img = Instance.new("ImageLabel", box)
+        img.Size = UDim2.new(1,0,1,0); img.BackgroundColor3 = tbl5.bg
+        img.Image = imgId; img.ScaleType = Enum.ScaleType.Fit; img.ZIndex = 8
         Instance.new("UICorner", img).CornerRadius = UDim.new(0,12)
         table.insert(iconElements, img)
         box.MouseButton1Click:Connect(function()
@@ -1974,14 +2132,19 @@ local function buildContent(pageAim, pageAa, pageVis, pageExp, pageCust)
             for _, b in ipairs(iconScroll:GetChildren()) do
                 if b:IsA("TextButton") then
                     local st = b:FindFirstChildOfClass("UIStroke")
-                    if st then TweenService:Create(st, TweenInfo.new(0.2), {Color=tbl5.border, Thickness=1.5, Transparency=0.2}):Play() end
+                    if st then
+                        TweenService:Create(st, TweenInfo.new(0.2),
+                            { Color=tbl5.border, Thickness=1.5, Transparency=0.2 }):Play()
+                    end
                 end
             end
-            TweenService:Create(stroke, TweenInfo.new(0.2), {Color=tbl5.accentHi, Thickness=2.5, Transparency=0}):Play()
+            TweenService:Create(stroke, TweenInfo.new(0.2),
+                { Color=tbl5.accentHi, Thickness=2.5, Transparency=0 }):Play()
         end)
         return box, stroke
     end
-    makeIconBox(tbl.xylo, "xylo")
+
+    makeIconBox(tbl.xylo,  "xylo")
     makeIconBox(tbl.icon1, "icon1")
     makeIconBox(tbl.icon2, "icon2")
     makeIconBox(tbl.icon3, "icon3")
@@ -1991,42 +2154,76 @@ local function buildContent(pageAim, pageAa, pageVis, pageExp, pageCust)
     makeIconBox(tbl.icon7, "icon7")
     makeIconBox(tbl.icon8, "icon8")
 
-    task.defer(function() iconScroll.CanvasSize = UDim2.new(0, iconLayout.AbsoluteContentSize.X + 20, 0, 0) end)
+    task.defer(function()
+        iconScroll.CanvasSize = UDim2.new(0, iconLayout.AbsoluteContentSize.X + 20, 0, 0)
+    end)
     iconLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
         iconScroll.CanvasSize = UDim2.new(0, iconLayout.AbsoluteContentSize.X + 20, 0, 0)
     end)
 
-    for _, b in ipairs(iconScroll:GetChildren()) do
-        if b:IsA("TextButton") then
-            local st = b:FindFirstChildOfClass("UIStroke")
-            local img = b:FindFirstChildOfClass("ImageLabel")
-            if st and img then
-                if tbl[tbl3.IconType] == img.Image then TweenService:Create(st, TweenInfo.new(0.2), {Color=tbl5.accentHi, Thickness=2.5, Transparency=0}):Play()
-                else TweenService:Create(st, TweenInfo.new(0.2), {Color=tbl5.border, Thickness=1.5, Transparency=0.2}):Play() end
+    task.defer(function()
+        for _, b in ipairs(iconScroll:GetChildren()) do
+            if b:IsA("TextButton") then
+                local st  = b:FindFirstChildOfClass("UIStroke")
+                local img = b:FindFirstChildOfClass("ImageLabel")
+                if st and img then
+                    local active = (tbl[tbl3.IconType] == img.Image)
+                    st.Color       = active and tbl5.accentHi or tbl5.border
+                    st.Thickness   = active and 2.5 or 1.5
+                    st.Transparency = active and 0 or 0.2
+                end
+            end
+        end
+    end)
+
+    local appR = makeSection(pageCust, "Appearance")
+
+    local function applyTransparency(v)
+        for _, obj in ipairs(themeElements) do obj.BackgroundTransparency = 1 end
+        for _, obj in ipairs(iconElements)  do obj.BackgroundTransparency = 1 end
+
+        local allPages = {topAimPage, topAaPage, topVisPage, topExpPage, topCustPage, tallAimPage, tallAaPage, tallVisPage, tallExpPage, tallCustPage}
+        for _, page in ipairs(allPages) do
+            for _, obj in ipairs(page:GetDescendants()) do
+                if obj:IsA("Frame") and (obj.BackgroundColor3 == tbl5.bgRow or obj.BackgroundColor3 == tbl5.bgRowHi) then
+                    obj.BackgroundTransparency = v
+                end
+            end
+        end
+
+        for _, obj in ipairs(topTabBar:GetChildren()) do
+            if obj:IsA("TextButton") then obj.BackgroundTransparency = v end
+        end
+        for _, obj in ipairs(tallTabBar:GetChildren()) do
+            if obj:IsA("TextButton") then obj.BackgroundTransparency = v end
+        end
+        if switchBtn then switchBtn.BackgroundTransparency = v end
+        iconScroll.BackgroundTransparency = v > 0 and v or 0
+        sideBtn.BackgroundTransparency = v
+
+        for _, obj in ipairs(sg:GetChildren()) do
+            if obj:IsA("ScrollingFrame") and obj.Name:find("DropDown_") then
+                obj.BackgroundTransparency = v
+                for _, opt in ipairs(obj:GetChildren()) do
+                    if opt:IsA("TextButton") then opt.BackgroundTransparency = v end
+                end
             end
         end
     end
 
-    local appR = addSection(pageCust, tbl.settings, "Appearance")
-    local function applyTransparency(v)
-        for _, obj in ipairs(themeElements) do obj.BackgroundTransparency = 1 end
-        selRow.BackgroundTransparency = 1
-        for _, obj in ipairs(iconElements) do obj.BackgroundTransparency = 1 end
-        iconScroll.BackgroundTransparency = 1
-        for _, page in ipairs({pageAim, pageAa, pageVis, pageExp, pageCust}) do
-            for _, obj in ipairs(page:GetDescendants()) do
-                if obj:IsA("Frame") and (obj.BackgroundColor3 == tbl5.bgRow or obj.BackgroundColor3 == tbl5.bgRowHi) then obj.BackgroundTransparency = v end
-                if obj:IsA("TextButton") and (obj.Parent == selRow) then
-                    obj.BackgroundTransparency = 1
-                    local bgF = obj:FindFirstChildOfClass("Frame")
-                    if bgF then bgF.BackgroundTransparency = 1 end
-                end
-            end
-        end
-        if switchBtn then switchBtn.BackgroundTransparency = v end
-    end
-    makeSlider(appR, tbl.settings, "UI Transparency", 0, 0.9, tbl3.UITransparency, 0.05, function(v) tbl3.UITransparency = v; applyTransparency(v); fn() end)
-    makeToggle(appR, tbl.settings, "Snow Effect", tbl3.SnowEnabled, function(e) tbl3.SnowEnabled = e; fn() end)
+    makeSlider(appR, "UI Transparency", 0, 0.9, tbl3.UITransparency, 0.05, function(v)
+        tbl3.UITransparency = v; applyTransparency(v); fn()
+    end)
+    makeToggle(appR, "Snow Effect", tbl3.SnowEnabled, function(e)
+        tbl3.SnowEnabled = e; fn()
+    end)
+
+    local hideR = makeSection(pageCust, "Toggle Button")
+    makeToggle(hideR, "Hide Side Button", tbl3.HideSideBtn, function(e)
+        tbl3.HideSideBtn = e
+        sideBtn.Visible = not e
+        fn()
+    end)
 
     task.spawn(function()
         task.wait(0.15)
@@ -2034,13 +2231,14 @@ local function buildContent(pageAim, pageAa, pageVis, pageExp, pageCust)
     end)
 end
 
-buildContent(topAimPage, topAaPage, topVisPage, topExpPage, topCustPage)
-buildContent(tallAimPage, tallAaPage, tallVisPage, tallExpPage, tallCustPage)
+-- Build all tabs (wide + tall)
+buildAimContent(topAimPage); buildAaContent(topAaPage); buildVisContent(topVisPage); buildExpContent(topExpPage); buildDesignContent(topCustPage)
+buildAimContent(tallAimPage); buildAaContent(tallAaPage); buildVisContent(tallVisPage); buildExpContent(tallExpPage); buildDesignContent(tallCustPage)
 
 updateLayout()
 
 -- ============================================================
--- Camera TP
+-- Camera TP button (floating)
 -- ============================================================
 CameraTPButton = Instance.new("TextButton")
 CameraTPButton.Name = "CameraTPButton"
@@ -2151,74 +2349,118 @@ UserInputService.InputBegan:Connect(function(input, gp)
 end)
 
 -- ============================================================
--- UI Reset Popup
+-- UI SCALE POPUP
 -- ============================================================
 local uiChangedByUser = false
-local pendingScale = tbl3.UIScale
-local isDraggingScale = false
+local autoResetTimer  = 0
+local popupOpen       = false
 
 local popup = Instance.new("Frame", sg)
-popup.Size = UDim2.new(0,200,0,80); popup.Position = UDim2.new(0.5,-100,0.5,-40); popup.BackgroundColor3 = tbl5.bgHi; popup.BorderSizePixel = 0; popup.ZIndex = 999; popup.Visible = false
+popup.Size = UDim2.new(0,200,0,80)
+popup.Position = UDim2.new(0.5,-100,0.5,-40)
+popup.BackgroundColor3 = tbl5.bgHi; popup.BorderSizePixel = 0
+popup.ZIndex = 999; popup.Visible = false
 Instance.new("UICorner", popup).CornerRadius = UDim.new(0,8)
-local pStroke = Instance.new("UIStroke", popup); pStroke.Color = tbl5.danger; pStroke.Thickness = 1.5
-local pTitle = Instance.new("TextLabel", popup); pTitle.Size = UDim2.new(1,-10,0,30); pTitle.Position = UDim2.new(0,5,0,5); pTitle.BackgroundTransparency = 1; pTitle.Text = "UI SCALE BROKEN!"; pTitle.TextColor3 = tbl5.danger; pTitle.Font = Enum.Font.GothamBold; pTitle.TextSize = 12; pTitle.ZIndex = 1000
-local pDesc = Instance.new("TextLabel", popup); pDesc.Size = UDim2.new(1,-10,0,15); pDesc.Position = UDim2.new(0,5,0,30); pDesc.BackgroundTransparency = 1; pDesc.Text = "Auto-resetting in 3s..."; pDesc.TextColor3 = tbl5.text; pDesc.Font = Enum.Font.Gotham; pDesc.TextSize = 10; pDesc.ZIndex = 1000
-local pBtn = Instance.new("TextButton", popup); pBtn.Size = UDim2.new(1,-20,0,25); pBtn.Position = UDim2.new(0,10,0,48); pBtn.BackgroundColor3 = tbl5.accent; pBtn.Text = "Reset Now"; pBtn.TextColor3 = tbl5.white; pBtn.Font = Enum.Font.GothamBold; pBtn.TextSize = 11; pBtn.ZIndex = 1000
+local pStroke = Instance.new("UIStroke", popup)
+pStroke.Color = Color3.fromRGB(200,70,70); pStroke.Thickness = 1.5
+local pTitle = Instance.new("TextLabel", popup)
+pTitle.Size = UDim2.new(1,-10,0,30); pTitle.Position = UDim2.new(0,5,0,5)
+pTitle.BackgroundTransparency = 1; pTitle.Text = "UI SCALE BROKEN!"
+pTitle.TextColor3 = Color3.fromRGB(200,70,70)
+pTitle.Font = Enum.Font.GothamBold; pTitle.TextSize = 12; pTitle.ZIndex = 1000
+local pDesc = Instance.new("TextLabel", popup)
+pDesc.Size = UDim2.new(1,-10,0,15); pDesc.Position = UDim2.new(0,5,0,30)
+pDesc.BackgroundTransparency = 1; pDesc.Text = "Auto-resetting in 3s..."
+pDesc.TextColor3 = tbl5.text; pDesc.Font = Enum.Font.Gotham
+pDesc.TextSize = 10; pDesc.ZIndex = 1000
+local pBtn = Instance.new("TextButton", popup)
+pBtn.Size = UDim2.new(1,-20,0,25); pBtn.Position = UDim2.new(0,10,0,48)
+pBtn.BackgroundColor3 = tbl5.accent; pBtn.Text = "Reset Now"
+pBtn.TextColor3 = tbl5.white; pBtn.Font = Enum.Font.GothamBold
+pBtn.TextSize = 11; pBtn.ZIndex = 1000
 Instance.new("UICorner", pBtn).CornerRadius = UDim.new(0,6)
 
-local popupOpen = false; local autoResetTimer = 0
 local function doReset()
-    tbl3.UIScale = defaultUIScale; uiScaleInst.Scale = defaultUIScale; popup.Visible = false; popupOpen = false; autoResetTimer = 0; uiChangedByUser = false; pDesc.Text = "Auto-resetting in 3s..."; fn()
+    tbl3.UIScale = defaultUIScale; uiScaleInst.Scale = defaultUIScale
+    popup.Visible = false; popupOpen = false; autoResetTimer = 0
+    uiChangedByUser = false; pDesc.Text = "Auto-resetting in 3s..."; fn()
 end
 pBtn.MouseButton1Click:Connect(doReset)
 
-task.spawn(function()
-    while task.wait(0.5) do
-        if uiChangedByUser and (tbl3.UIScale <= 0.35 or tbl3.UIScale >= 1.65) then
-            if not popup.Visible then popup.Visible = true; autoResetTimer = 3; pDesc.Text = "Auto-resetting in 3s..." end
-        end
-        if popup.Visible then
-            autoResetTimer = autoResetTimer - 0.5
-            local secs = math.max(0, math.ceil(autoResetTimer))
-            pDesc.Text = "Auto-resetting in "..secs.."s..."
-            if autoResetTimer <= 0 then doReset() end
-        end
-    end
-end)
-
--- Drag & Toggle sideBtn
+-- ============================================================
+-- DRAG sideBtn + TOGGLE
+-- ============================================================
 local suppress = false
 sideBtn.InputBegan:Connect(function(i)
-    if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then
-        suppress = false; local startPos = sideBtn.Position; local startMouse = i.Position; local dragConn
+    if i.UserInputType == Enum.UserInputType.MouseButton1
+    or i.UserInputType == Enum.UserInputType.Touch then
+        suppress = false
+        local startPos   = sideBtn.Position
+        local startMouse = i.Position
+        local dragConn
         dragConn = UserInputService.InputChanged:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            if input.UserInputType == Enum.UserInputType.MouseMovement
+            or input.UserInputType == Enum.UserInputType.Touch then
                 local delta = input.Position - startMouse
                 if math.abs(delta.X) > 4 or math.abs(delta.Y) > 4 then
                     suppress = true
                     local vp = currentCamera.ViewportSize
-                    sideBtn.Position = UDim2.new(startPos.X.Scale, math.clamp(startPos.X.Offset + delta.X, -(vp.X - 54), 0), startPos.Y.Scale, math.clamp(startPos.Y.Offset + delta.Y, -27, vp.Y - 54))
-                    frame.Position = UDim2.new(1, -(SB+14), 0.5, sideBtn.Position.Y.Offset)
+                    sideBtn.Position = UDim2.new(
+                        startPos.X.Scale,
+                        math.clamp(startPos.X.Offset + delta.X, -(vp.X-54), 0),
+                        startPos.Y.Scale,
+                        math.clamp(startPos.Y.Offset + delta.Y, -27, vp.Y-54)
+                    )
+                    frame.Position = UDim2.new(1,-(SB+14),0.5, sideBtn.Position.Y.Offset)
                 end
             end
         end)
-        UserInputService.InputEnded:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then if dragConn then dragConn:Disconnect() end end end)
+        UserInputService.InputEnded:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1
+            or input.UserInputType == Enum.UserInputType.Touch then
+                if dragConn then dragConn:Disconnect() end
+            end
+        end)
     end
 end)
-sideBtn.MouseButton1Click:Connect(function() if not suppress then frame.Visible = not frame.Visible end end)
+sideBtn.MouseButton1Click:Connect(function()
+    if not suppress then frame.Visible = not frame.Visible end
+end)
 
-local hdrag = false; local hds = nil; local hsp = nil
-titleBar.InputBegan:Connect(function(i) if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then hdrag = true; hds = Vector2.new(i.Position.X, i.Position.Y); hsp = frame.Position end end)
-UserInputService.InputChanged:Connect(function(i) if not hdrag or (i.UserInputType ~= Enum.UserInputType.MouseMovement and i.UserInputType ~= Enum.UserInputType.Touch) then return end; local d = Vector2.new(i.Position.X, i.Position.Y) - hds; frame.Position = UDim2.new(hsp.X.Scale, hsp.X.Offset + d.X, hsp.Y.Scale, hsp.Y.Offset + d.Y) end)
-UserInputService.InputEnded:Connect(function(i) if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then hdrag = false end end)
+-- DRAG titleBar
+local hdrag, hds, hsp = false, nil, nil
+titleBar.InputBegan:Connect(function(i)
+    if i.UserInputType == Enum.UserInputType.MouseButton1
+    or i.UserInputType == Enum.UserInputType.Touch then
+        hdrag = true
+        hds = Vector2.new(i.Position.X, i.Position.Y)
+        hsp = frame.Position
+    end
+end)
+UserInputService.InputChanged:Connect(function(i)
+    if not hdrag then return end
+    if i.UserInputType ~= Enum.UserInputType.MouseMovement
+    and i.UserInputType ~= Enum.UserInputType.Touch then return end
+    local d = Vector2.new(i.Position.X, i.Position.Y) - hds
+    frame.Position = UDim2.new(hsp.X.Scale, hsp.X.Offset+d.X, hsp.Y.Scale, hsp.Y.Offset+d.Y)
+end)
+UserInputService.InputEnded:Connect(function(i)
+    if i.UserInputType == Enum.UserInputType.MouseButton1
+    or i.UserInputType == Enum.UserInputType.Touch then hdrag = false end
+end)
 
-UserInputService.InputBegan:Connect(function(i, gp) if gp then return end; if i.KeyCode == Enum.KeyCode.RightShift then frame.Visible = not frame.Visible end end)
+UserInputService.InputBegan:Connect(function(i, gp)
+    if gp then return end
+    if i.KeyCode == Enum.KeyCode.RightShift then frame.Visible = not frame.Visible end
+end)
 
+-- Mobile viewport auto-scale
 local function updateScaleForViewport()
     if not isMobile then return end
     local vp = currentCamera.ViewportSize
     if vp.X < 900 or vp.Y < 600 then
-        uiScaleInst.Scale = math.clamp(math.min((vp.X * 0.9) / WIDE_HW, (vp.Y * 0.9) / WIDE_HH), 0.4, tbl3.UIScale)
+        uiScaleInst.Scale = math.clamp(
+            math.min((vp.X*0.9)/WIDE_HW, (vp.Y*0.9)/WIDE_HH), 0.4, tbl3.UIScale)
     else
         uiScaleInst.Scale = tbl3.UIScale
     end
@@ -2227,18 +2469,28 @@ currentCamera:GetPropertyChangedSignal("ViewportSize"):Connect(updateScaleForVie
 task.defer(function() task.wait(0.1); updateScaleForViewport() end)
 
 -- ============================================================
--- Snow Effect
+-- SNOW EFFECT
 -- ============================================================
 local snowGui = Instance.new("Frame", frame)
-snowGui.Size = UDim2.new(1,0,1,0); snowGui.BackgroundTransparency = 1; snowGui.ZIndex = 3; snowGui.ClipsDescendants = true
+snowGui.Size = UDim2.new(1,0,1,0); snowGui.BackgroundTransparency = 1
+snowGui.ZIndex = 3; snowGui.ClipsDescendants = true
 Instance.new("UICorner", snowGui).CornerRadius = UDim.new(0,20)
+
 local snowParticles = {}
 for i = 1, 15 do
     local p = Instance.new("Frame", snowGui)
-    p.Size = UDim2.new(0, math.random(2,4), 0, math.random(2,4)); p.BackgroundColor3 = Color3.fromRGB(255,255,255); p.BorderSizePixel = 0; p.ZIndex = 4
+    p.Size = UDim2.new(0, math.random(2,4), 0, math.random(2,4))
+    p.BackgroundColor3 = Color3.fromRGB(255,255,255)
+    p.BorderSizePixel = 0; p.ZIndex = 4
     Instance.new("UICorner", p).CornerRadius = UDim.new(1,0)
-    table.insert(snowParticles, {obj = p, x = math.random(), y = math.random(), speed = math.random(2,6)/1000})
+    table.insert(snowParticles, {
+        obj   = p,
+        x     = math.random(),
+        y     = math.random(),
+        speed = math.random(2,6)/1000
+    })
 end
+
 task.spawn(function()
     while task.wait(0.05) do
         if not tbl3.SnowEnabled or not frame.Visible then
@@ -2267,6 +2519,15 @@ RunService.RenderStepped:Connect(function(dt)
     aimAssistApply(dt)
 
     if tbl3.Enabled then sa2UpdateTarget() end
+
+    -- FPS HUD Visibility Logic
+    if fpsState.frame and fpsState.enabled then
+        if frame.Visible then
+            fpsState.frame.Visible = false
+        else
+            fpsState.frame.Visible = true
+        end
+    end
 
     if tbl3.CameraTPActive then
         local char = localPlayer.Character
@@ -2337,16 +2598,19 @@ RunService.RenderStepped:Connect(function(dt)
     end
 
     if uiChangedByUser then
-        local isBroken = false
-        if tbl3.UIScale <= 0.35 or tbl3.UIScale >= 1.65 then isBroken = true end
-        if isBroken and not popupOpen then popup.Visible = true; popupOpen = true; autoResetTimer = 3; pDesc.Text = "Auto-resetting in 3s..." end
+        local broken = tbl3.UIScale <= 0.35 or tbl3.UIScale >= 1.65
+        if broken and not popupOpen then
+            popup.Visible = true; popupOpen = true; autoResetTimer = 3
+            pDesc.Text = "Auto-resetting in 3s..."
+        end
         if popupOpen then
             autoResetTimer = autoResetTimer - dt
-            local secs = math.max(0, math.ceil(autoResetTimer))
-            pDesc.Text = "Auto-resetting in "..secs.."s..."
+            pDesc.Text = "Auto-resetting in " .. math.max(0, math.ceil(autoResetTimer)) .. "s..."
             if autoResetTimer <= 0 then doReset() end
         end
-        if not isBroken and popupOpen then popup.Visible = false; popupOpen = false; autoResetTimer = 0 end
+        if not broken and popupOpen then
+            popup.Visible = false; popupOpen = false; autoResetTimer = 0
+        end
     else
         popup.Visible = false; popupOpen = false; autoResetTimer = 0
     end
